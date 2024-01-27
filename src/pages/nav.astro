@@ -1,0 +1,35 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Search from "../components/nav/search/index.vue";
+import Card from "../components/nav/card/index.vue";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+
+---
+
+<html lang="zh-cn">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<body>
+		<div
+			class="nav h-full w-full bg-cover bg-scroll bg-center"
+			style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
+		>
+			<div class="container mx-auto flex flex-col space-y-64px">
+				<div class="h-64px"></div>
+				<!-- 搜索开始 -->
+				<div class="">
+					<Search client:load />
+				</div>
+				<!-- 搜索结束 -->
+				<div>
+					<Card client:only />
+				</div>
+			</div>
+		</div>
+		<style lang="scss"></style>
+	</body>
+</html>

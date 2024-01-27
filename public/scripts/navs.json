@@ -1,0 +1,54 @@
+[
+    {
+        "icon": "#icon-remen",
+        "title": "热门常用",
+        "items": [
+            {
+                "url": "https://v.qq.com/",
+                "icon": "#icon-tengxunshipin",
+                "content": "腾讯视频"
+            },
+            {
+                "url": "https://www.youku.com/",
+                "icon": "#icon-youku",
+                "content": "优酷"
+            },
+            {
+                "url": "https://www.iqiyi.com/",
+                "icon": "#icon-aiqiyi",
+                "content": "爱奇艺"
+            },
+            {
+                "url": "https://www.taobao.com",
+                "icon": "#icon-taobao",
+                "content": "淘宝网"
+            },
+            {
+                "url": "https://www.weibo.com",
+                "icon": "#icon-weibo",
+                "content": "微博"
+            }
+        ]
+    },
+    {
+        "icon": "#icon-shipin",
+        "title": "视频媒体",
+        "items": [
+            {
+                "url": "https://tv.cctv.com/divve/index.shtml",
+                "icon": "#icon-cctv",
+                "content": "CCTV直播"
+            },
+            {
+                "url": "https://www.youtube.com/",
+                "icon": "#icon-youtube",
+                "content": "Youtube"
+            },
+            {
+                "url": "https://www.bilibili.com/",
+                "icon": "#icon-bilibili",
+                "content": "哔哩哔哩"
+            }
+        ]
+    }
+]
