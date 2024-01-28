@@ -3,6 +3,18 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
+    },
     "types": [
       "vue"
     ]

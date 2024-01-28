@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@vueuse/core": "^10.7.2",
     "@astrojs/check": "^0.4.1",
     "@astrojs/mdx": "^2.1.0",
     "@astrojs/rss": "^4.0.4",
@@ -21,11 +22,12 @@
     "vue": "^3.4.15"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@iconify-json/carbon": "^1.1.27",
+    "@iconify-json/carbon": "^1.1.28",
     "@iconify-json/mdi": "^1.1.64",
+    "@types/node": "^20.11.9",
     "@unocss/reset": "^0.58.4",
     "sass": "^1.70.0",
+    "tsx": "^4.7.0",
     "unocss": "^0.58.4"
   }
 }
