@@ -15,15 +15,39 @@ export default defineConfig({
     },
     transformers: [transformerDirectives()],
     shortcuts: [
-        ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-        ['icon-btn', 'text-0.9em inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600 !outline-none'],
-        ['border-top', 'border-t-1px border-b-0 border-x-0   light:border-#3c3c3c1f dark:border-#5454547a border-solid'],
-        ['border-bottom', 'border-b-1px border-t-0 border-x-0   light:border-#3c3c3c1f dark:border-#5454547a border-solid'],
     ],
     rules: [],
     theme: {
 
+        colors: {
+            primary: "rgb(var(--color-primary) / <alpha-value>)",
+            secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+            accent: "rgb(var(--color-accent) / <alpha-value>)",
+            warning: "rgb(var(--color-warning) / <alpha-value>)",
+            danger: "rgb(var(--color-danger) / <alpha-value>)",
+            success: "rgb(var(--color-success) / <alpha-value>)",
+            light: "rgb(var(--color-light) / <alpha-value>)",
+            dark: "rgb(var(--color-dark) / <alpha-value>)",
+            info: "rgb(var(--color-info) / <alpha-value>)",
+        },
+        fontFamily: {
+            sans: ["'Inter Tight Variable'", "Helvetica", "Verdana", "sans-serif"],
+            body: ["'Inter Tight Variable'", "Helvetica", "Verdana", "sans-serif"],
+        },
+        boxShadow: {
+            inset: " inset 2px 2px 40px -20px rgba(0, 0, 0, 0.3)",
+            "inset-s": " inset 2px 2px 30px -10px rgba(0, 0, 0, 0.4)",
+        },
+        breakpoints: {
+            xs: "500px",
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+            "2xl": "1536px"
+        },
     },
+
     presets: [
         presetGrid(),
         presetWind(),

@@ -1,0 +1,40 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import DocLayout from "@/layouts/DocLayout.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("docs");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<"docs">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<DocLayout {...post.data}>
+	<section class="my-12">
+		<div class="container">
+			<Content />
+		</div>
+	</section>
+</DocLayout>
+<style lang="scss">
+	ul {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 4rem;
+
+		@media (min-width: 550px) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 2rem;
+		}
+
+		@media (min-width: 950px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

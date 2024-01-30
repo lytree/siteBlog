@@ -2,15 +2,16 @@
 import BaseHead from "../components/BaseHead.astro";
 import Search from "../components/nav/search/index.vue";
 import Card from "../components/nav/card/index.vue";
-
+import { ViewTransitions } from 'astro:transitions';
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 
 ---
 
-<html lang="zh-cn">
+<html lang="zh-CN" transition:animate="fade">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<ViewTransitions />
 	</head>
 
 	<body>

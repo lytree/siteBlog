@@ -26,6 +26,9 @@
     "@iconify-json/mdi": "^1.1.64",
     "@types/node": "^20.11.10",
     "@unocss/reset": "^0.58.4",
+    "mdast-util-to-string": "^4.0.0",
+    "nanostores": "^0.9.5",
+    "reading-time": "^1.5.0",
     "sass": "^1.70.0",
     "tsx": "^4.7.0",
     "unocss": "^0.58.4"
