@@ -3,7 +3,6 @@ import BaseHead from "@/components/BaseHead.astro";
 import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 import DocLayout from "@/layouts/DocLayout.astro";
 
 const posts = (await getCollection("docs")).sort(
@@ -98,11 +97,6 @@ const posts = (await getCollection("docs")).sort(
 										alt=""
 									/>
 									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate
-											date={post.data.pubDate}
-										/>
-									</p>
 								</a>
 							</li>
 						))

@@ -1,7 +1,7 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
-import Footer from "@/components/Footer.astro";
-import { ViewTransitions } from 'astro:transitions';
+import Footer from "@/components/common/GlobalFooter.vue";
+import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -66,7 +66,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 				</a>
 			</p>
 		</div>
-		<Footer></Footer>
+		<Footer client:load />
 		<style lang="scss" is:global>
 			#wrapper {
 				position: fixed;
