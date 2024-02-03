@@ -2,10 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import Search from "../components/nav/search/index.vue";
 import Card from "../components/nav/card/index.vue";
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-
-
 ---
 
 <html lang="zh-CN" transition:animate="fade">
@@ -16,10 +14,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 	<body>
 		<div
-			class="nav h-full w-full bg-cover bg-scroll bg-center"
+			class="h-full w-full bg-cover bg-center"
 			style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
 		>
-			<div class="container mx-auto flex flex-col space-y-64px">
+			<div class="xl:container mx-auto flex flex-col space-y-64px">
 				<div class="h-64px"></div>
 				<!-- 搜索开始 -->
 				<div class="">

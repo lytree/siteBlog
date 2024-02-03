@@ -15,6 +15,8 @@ export default defineConfig({
     },
     transformers: [transformerDirectives()],
     shortcuts: [
+        ['border-top', 'border-t-[1px] border-b-0 border-x-0   light:border-[#3c3c3c1f] dark:border-[#5454547a] border-solid'],
+        ['border-bottom', 'border-b-[1px] border-t-0 border-x-0   light:border-[#3c3c3c1f] dark:border-[#5454547a] border-solid'],
     ],
     rules: [],
     theme: {

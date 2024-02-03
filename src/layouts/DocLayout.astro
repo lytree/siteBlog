@@ -18,23 +18,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     </head>
     <body>
         <Header />
-        <main id="main-content" transition:animate="fade">
+        <main class="container mx-auto pt-5" transition:animate="fade">
             <slot />
         </main>
-        <Footer>
-            <slot name="footer" />
-            <div class="pointer-events-none fixed bottom-0 right-0 z-50 w-full">
-                <div class="xl:container flex justify-end pb-4">
-                    <a
-                        href="#top"
-                        aria-label="back_to_top"
-                        class="btn btn-icon surface-primary btn-to-top pointer-events-auto opacity-0"
-                    >
-                        <div class="w-6 i-mdi-arrow-up-thick"></div></a
-                    >
-                </div>
+        <Footer />
+        <div class="pointer-events-none fixed bottom-0 right-0 z-50 w-full">
+            <div class="xl:container flex justify-end pb-4">
+                <a
+                    href="#top"
+                    aria-label="back_to_top"
+                    class="btn btn-icon surface-primary btn-to-top pointer-events-auto opacity-0"
+                >
+                    <div class="w-6 i-mdi-arrow-up-thick"></div></a
+                >
             </div>
-        </Footer>
+        </div>
         <Init client:idle />
         <script>
             const html = document.getElementsByTagName("html")[0];

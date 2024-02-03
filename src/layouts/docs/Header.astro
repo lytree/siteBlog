@@ -1,17 +1,60 @@
 ---
-import HeaderLink from "@/components/HeaderLink.astro";
 import ColorSwitch from "@/components/common/ColorSwitch.vue";
+import DocHeaderItem from "@/components/docs/DocHeaderItems.vue";
+import type { MenuItem } from "primevue/menuitem";
+const items: Array<MenuItem> = [
+    {
+        label: "Home",
+        icon: "pi i-mdi-home",
+    },
+    {
+        label: "Features",
+        icon: "pi pi-star",
+    },
+    {
+        label: "Projects",
+        icon: "pi pi-search",
+        items: [
+            {
+                label: "Components",
+                icon: "pi pi-bolt",
+            },
+            {
+                label: "Blocks",
+                icon: "pi pi-server",
+            },
+            {
+                label: "UI Kit",
+                icon: "pi pi-pencil",
+            },
+            {
+                label: "Templates",
+                icon: "pi pi-palette",
+                items: [
+                    {
+                        label: "Apollo",
+                        icon: "pi pi-palette",
+                    },
+                    {
+                        label: "Ultima",
+                        icon: "pi pi-palette",
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        label: "Contact",
+        icon: "pi pi-envelope",
+    },
+];
 import { SITE_TITLE } from "@/consts";
 ---
 
 <header>
     <nav>
         <h2><a href="/">{SITE_TITLE}</a></h2>
-        <div class="internal-links">
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/blog">Blog</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
-        </div>
+        <div><DocHeaderItem items={items} client:load /></div>
         <div class="social-links">
             <a href="https://m.webtoo.ls/@astro" target="_blank">
                 <span class="sr-only">Follow Astro on Mastodon</span>
@@ -52,7 +95,7 @@ import { SITE_TITLE } from "@/consts";
                     ></path></svg
                 >
             </a>
-            <ColorSwitch client:load />
+            <ColorSwitch client:idle />
         </div>
     </nav>
 </header>
@@ -60,7 +103,7 @@ import { SITE_TITLE } from "@/consts";
     header {
         margin: 0;
         padding: 0 1em;
-
+        background: white;
         box-shadow: 0 2px 8px rgba(var(--black), 5%);
     }
     h2 {
