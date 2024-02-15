@@ -3,11 +3,10 @@ import Init from "@/components/common/Init.vue";
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "./docs/Header.astro";
 import Footer from "./docs/Footer.astro";
-import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +32,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 >
             </div>
         </div>
-        <Init client:idle />
+        <Init client:idle="vue" />
         <script>
             const html = document.getElementsByTagName("html")[0];
             const SmoothScroll = () => {

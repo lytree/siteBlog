@@ -3,9 +3,8 @@
 
     </Button>
 </template>
-  
+
 <script lang="ts" setup>
 import Button from "primevue/button";
-import { toggleDark } from "@/composables/dark"
+import { toggleDark } from "@/composables/dark";
 </script>
-  

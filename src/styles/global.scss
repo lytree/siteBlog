@@ -3,7 +3,9 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+
 :root {
+	@import "./theme/md-light-deeppurple/theme.css";
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -51,6 +53,7 @@
 
 .dark {
 	:root {
+		@import "./theme/md-dark-deeppurple/theme.css";
 		--color-primary: 135 94 212;
 		--color-secondary: 107 154 199;
 		--color-accent: 119 112 150;
@@ -81,15 +84,15 @@
 }
 
 body {
+	--at-apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark: text-gray-200;
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+	font-size: 16px;
+	line-height: 1.4;
 }
 
 
@@ -101,7 +104,6 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
 	line-height: 1.2;
 }
 
@@ -117,7 +119,6 @@ p {
 	user-select: none;
 	text-decoration: none;
 	box-sizing: border-box;
-	color: var(--text-color);
 
 	&:hover {
 		transition: 0.3s;

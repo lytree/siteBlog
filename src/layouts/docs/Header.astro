@@ -54,7 +54,7 @@ import { SITE_TITLE } from "@/consts";
 <header>
     <nav>
         <h2><a href="/">{SITE_TITLE}</a></h2>
-        <div><DocHeaderItem items={items} client:load /></div>
+        <div><DocHeaderItem items={items} client:load="vue" /></div>
         <div class="social-links">
             <a href="https://m.webtoo.ls/@astro" target="_blank">
                 <span class="sr-only">Follow Astro on Mastodon</span>
@@ -95,7 +95,7 @@ import { SITE_TITLE } from "@/consts";
                     ></path></svg
                 >
             </a>
-            <ColorSwitch client:idle />
+            <ColorSwitch client:idle="vue" />
         </div>
     </nav>
 </header>
@@ -103,7 +103,6 @@ import { SITE_TITLE } from "@/consts";
     header {
         margin: 0;
         padding: 0 1em;
-        background: white;
         box-shadow: 0 2px 8px rgba(var(--black), 5%);
     }
     h2 {
