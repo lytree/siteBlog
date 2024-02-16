@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import Button from "primevue/button";
-import { toggleDark } from "@/composables/dark"
+import ColorSwitch from "@/components/common/ColorSwitch.vue";
 </script>
 
 <template>
@@ -9,8 +8,7 @@ import { toggleDark } from "@/composables/dark"
             <p class="copyright">
                 <slot name="copyright">
                     Copyright © 2019 - {{ new Date().getFullYear() }}
-                    <Button icon="pi i-carbon-sun dark:i-carbon-moon" rounded @click="toggleDark()">
-                    </Button>
+                    <ColorSwitch class="h-32px w-32px"></ColorSwitch>
                 </slot>
             </p>
             <p class="message">
@@ -39,12 +37,12 @@ import { toggleDark } from "@/composables/dark"
         .copyright,
         .message {
 
-            --at-apply: text-sm m-0 font-medium leading-36px text-gray-700 dark:text-gray-200;
+            --at-apply: text-sm m-0 font-medium leading-32px
             transition: color 0.25s;
 
             a,
             p {
-                --at-apply: text-sm m-0 font-medium leading-36px text-gray-700 dark:text-gray-200;
+                --at-apply: text-sm m-0 font-medium leading-32px 
                 transition: color 0.25s;
             }
         }

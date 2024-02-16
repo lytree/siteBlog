@@ -3,9 +3,10 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
+@use "./theme/md-light-deeppurple/light.css";
+@use "./theme/md-dark-deeppurple/dark.css";
 
 :root {
-	@import "./theme/md-light-deeppurple/theme.css";
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -51,21 +52,20 @@
 	--popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
 }
 
-.dark {
-	:root {
-		@import "./theme/md-dark-deeppurple/theme.css";
-		--color-primary: 135 94 212;
-		--color-secondary: 107 154 199;
-		--color-accent: 119 112 150;
-		--color-warning: 202 121 45;
-		--color-danger: 180 25 14;
-		--color-success: 77 137 101;
-		--color-dark: 25 28 38;
-		--color-light: 243 241 239;
-		--color-info: 25 28 38;
-		--text-color: #e5e7eb;
-	}
+
+:root .dark {
+	--color-primary: 135 94 212;
+	--color-secondary: 107 154 199;
+	--color-accent: 119 112 150;
+	--color-warning: 202 121 45;
+	--color-danger: 180 25 14;
+	--color-success: 77 137 101;
+	--color-dark: 25 28 38;
+	--color-light: 243 241 239;
+	--color-info: 25 28 38;
+	--text-color: #e5e7eb;
 }
+
 
 @font-face {
 	font-family: 'Atkinson';
@@ -84,7 +84,7 @@
 }
 
 body {
-	--at-apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark: text-gray-200;
+	--at-apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark:text-gray-200;
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -320,14 +320,12 @@ hr {
 
 /* BASE ELEMENTS */
 body {
-	@screen xs {
-		--spacing: 2rem;
-	}
 
+	--spacing: 2rem;
 	font-family: "Inter Tight Variable",
-	"Adjusted Arial Fallback",
-	"arial",
-	sans-serif;
+		"Adjusted Arial Fallback",
+		"arial",
+		sans-serif;
 	--container-spacing: calc(var(--spacing) * 2);
 	--grid-spacing: calc(var(--spacing) / 2);
 }

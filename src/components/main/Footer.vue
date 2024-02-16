@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Button from "primevue/button";
+import ColorSwitch from "@/components/common/ColorSwitch.vue";
 import { toggleDark } from "@/composables/dark"
 </script>
 
@@ -9,9 +10,7 @@ import { toggleDark } from "@/composables/dark"
             <p class="copyright">
                 <slot name="copyright">
                     Copyright © 2019 - 2023
-                    <Button icon="pi i-carbon-sun dark:i-carbon-moon" rounded @click="toggleDark()">
-                        <!-- <div class="i-carbon-sun dark:i-carbon-moon" /> -->
-                    </Button>
+                    <ColorSwitch/>
                 </slot>
             </p>
             <p class="message">

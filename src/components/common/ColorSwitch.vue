@@ -1,5 +1,5 @@
 <template>
-    <Button icon="pi i-carbon-sun dark:i-carbon-moon" rounded @click="toggleDark()">
+    <Button icon="pi i-carbon-sun dark:i-carbon-moon" text rounded @click="toggleDark()">
 
     </Button>
 </template>
