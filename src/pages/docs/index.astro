@@ -1,7 +1,4 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
-import { ViewTransitions } from "astro:transitions";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import DocLayout from "@/layouts/DocLayout.astro";
 
@@ -10,98 +7,101 @@ const posts = (await getCollection("docs")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="zh-CN" transition:animate="fade">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<ViewTransitions />
-		<style>
+<DocLayout>
+	<Fragment slot="beforeContainer">
+		<div>
+			<div
+				class="h-[calc(100vh-5rem)] w-full flex flex-col justify-center items-center"
+				style="background: url(/heroimg.webp) center/cover no-repeat;;"
+			>
+				<h1 class="text-7xl leading-normal bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
+					lytree Blog
+				</h1>
+				<p class="text-3xl">desc</p>
+			</div>
+		</div>
+	</Fragment>
+	<section>
+		<ul>
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/docs/post/${post.slug}/`}>
+							<img
+								width={720}
+								height={360}
+								src={post.data.heroImage}
+								alt=""
+							/>
+							<h4 class="title">{post.data.title}</h4>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+	<style lang="scss">
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		ul li {
+			width: calc(50% - 1rem);
+		}
+		ul li * {
+			text-decoration: none;
+			transition: 0.2s ease;
+		}
+		ul li:first-child {
+			width: 100%;
+			margin-bottom: 1rem;
+			text-align: center;
+		}
+		ul li:first-child img {
+			width: 100%;
+		}
+		ul li:first-child .title {
+			font-size: 2.369rem;
+		}
+		ul li img {
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+		}
+		ul li a {
+			display: block;
+		}
+		.title {
+			margin: 0;
+			line-height: 1;
+		}
+		.date {
+			margin: 0;
+		}
+		ul li a:hover h4,
+		ul li a:hover .date {
+			color: rgb(var(--accent));
+		}
+		ul a:hover img {
+			box-shadow: var(--box-shadow);
+		}
+		@media (max-width: 720px) {
 			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
+				gap: 0.5em;
 			}
 			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
 				width: 100%;
-				margin-bottom: 1rem;
 				text-align: center;
 			}
-			ul li:first-child img {
-				width: 100%;
+			ul li:first-child {
+				margin-bottom: 0;
 			}
 			ul li:first-child .title {
-				font-size: 2.369rem;
+				font-size: 1.563em;
 			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-			
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<DocLayout>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/docs/post/${post.slug}/`}>
-									<img
-										width={720}
-										height={360}
-										src={post.data.heroImage}
-										alt=""
-									/>
-									<h4 class="title">{post.data.title}</h4>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</DocLayout>
-	</body>
-</html>
+		}
+	</style>
+</DocLayout>

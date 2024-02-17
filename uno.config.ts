@@ -20,7 +20,6 @@ export default defineConfig({
     ],
     rules: [],
     theme: {
-
         colors: {
             primary: "rgb(var(--color-primary) / <alpha-value>)",
             secondary: "rgb(var(--color-secondary) / <alpha-value>)",
@@ -49,7 +48,6 @@ export default defineConfig({
             "2xl": "1536px"
         },
     },
-
     presets: [
         presetGrid(),
         presetWind(),

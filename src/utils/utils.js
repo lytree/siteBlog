@@ -136,7 +136,7 @@ export const siteUtils = {
 
             // 计算距离，考虑额外的偏移量
             // 4rem 需要转化为像素，这里假设 1rem = 16px，所以 4rem = 64px
-            var offsetTop = target.getBoundingClientRect().top + window.pageYOffset - 80;
+            var offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
 
             window.scrollTo({
                 top: offsetTop,
