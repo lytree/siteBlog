@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build  --verbose",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "help":"tsx ./hsublog-cli.ts help"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.4",
@@ -25,11 +26,14 @@
     "@iconify-json/mdi": "^1.1.64",
     "@types/node": "^20.11.19",
     "@unocss/reset": "^0.58.5",
+    "glob": "^10.3.3",
+    "gray-matter": "^4.0.3",
     "mdast-util-to-string": "^4.0.0",
     "nanostores": "^0.9.5",
     "reading-time": "^1.5.0",
     "sass": "^1.71.0",
     "tsx": "^4.7.1",
-    "unocss": "^0.58.5"
+    "unocss": "^0.58.5",
+    "yargs": "^17.7.2"
   }
 }
