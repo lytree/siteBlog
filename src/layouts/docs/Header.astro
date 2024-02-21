@@ -3,48 +3,29 @@ import DocHeaderItem from "@/components/docs/DocHeaderItems.vue";
 import type { MenuItem } from "primevue/menuitem";
 const items: Array<MenuItem> = [
     {
-        label: "Home",
+        label: "首页",
         icon: "pi i-mdi-home",
+        url: "/docs",
     },
     {
-        label: "Features",
-        icon: "pi pi-star",
+        label: "归档",
+        icon: "pi i-mdi-archive",
+        url: "/docs/archive",
     },
     {
-        label: "Projects",
-        icon: "pi pi-search",
-        items: [
-            {
-                label: "Components",
-                icon: "pi pi-bolt",
-            },
-            {
-                label: "Blocks",
-                icon: "pi pi-server",
-            },
-            {
-                label: "UI Kit",
-                icon: "pi pi-pencil",
-            },
-            {
-                label: "Templates",
-                icon: "pi pi-palette",
-                items: [
-                    {
-                        label: "Apollo",
-                        icon: "pi pi-palette",
-                    },
-                    {
-                        label: "Ultima",
-                        icon: "pi pi-palette",
-                    },
-                ],
-            },
-        ],
+        label: "分类",
+        icon: "pi i-mdi-category",
+        url: "/docs/category",
     },
     {
-        label: "Contact",
-        icon: "pi pi-envelope",
+        label: "标签",
+        icon: "pi i-mdi-tag",
+        url: "/docs/tag",
+    },
+    {
+        label: "关于",
+        icon: "pi i-mdi-about",
+        url: "/docs/about",
     },
 ];
 import { SITE_TITLE } from "@/consts";

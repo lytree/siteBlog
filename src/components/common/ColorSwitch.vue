@@ -1,6 +1,5 @@
 <template>
     <Button icon="pi i-mdi-white-balance-sunny dark:i-mdi-weather-night" text rounded @click="toggleDark()">
-
     </Button>
 </template>
 
