@@ -7,12 +7,18 @@ import BaseLayout from "./BaseLayout.astro";
 ---
 
 <BaseLayout>
-    <Header />
-    <slot name="beforeContainer" />
-    <main class="container mx-auto pt-5" transition:animate="fade">
-        <slot />
-    </main>
-    <Footer />
+    <div class="flex flex-col h-full">
+        <Header class="shrink-0" />
+        <div>
+            <slot name="beforeContainer" />
+        </div>
+        <main class="container mx-auto pt-5 h-full" transition:animate="fade">
+            <slot name="main" />
+        </main>
+        <div class="shrink-0">
+            <Footer />
+        </div>
+    </div>
     <div class="pointer-events-none fixed bottom-0 right-0 z-50 w-full">
         <div class="xl:container flex justify-end pb-4">
             <a
