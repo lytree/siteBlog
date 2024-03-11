@@ -1,34 +1,25 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import Search from "../components/nav/search/index.vue";
 import Card from "../components/nav/card/index.vue";
-import { ViewTransitions } from "astro:transitions";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<html lang="zh-CN" transition:animate="fade">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<ViewTransitions />
-	</head>
-
-	<body>
-		<div
-			class="h-full w-full bg-cover bg-center"
-			style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
-		>
-			<div class="xl:container mx-auto flex flex-col space-y-64px">
-				<div class="h-64px"></div>
-				<!-- 搜索开始 -->
-				<div class="">
-					<Search client:load />
-				</div>
-				<!-- 搜索结束 -->
-				<div>
-					<Card client:only />
-				</div>
+<BaseLayout>
+	<div
+		class="h-full w-full bg-cover bg-center"
+		style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
+	>
+		<div class="xl:container mx-auto flex flex-col space-y-64px">
+			<div class="h-64px"></div>
+			<!-- 搜索开始 -->
+			<div class="">
+				<Search client:load />
+			</div>
+			<!-- 搜索结束 -->
+			<div>
+				<Card client:only />
 			</div>
 		</div>
-		<style lang="scss"></style>
-	</body>
-</html>
+	</div>
+	<style lang="scss"></style>
+</BaseLayout>

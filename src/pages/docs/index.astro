@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import DocLayout from "@/layouts/DocLayout.astro";
+import { siteUtils } from "@/utils/utils";
 
 const posts = (await getCollection("docs")).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
@@ -24,20 +25,76 @@ const posts = (await getCollection("docs")).sort(
 		</div>
 	</Fragment>
 	<Fragment slot="main">
-		<section class="h-full">
-			<ul>
-				{
-					posts.map((post) => (
-						<li>
-							<a href={`/docs/post/${post.slug}/`}>
-								<h4 class="title">{post.data.title}</h4>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</section>
-	</Fragment>
+		<div class="posts-list">
+			{
+				posts.map((post) => (
+					<div
+						class="main-card post-card"
+						onclick={`siteUtils.goToUrl("${`/blog/${post.data.abbrlink || post.slug}/`}")`}
+					>
+						<div class="post-card-cover">
+							<img
+								src={
+									post.data.cover ||
+									ThemeConfig.postPage.defaultCover
+								}
+								alt="post-cover"
+							/>
+						</div>
+						<div class="post-card-info">
+							<header class="post-card-header">
+								{post.data?.category ? (
+									<a
+										class="post-card-category"
+										href={`/categories/${post.data.category}`}
+									>
+										{post.data.category}
+									</a>
+								) : (
+									<div class="post-card-category">
+										{post.data.category}
+									</div>
+								)}
+							</header>
+							<div class="post-card-title">{post.data.title}</div>
+							<div class="post-card-desc">
+								{post.data.description}
+							</div>
+							<footer class="post-card-footer">
+								<ul class="post-card-tags">
+									{() => {
+										if (post.data.tags) {
+											return post.data.tags.map((tag) => (
+												<li class="post-card-tag">
+													{tag && tag != "" ? (
+														<a
+															href={localizePath(
+																`/tags/${tag}`,
+															)}
+														>
+															{tag}
+														</a>
+													) : null}
+												</li>
+											));
+										}
+									}}
+								</ul>
+								<div class="post-card-update">
+									<a href="/">
+										{siteUtils.formatDate(
+											post.data.updatedDate ||
+												post.data.pubDate,
+										)}
+									</a>
+								</div>
+							</footer>
+						</div>
+					</div>
+				))
+			}
+		</div>
 
-	<style lang="scss"></style>
+		<style lang="scss"></style>
+	</Fragment>
 </DocLayout>

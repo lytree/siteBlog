@@ -26,7 +26,7 @@ export const siteUtils = {
         let siteFooterElement = document.getElementById("site-footer");
 
         // 判断页面是否滚动到了网站的底部，或者滚动百分比是否超过了95%
-        if (siteFooterElement.offsetTop + siteFooterElement.offsetHeight / 2 < visibleWindowBottomPosition || scrollPercentage > 95) {
+        if (siteFooterElement?.offsetTop + siteFooterElement?.offsetHeight / 2 < visibleWindowBottomPosition || scrollPercentage > 95) {
             document.getElementById("menu-totop").classList.add("tobottom");
         } else {
             document.getElementById("menu-totop").classList.remove("tobottom");
@@ -41,7 +41,7 @@ export const siteUtils = {
         let header = document.getElementById("site-header");
         scrollPercentage > 0 ? header.classList.add("not-top") : header.classList.remove("not-top");
     },
-    scrollToDestination: (destination, duration) => {
+    scrollToDestination: (destination: number, duration: number) => {
         // 初始值检查，如果e或t小于0，直接返回
         if (destination < 0 || duration < 0) {
             return;
@@ -64,7 +64,7 @@ export const siteUtils = {
         }
 
         // 如果不支持CSS的平滑滚动，使用JavaScript实现
-        let startTime = null;
+        let startTime: any = null;
         duration = duration || 500; // 默认持续时间为500ms
 
         window.requestAnimationFrame(function scrollSmoothly(currentTime) {
@@ -93,10 +93,10 @@ export const siteUtils = {
             }
         });
     },
-    goToUrl: (url) => {
+    goToUrl: (url: string) => {
         window.location.href = url;
     },
-    copyCode: function (element) {
+    copyCode: function (element: { closest: (arg0: string) => any; }) {
         // 使用事件对象找到被点击的code-copy元素的父code-block
         const codeBlock = element.closest('.code-wrap');
 
@@ -112,11 +112,11 @@ export const siteUtils = {
             console.error("无法复制代码:", err);
         });
     },
-    toggleCollapse: function (element) {
+    toggleCollapse: function (element: { closest: (arg0: string) => any; }) {
         const codeBlock = element.closest('.code-block');
         codeBlock.classList.toggle('collapsed');
     },
-    anchorScroll: function (event) {
+    anchorScroll: function (event: { preventDefault: () => void; }) {
         // 获取目标元素
         var target = document.querySelector(this.getAttribute('href'));
 
@@ -144,7 +144,7 @@ export const siteUtils = {
             });
         }
     },
-    formatNumber: function (num) {
+    formatNumber: function (num: number) {
         if (num >= 1000000000) {
             return (num / 1000000000).toFixed(1) + "B";
         }
@@ -156,7 +156,7 @@ export const siteUtils = {
         }
         return num.toString();
     },
-    getJson: async function (url) {
+    getJson: async function (url: string | URL | Request) {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error("HTTP error " + response.status);
@@ -182,8 +182,8 @@ export const siteUtils = {
 
         document.body.style.overflow = "";
     },
-    sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
-    waitForGlobal: function (name, maxAttempts = 500) {
+    sleep: (ms: number | undefined) => new Promise((resolve) => setTimeout(resolve, ms)),
+    waitForGlobal: function (name: string | number, maxAttempts = 500) {
         return new Promise((resolve, reject) => {
             let attempts = 0;
             const interval = setInterval(() => {
@@ -198,7 +198,7 @@ export const siteUtils = {
             }, 100);
         });
     },
-    siblings: function (element, selector) {
+    siblings: function (element: { parentNode: { children: any; }; }, selector: any) {
         return [...element.parentNode.children].filter((child) => {
             if (selector) {
                 return child !== element && child.matches(selector)
@@ -206,7 +206,7 @@ export const siteUtils = {
             return child !== element
         })
     },
-    changeTabs: function (element) {
+    changeTabs: function (element: { parentNode: any; }) {
         const tab = element.parentNode;
         const tabContents = tab.parentNode.nextElementSibling
 
@@ -217,7 +217,93 @@ export const siteUtils = {
             tabContents.children[oldTab.getAttribute("data-index")].classList.remove("active")
             tabContents.children[tab.getAttribute("data-index")].classList.add("active")
         }
-    }
+    },
+    checkURL: function (URL: string) {
+        const regex =
+            /\b(https?):\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/i;
+        return regex.test(URL);
+    },
+    replaceLink: function (str: string, customClass?: string): string {
+        let regex = /\[(.*?)\]\((.*?)\)/g;
+        return str.replace(regex, function (_, text, link) {
+            return `<a href="${link}" class="${customClass}">${text}</a>`;
+        });
+    },
+    executeEmbeddedScripts: function (str: string): string {
+        const pattern = /\{\{\s*([\s\S]*?)\s*\}\}/g;
+
+        let result = str.replace(pattern, function (_, match) {
+            let func: string;
+            try {
+                func = new Function(`return (function(){${match};})()`)();
+            } catch (err) {
+                console.error(err);
+                return "";
+            }
+            return func;
+        });
+
+        return result;
+    },
+    formatDate: (date: Date | string) => {
+        if (typeof date === "string") {
+            date = new Date(date);
+        }
+        var formattedDate = date.toLocaleDateString();
+
+        // 返回格式化后的日期
+        return formattedDate;
+    },
+    compareDates: (date1: string, date2: string): number => {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+
+        return d2.valueOf() - d1.valueOf();
+    },
+    generateIdFromHeading: (heading: string): string => {
+        // 没有找到 remark 官方的处理函数
+        return (
+            heading
+                .trim()
+                .toLowerCase()
+                // 替换空格为 '-'
+                .replace(/[\s]+/g, "-")
+                // 除了字母、数字、中文字符、和 '-' 之外的所有字符都被移除
+                .replace(/[^\w\u4e00-\u9fa5\-]+/g, "")
+                // 替换多个 '-' 为单个 '-'
+                .replace(/\-\-+/g, "-")
+        );
+    },
+    extractSummary: (markdown: string): string => {
+        // 移除 Markdown 标题标记
+        const noHeaders = markdown.replace(/^(#.*\n)*/g, "");
+
+        // 移除 Markdown 格式化
+        const noFormatting = noHeaders.replace(/(\*|\_|`|#)/g, "");
+
+        // 删除 Markdown 链接和图片
+        const noLinksOrImages = noFormatting.replace(/\[([^\]]*)\]\([^\)]*\)/g, "");
+
+        // 移除行尾的换行符
+        const noLinebreaks = noLinksOrImages.replace(/\n/g, " ");
+
+        // 返回前100个字符
+        return noLinebreaks.slice(0, 100);
+    },
+    cleanContent: function (content: string): string {
+        content = content
+            .replace(/```[\s\S]*?```/g, "")
+            .replace(/`.*?`/g, "")
+            .replace(/\[.*?\]\(.*?\)/g, "")
+            .replace(/[*#\-_]+/g, " ")
+            .replace(/[\n\t]/g, "")
+            .replace(/\s+/g, " ")
+            .replace(/:+(.*?)(\[.*?\]|"")(""|\{.*?\})/g, " ")
+            .replace(/:+/g, " ")
+            .trim();
+
+        return content;
+    },
 }
 
 document.addEventListener("DOMContentLoaded", function () {
