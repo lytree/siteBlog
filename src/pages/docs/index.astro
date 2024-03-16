@@ -17,12 +17,12 @@ const posts = (await getCollection("docs")).sort(
 				class="hero-img"
 				style="background: url(/heroimg.webp) center/cover no-repeat;"
 			>
-				<div class="hero-title">lytree Blog</div>
-				<div class="hero-desc">desc</div>
 			</div>
+			<div class="hero-title">lytree Blog</div>
+			<div class="hero-desc">desc</div>
 		</div>
 	</Fragment>
-	<Fragment slot="main">
+	<Fragment slot="inContainer">
 		<div class="posts-list">
 			{
 				posts.map((post) => (
@@ -35,14 +35,13 @@ const posts = (await getCollection("docs")).sort(
 			}
 		</div>
 
-		<style lang="scss" is:global>
+		<style lang="scss">
 			.hero-shoot {
 				position: relative;
 				display: flex;
 				flex-direction: column;
 				width: 100vw;
 				height: 100vh;
-				margin-bottom: 1rem;
 				.hero-img {
 					position: absolute;
 					z-index: 1;
@@ -61,7 +60,7 @@ const posts = (await getCollection("docs")).sort(
 					position: relative;
 					z-index: 3;
 					display: block;
-					margin: calc(50vh - 160px - 2rem) auto 2rem;
+					margin: calc(50vh - 160px - 3rem) auto 2rem;
 					background: linear-gradient(
 						315deg,
 						hsl(323deg 100% 79%) 25%,
