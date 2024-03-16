@@ -7,36 +7,31 @@ import BaseLayout from "./BaseLayout.astro";
 ---
 
 <BaseLayout>
-    <div class="flex flex-col h-full">
-        <Header class="shrink-0" />
-        <div>
-            <slot name="beforeContainer" />
+    <div class="flex flex-col min-h-100vh items-center">
+        <Header />
+        <slot />
+        <Footer />
+        <div class="pointer-events-none fixed bottom-0 right-0 z-50 w-full">
+            <div class="xl:container flex justify-end pb-4">
+                <a
+                    href="#top"
+                    aria-label="back_to_top"
+                    class="btn btn-icon surface-primary btn-to-top pointer-events-auto opacity-0"
+                >
+                    <div class="w-6 i-mdi-arrow-up-thick"></div></a
+                >
+            </div>
         </div>
-        <main class="container mx-auto pt-5 h-full" transition:animate="fade">
-            <slot name="main" />
-        </main>
-        <div class="shrink-0">
-            <Footer />
-        </div>
+        <Init client:idle />
+        <script>
+            const html = document.getElementsByTagName("html")[0];
+            const SmoothScroll = () => {
+                html.style["scroll-behavior"] = "auto";
+            };
+            SmoothScroll();
+            document.addEventListener("astro:beforeload", SmoothScroll);
+        </script>
+        <slot name="body-end" />
     </div>
-    <div class="pointer-events-none fixed bottom-0 right-0 z-50 w-full">
-        <div class="xl:container flex justify-end pb-4">
-            <a
-                href="#top"
-                aria-label="back_to_top"
-                class="btn btn-icon surface-primary btn-to-top pointer-events-auto opacity-0"
-            >
-                <div class="w-6 i-mdi-arrow-up-thick"></div></a
-            >
-        </div>
-    </div>
-    <Init client:idle />
-    <script>
-        const html = document.getElementsByTagName("html")[0];
-        const SmoothScroll = () => {
-            html.style["scroll-behavior"] = "auto";
-        };
-        SmoothScroll();
-        document.addEventListener("astro:beforeload", SmoothScroll);
-    </script>
+    <style lang="scss" is:global></style>
 </BaseLayout>

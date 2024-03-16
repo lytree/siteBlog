@@ -1,26 +1,24 @@
 ---
 import { getCollection } from "astro:content";
-import DocLayout from "@/layouts/DocLayout.astro";
-import { siteUtils } from "@/utils/utils";
+import DocHomeLayout from "@/layouts/DocHomeLayout.astro";
+import PostCard from "@components/docs/PostCard.vue";
+import type { only } from "node:test";
+// import { siteUtils } from "@/utils/utils";
 
 const posts = (await getCollection("docs")).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
 ---
 
-<DocLayout>
+<DocHomeLayout>
 	<Fragment slot="beforeContainer">
-		<div>
+		<div class="hero-shoot">
 			<div
-				class="h-[calc(100vh-5rem)] w-full flex flex-col justify-center items-center"
-				style="background: url(/heroimg.webp) center/cover no-repeat;;"
+				class="hero-img"
+				style="background: url(/heroimg.webp) center/cover no-repeat;"
 			>
-				<h1
-					class="text-7xl leading-normal bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500"
-				>
-					lytree Blog
-				</h1>
-				<p class="text-3xl">desc</p>
+				<div class="hero-title">lytree Blog</div>
+				<div class="hero-desc">desc</div>
 			</div>
 		</div>
 	</Fragment>
@@ -28,73 +26,58 @@ const posts = (await getCollection("docs")).sort(
 		<div class="posts-list">
 			{
 				posts.map((post) => (
-					<div
-						class="main-card post-card"
-						onclick={`siteUtils.goToUrl("${`/blog/${post.data.abbrlink || post.slug}/`}")`}
-					>
-						<div class="post-card-cover">
-							<img
-								src={
-									post.data.cover ||
-									ThemeConfig.postPage.defaultCover
-								}
-								alt="post-cover"
-							/>
-						</div>
-						<div class="post-card-info">
-							<header class="post-card-header">
-								{post.data?.category ? (
-									<a
-										class="post-card-category"
-										href={`/categories/${post.data.category}`}
-									>
-										{post.data.category}
-									</a>
-								) : (
-									<div class="post-card-category">
-										{post.data.category}
-									</div>
-								)}
-							</header>
-							<div class="post-card-title">{post.data.title}</div>
-							<div class="post-card-desc">
-								{post.data.description}
-							</div>
-							<footer class="post-card-footer">
-								<ul class="post-card-tags">
-									{() => {
-										if (post.data.tags) {
-											return post.data.tags.map((tag) => (
-												<li class="post-card-tag">
-													{tag && tag != "" ? (
-														<a
-															href={localizePath(
-																`/tags/${tag}`,
-															)}
-														>
-															{tag}
-														</a>
-													) : null}
-												</li>
-											));
-										}
-									}}
-								</ul>
-								<div class="post-card-update">
-									<a href="/">
-										{siteUtils.formatDate(
-											post.data.updatedDate ||
-												post.data.pubDate,
-										)}
-									</a>
-								</div>
-							</footer>
-						</div>
-					</div>
+					<PostCard
+						client:only
+						post={post}
+						defaultCover={"https://lipsum.app/id/2/1600x1200"}
+					/>
 				))
 			}
 		</div>
 
-		<style lang="scss"></style>
+		<style lang="scss" is:global>
+			.hero-shoot {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				width: 100vw;
+				height: 100vh;
+				margin-bottom: 1rem;
+				.hero-img {
+					position: absolute;
+					z-index: 1;
+					inset: 0;
+					&::after {
+						position: absolute;
+						z-index: 2;
+						display: block;
+						content: " ";
+						opacity: 0.2;
+						inset: 0;
+					}
+				}
+
+				.hero-title {
+					position: relative;
+					z-index: 3;
+					display: block;
+					margin: calc(50vh - 160px - 2rem) auto 2rem;
+					background: linear-gradient(
+						315deg,
+						hsl(323deg 100% 79%) 25%,
+						hsl(32deg 100% 61%)
+					);
+					-webkit-background-clip: text;
+					background-clip: text;
+					font-size: 80px;
+					-webkit-text-fill-color: transparent;
+				}
+				.hero-desc {
+					z-index: 3;
+					margin: 0 auto;
+					font-size: 40px;
+				}
+			}
+		</style>
 	</Fragment>
-</DocLayout>
+</DocHomeLayout>
