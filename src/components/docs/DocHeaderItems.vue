@@ -4,7 +4,7 @@ import ColorSwitch from "@/components/common/ColorSwitch.vue";
 const { items, title } = defineProps(["items", "title"]);
 </script>
 <template>
-    <Menubar class="" :model="items">
+    <Menubar  :model="items">
         <template #start>
             <h2 class="p-0 m-0">{{ title }}</h2>
         </template>

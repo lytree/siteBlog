@@ -32,10 +32,11 @@ import { SITE_TITLE } from "@/consts";
 ---
 
 <header>
-    <DocHeaderItem title={SITE_TITLE} items={items} client:load="vue" />
+    <DocHeaderItem title={SITE_TITLE} items={items} client:load />
 </header>
 <style>
     header {
+        width: 100%;
         margin: 0;
         padding: 0;
         box-shadow: 0 2px 8px rgba(var(--black), 5%);

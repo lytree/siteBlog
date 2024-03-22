@@ -11,29 +11,29 @@
     "help": "tsx ./hsublog-cli.ts help"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.6",
-    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/check": "^0.5.9",
+    "@astrojs/mdx": "^2.2.0",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
-    "@astrojs/vue": "^4.0.8",
+    "@astrojs/vue": "^4.0.9",
     "@vueuse/core": "^10.9.0",
-    "astro": "^4.4.12",
-    "primevue": "^3.49.1",
-    "typescript": "^5.3.3",
+    "astro": "^4.5.5",
+    "primevue": "^3.50.0",
+    "typescript": "^5.4.2",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.64",
-    "@types/node": "^20.11.24",
-    "@unocss/reset": "^0.58.5",
+    "@types/node": "^20.11.28",
+    "@unocss/reset": "^0.58.6",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "mdast-util-to-string": "^4.0.0",
     "nanostores": "^0.9.5",
     "reading-time": "^1.5.0",
-    "sass": "^1.71.1",
+    "sass": "^1.72.0",
     "tsx": "^4.7.1",
-    "unocss": "^0.58.5",
+    "unocss": "^0.58.6",
     "yargs": "^17.7.2"
   }
 }

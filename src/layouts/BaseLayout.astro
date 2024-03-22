@@ -22,8 +22,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <meta name="title" content={SITE_TITLE} />
         <meta name="description" content={SITE_DESCRIPTION} />
 
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+            integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+            crossorigin="anonymous"
+        />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+            integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+            crossorigin="anonymous"></script>
+
         <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"
-        ></script></head
+        ></script>
+        <slot name="head-end" /></head
     >
-    <body class="w-full h-full"><slot /></body>
+    <body class="w-full h-full overflow-x-hidden"> <slot /></body>
 </html>
