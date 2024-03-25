@@ -11,20 +11,20 @@
     "help": "tsx ./hsublog-cli.ts help"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.9",
-    "@astrojs/mdx": "^2.2.0",
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/mdx": "^2.2.1",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/vue": "^4.0.9",
     "@vueuse/core": "^10.9.0",
-    "astro": "^4.5.5",
+    "astro": "^4.5.9",
     "primevue": "^3.50.0",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.3",
     "vue": "^3.4.21"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.64",
-    "@types/node": "^20.11.28",
+    "@types/node": "^20.11.30",
     "@unocss/reset": "^0.58.6",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",

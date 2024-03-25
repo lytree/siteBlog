@@ -1,0 +1,57 @@
+---
+import BaseLayout from "./DocLayout.astro";
+interface Props {
+    asideDir?: "left" | "right" | false;
+}
+
+const { asideDir } = Astro.props;
+---
+
+<BaseLayout class="home">
+    <Fragment slot="head-end">
+        <script
+          is:inline
+          async
+          src="https://cdn.staticfile.org/fancyapps-ui/5.0.20/fancybox/fancybox.umd.min.js"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdn.staticfile.org/fancyapps-ui/5.0.20/fancybox/fancybox.min.css"
+        />
+      </Fragment>
+      <slot name="post-hero" />
+      <article class="post-container">
+        <main class="post-main">
+          <slot />
+          <!-- {
+            ThemeConfig.postPage.relatedPosts && useRelatedPosts && (
+              <RelatedPosts lang={i18next.language} title={frontmatter.title} />
+            )
+          }
+    
+          {useComments && <PostComment />} -->
+        </main>
+        <!-- <Aside
+          comps={ThemeConfig.postPage.aside.comps}
+          stickyComps={ThemeConfig.postPage.aside.stickyComps}
+          class="post-aside"
+        > -->
+          <!-- {frontmatter?.toc && <BlogToc toc={frontmatter.toc} />} -->
+        <!-- </Aside> -->
+      </article>
+      <Fragment slot="body-end">
+        <!-- <script is:inline>
+          siteUtils
+            .waitForGlobal("Fancybox")
+            .then((Fancybox) => {
+              Fancybox.bind("[data-fancybox]", {
+                closeButton: true,
+                Thumbs: {
+                  type: "modern",
+                },
+              });
+            })
+            .catch((err) => console.err(err));
+        </script> -->
+      </Fragment>
+</BaseLayout>
