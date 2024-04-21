@@ -11,7 +11,7 @@ export default defineConfig({
 		remarkPlugins: [remarkReadingTime],
 		// drafts: true,
 		shikiConfig: {
-			theme: 'material-theme-palenight',
+			theme: 'dracula',
 			wrap: true
 		}
 	},
@@ -19,12 +19,12 @@ export default defineConfig({
 		mdx({
 			syntaxHighlight: 'shiki',
 			shikiConfig: {
-				theme: 'material-theme-palenight',
+				theme: 'dracula',
 				wrap: true
 			},
 			// drafts: true
 		}),
 		sitemap(),
-		vue({ appEntrypoint: "./src/_app", reactivityTransform: true }),
+		vue({ appEntrypoint: "./src/_app" }),
 		UnoCSS({ injectReset: true })]
 });

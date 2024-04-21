@@ -38,15 +38,7 @@ export default defineConfig({
         boxShadow: {
             inset: " inset 2px 2px 40px -20px rgba(0, 0, 0, 0.3)",
             "inset-s": " inset 2px 2px 30px -10px rgba(0, 0, 0, 0.4)",
-        },
-        breakpoints: {
-            xs: "500px",
-            sm: "640px",
-            md: "768px",
-            lg: "1024px",
-            xl: "1280px",
-            "2xl": "1536px"
-        },
+        }
     },
     presets: [
         presetGrid(),

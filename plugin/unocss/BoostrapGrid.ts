@@ -38,36 +38,7 @@ export function presetGrid(options: GridOptions = {}): Preset {
     return {
         name: "unocss-preset-grid",
         rules: [
-            [
-                new RegExp(`^container$`),
-                ([], { rawSelector, generator }: any) => {
-                    const _selector = escapeSelector(rawSelector)
-                    const _breakpoints: Breakpoints = generator?.userConfig?.theme?.breakpoints ?? breakpoints
 
-                    const template = Object.keys(_breakpoints).map(
-                        (breakpoint) => `@media (min-width: ${ensureSuffix('px', _breakpoints[breakpoint].toString())}) {
-              .${_selector} {
-                max-width: calc(${ensureSuffix('px', _breakpoints[breakpoint].toString())} - ${piece});
-              }
-            }`
-                    )
-
-                    return `
-            .${_selector}, .${_selector}-fluid {
-              --${prefix}gutter-x: ${gutter};
-              --${prefix}gutter-y: 0;
-
-              width: 100%;
-              padding-right: calc(var(--${prefix}gutter-x) * .5);
-              padding-left: calc(var(--${prefix}gutter-x) * .5);
-              margin-right: auto;
-              margin-left: auto;
-            }
-
-            ${template.join("\n")}
-          `.replace(/^ {12}/gm, "")
-                }
-            ],
             [
                 new RegExp(`^row$`),
                 ([], { rawSelector }) => {

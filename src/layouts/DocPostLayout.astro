@@ -20,8 +20,8 @@ const { asideDir } = Astro.props;
         />
       </Fragment>
       <slot name="post-hero" />
-      <article class="post-container">
-        <main class="post-main">
+      <article class="md:container md:mx-auto">
+        <main class="">
           <slot />
           <!-- {
             ThemeConfig.postPage.relatedPosts && useRelatedPosts && (
@@ -31,13 +31,7 @@ const { asideDir } = Astro.props;
     
           {useComments && <PostComment />} -->
         </main>
-        <!-- <Aside
-          comps={ThemeConfig.postPage.aside.comps}
-          stickyComps={ThemeConfig.postPage.aside.stickyComps}
-          class="post-aside"
-        > -->
-          <!-- {frontmatter?.toc && <BlogToc toc={frontmatter.toc} />} -->
-        <!-- </Aside> -->
+        <div>侧边栏</div>
       </article>
       <Fragment slot="body-end">
         <!-- <script is:inline>

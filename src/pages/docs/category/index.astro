@@ -1,9 +1,18 @@
 ---
-
+import DocLayout from "@/layouts/DocLayout.astro";
 ---
 
-<!doctype html>
-<html lang="zh-CN" transition:animate="fade">
-    <head> </head>
-    <body> ca</body>
-</html>
+
+<DocLayout>
+    <div class="hero-wave"></div>
+    <article class="inner-container">category</article>
+
+    <style>
+        .inner-container {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            max-width: 1300px;
+        }
+    </style></DocLayout
+>

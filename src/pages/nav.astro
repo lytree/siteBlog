@@ -1,6 +1,6 @@
 ---
 import Search from "../components/nav/search/index.vue";
-import Card from "../components/nav/card/index.vue";
+import VCard from "../components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
@@ -17,7 +17,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 			</div>
 			<!-- 搜索结束 -->
 			<div>
-				<Card client:only />
+				<VCard client:only="vue" />
 			</div>
 		</div>
 	</div>

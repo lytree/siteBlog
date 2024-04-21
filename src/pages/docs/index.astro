@@ -27,7 +27,7 @@ const posts = (await getCollection("docs")).sort(
 			{
 				posts.map((post) => (
 					<PostCard
-						client:only
+						client:only="vue"
 						post={post}
 						defaultCover={"https://lipsum.app/id/2/1600x1200"}
 					/>
