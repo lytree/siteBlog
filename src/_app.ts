@@ -96,7 +96,6 @@ import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
 
-import 'virtual:uno.css'
 export default (app: App) => {
     app.use(PrimeVue, { ripple: true });
     app.use(ToastService);

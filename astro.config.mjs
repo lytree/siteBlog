@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
-import UnoCSS from 'unocss/astro'
+import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import { remarkReadingTime } from './src/utils/readTime'
 // https://astro.build/config
@@ -26,5 +26,5 @@ export default defineConfig({
 		}),
 		sitemap(),
 		vue({ appEntrypoint: "./src/_app" }),
-		UnoCSS({ injectReset: true })]
+		tailwind()]
 });
