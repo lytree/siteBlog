@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
 import Card from "primevue/card"
-import TabView from "primevue/tabview"
-import TabPanel from "primevue/tabpanel"
+import Tabs from 'primevue/tabs';
+import TabList from 'primevue/tablist';
+import Tab from 'primevue/tab';
+import TabPanels from 'primevue/tabpanels';
+import TabPanel from 'primevue/tabpanel';
 import InputText from "primevue/inputtext"
 
 import { type TabViewChangeEvent } from 'primevue/tabview';
 
 
-const activeName = ref(0)
+const activeName = ref("0")
 const searchText = ref('')
 
 let url = 'https://www.baidu.com/s?wd='
@@ -57,61 +60,54 @@ onMounted(() => {
 <template>
     <Card class="card">
         <template #content>
-            <TabView class="w-full" v-model:activeIndex="activeName" @tab-change="tabChange">
-                <TabPanel header="百度一下">
-                    <span class="p-input-icon-left w-full">
-                        <i class="pi i-mdi-magnify"></i>
-                        <InputText v-model="searchText" placeholder="百度一下" class="input-with-select" />
-                    </span>
-                </TabPanel>
-                <TabPanel header="谷歌搜索">
-                    <span class="p-input-icon-left w-full">
-                        <i class="pi i-mdi-magnify"></i>
-                        <InputText v-model="searchText" placeholder="谷歌搜索" class="input-with-select" />
-                    </span>
-                </TabPanel>
-                <TabPanel header="Bing">
-                    <span class="p-input-icon-left w-full">
-                        <i class="pi i-mdi-magnify"></i>
-                        <InputText v-model="searchText" placeholder="Bing搜索" class="input-with-select" />
-                    </span>
-                </TabPanel>
-                <TabPanel header="微博">
-                    <span class="p-input-icon-left w-full">
-                        <i class="pi i-mdi-magnify"></i>
-                        <InputText v-model="searchText" placeholder="微博搜索" class="input-with-select" />
-                    </span>
-                </TabPanel>
-            </TabView>
+            <Tabs class="w-full" v-model:value="activeName">
+                <TabList>
+                    <Tab value="0">百度一下</Tab>
+                    <Tab value="1">谷歌搜索</Tab>
+                    <Tab value="2">Bing</Tab>
+                    <Tab value="3">微博</Tab>
+                </TabList>
+                <TabPanels>
+                    <TabPanel value="0">
+                        <span class="p-input-icon-left w-full">
+                            <i class="pi i-mdi-magnify"></i>
+                            <InputText v-model="searchText" placeholder="百度一下" class="input-with-select" />
+                        </span>
+                    </TabPanel>
+                    <TabPanel value="1">
+                        <span class="p-input-icon-left w-full">
+                            <i class="pi i-mdi-magnify"></i>
+                            <InputText v-model="searchText" placeholder="谷歌搜索" class="input-with-select" />
+                        </span>
+                    </TabPanel>
+                    <TabPanel value="2">
+                        <span class="p-input-icon-left w-full">
+                            <i class="pi i-mdi-magnify"></i>
+                            <InputText v-model="searchText" placeholder="Bing搜索" class="input-with-select" />
+                        </span>
+                    </TabPanel>
+                    <TabPanel value="3">
+                        <span class="p-input-icon-left w-full">
+                            <i class="pi i-mdi-magnify"></i>
+                            <InputText v-model="searchText" placeholder="微博搜索" class="input-with-select" />
+                        </span>
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
         </template>
     </Card>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .card {
-    background: var(--surface-card);
     padding: 0.5rem;
     border-radius: 10px;
     margin-bottom: 0.5rem;
 }
 
-:deep(.p-tabview-nav-container) {
-    --at-apply: pl-[1.25rem];
-    border-bottom: 1px solid var(--surface-border);
-
-    .p-tabview-header {
-        --at-apply: border-[0.5] w-[96px];
-
-    }
-
-    .p-tabview-title {
-        --at-apply: m-2 w-full leading-[32px] text-center;
-    }
-
-}
 
 .input-with-select {
     --at-apply: pl-[2.5rem] h-[40px] w-full;
     border: 1px solid #cbd5e1;
 }
-</style>
+</style>import type { TabClasses } from "primevue/tab/style";

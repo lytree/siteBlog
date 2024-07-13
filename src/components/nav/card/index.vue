@@ -7,8 +7,8 @@ import { siteUtils } from "../../../utils/utils";
 const navs = await siteUtils.getJson(`/scripts/navs.json`);
 </script>
 <template>
-    <div v-for="nav in navs" class="py-4 ">
-        <Card class="nav">
+    <div v-for="nav in navs" class="py-4">
+        <Card class="nav ">
             <template #title>
                 <svg class="icon" aria-hidden="true">
                     <use :xlink:href="nav.icon"></use>
@@ -30,6 +30,8 @@ const navs = await siteUtils.getJson(`/scripts/navs.json`);
 </template>
 <style lang="scss" scoped>
 .nav {
+    --at-apply: bg-white;
+
     .label {
         --at-apply: overflow-hidden rounded-lg px-10px text-14px transition md:col-1 col-3;
 

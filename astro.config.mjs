@@ -25,6 +25,7 @@ export default defineConfig({
 			// drafts: true
 		}),
 		sitemap(),
-		vue({ appEntrypoint: "./src/_app" }),
-		UnoCSS()]
+		vue({ appEntrypoint: "./src/_app",jsx: true }),
+		UnoCSS()
+	]
 });

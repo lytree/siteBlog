@@ -25,7 +25,7 @@ import ColorSwitch from "@/components/common/ColorSwitch.vue";
     </footer>
 </template>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
 .footer {
     --at-apply: z-10 md:p-[16px] w-full border-top;
     font-size: 14px;
@@ -37,15 +37,14 @@ import ColorSwitch from "@/components/common/ColorSwitch.vue";
         .copyright,
         .message {
 
-            --at-apply: text-sm m-0 font-medium leading-32px
-            transition: color 0.25s;
+            --at-apply: text-sm m-0 font-medium leading-32px transition: color 0.25s;
 
             a,
             p {
-                --at-apply: text-sm m-0 font-medium leading-32px 
-                transition: color 0.25s;
+                --at-apply: text-sm m-0 font-medium leading-32px transition: color 0.25s;
             }
         }
     }
 }
+
 </style>

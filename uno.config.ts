@@ -2,8 +2,7 @@ import {
     defineConfig,
     presetAttributify,
     presetIcons,
-    presetTypography,
-    presetWind,
+    presetTypography,presetUno,
     transformerDirectives,
 } from 'unocss'
 import { presetGrid } from './plugin/unocss/BoostrapGrid'
@@ -42,7 +41,7 @@ export default defineConfig({
     },
     presets: [
         presetGrid(),
-        presetWind(),
+        presetUno(),
         presetAttributify(),
         presetIcons({
             scale: 1.2,
