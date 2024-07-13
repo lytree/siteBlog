@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ColorSwitch from "@/components/common/ColorSwitch.vue";
+import ColorSwitch from "@/components/common/ColorSwitch.tsx";
 </script>
 
 <template>
@@ -27,7 +27,7 @@ import ColorSwitch from "@/components/common/ColorSwitch.vue";
 
 <style lang="scss" scoped>
 .footer {
-    --at-apply: z-10 md:p-[16px] w-full border-top;
+    --at-apply: ;
     font-size: 14px;
     white-space: nowrap;
 
