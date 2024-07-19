@@ -1,4 +1,5 @@
 import type { App } from 'vue';
+import { definePreset } from '@primevue/themes';
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import AutoComplete from 'primevue/autocomplete';
@@ -86,12 +87,14 @@ import Tree from 'primevue/tree';
 import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import VirtualScroller from 'primevue/virtualscroller';
+import 'primeicons/primeicons.css'
 import 'virtual:uno.css'
+import '@/styles/global.css'
 export default (app: App) => {
     app.use(PrimeVue, {
         theme: {
             ripple: true,
-            preset: Aura,
+            preset:  definePreset(Aura, {}),
             inputVariant: "filled",
             options: {
                 prefix: 'p',

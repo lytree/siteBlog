@@ -3,7 +3,10 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* The integration's default injected base.css file */
 :root {
 	font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -38,7 +41,7 @@
 }
 
 body {
-	--at-apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark:text-gray-200;
+	@apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark:text-gray-200;
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -166,168 +169,4 @@ pre {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-
-.auto-grid {
-	--at-apply: grid;
-
-	&-sm {
-		gap: var(--grid-spacing);
-		--at-apply: grid sm:grid-cols-2;
-	}
-
-	&-md {
-		gap: var(--grid-spacing);
-		--at-apply: grid sm:grid-cols-2 md:grid-cols-3;
-	}
-
-	&-lg {
-		gap: var(--grid-spacing);
-		--at-apply: grid sm:grid-cols-2 md:grid-cols-3;
-	}
-
-	&-xl {
-		gap: var(--grid-spacing);
-		--at-apply: grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
-	}
-
-	&-full {
-		gap: var(--grid-spacing);
-		--at-apply: grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5;
-	}
-
-	&-none {
-		gap: var(--grid-spacing);
-		--at-apply: grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6;
-	}
-}
-
-
-/* MARKDOWN HTML */
-.richtext {
-	a:not([class]) {
-		padding-bottom: 0.1em;
-		background: linear-gradient(90deg, currentColor, currentColor) no-repeat right bottom / 0 var(--bg-h);
-		transition: background-size 350ms;
-		--bg-h: 0.1em;
-
-		&:where(:hover, :focus-visible) {
-			background-size: 100% var(--bg-h);
-			background-position-x: left;
-		}
-	}
-
-	&:not(.dense) {
-		*+p {
-			--at-apply: pt-4;
-		}
-	}
-
-	p {
-		--at-apply: text-lg;
-	}
-
-	&:not(.no-lead) {
-		p:first-of-type {
-			--at-apply: text-xl;
-		}
-	}
-
-	*+*:is(h2, h3, h4, h5, h6) {
-		--at-apply: pt-8;
-	}
-
-	h2 {
-		--at-apply: text-3xl font-extrabold sm:text-4xl;
-		text-wrap: balance;
-
-		strong {
-			--at-apply: block text-xs font-light uppercase tracking-widest;
-		}
-	}
-
-	h3 {
-		--at-apply: text-2xl font-extrabold sm:text-3xl;
-		text-wrap: balance;
-	}
-
-	h4 {
-		--at-apply: text-xl font-bold sm:text-2xl;
-		text-wrap: balance;
-	}
-
-	h5 {
-		--at-apply: text-lg font-bold leading-none sm:text-xl;
-		text-wrap: balance;
-	}
-
-	h6 {
-		--at-apply: text-lg font-bold leading-none;
-		text-wrap: balance;
-	}
-
-	p {
-		text-wrap: balance;
-	}
-
-	table {
-		--at-apply: my-8 w-full;
-	}
-
-	code {
-		--at-apply: rounded-md bg-gray-600 bg-opacity-20 px-1 py-0.5;
-	}
-
-	pre {
-		--at-apply: my-4 inline-block w-full max-w-full rounded-md p-4;
-	}
-
-	pre>code {
-		all: unset;
-	}
-
-	blockquote {
-		--at-apply: mx-0 my-8 border-l-4 border-primary py-0 pl-8 pr-0 text-2xl font-semibold italic;
-	}
-
-	ul:not([class]) {
-		--at-apply: list-disc;
-	}
-
-	ol:not([class]) {
-		--at-apply: list-decimal;
-	}
-
-	ul:not([class]),
-	ol:not([class]) {
-		--at-apply: my-8 ml-6 list-outside text-lg leading-tight;
-
-		li {
-			--at-apply: py-2;
-			text-wrap: balance;
-
-			&::marker {
-				--at-apply: text-primary;
-			}
-		}
-
-		ul,
-		ol {
-			--at-apply: my-1 ml-4;
-		}
-	}
-}
-
-
-
-a.link-underline {
-	padding-bottom: 0.1em;
-	background: linear-gradient(90deg, currentColor, currentColor) no-repeat right bottom / 0 var(--bg-h);
-	transition: background-size 350ms;
-	--bg-h: 0.1em;
-
-	&:where(:hover, :focus-visible) {
-		background-size: 100% var(--bg-h);
-		background-position-x: left;
-	}
 }

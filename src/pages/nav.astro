@@ -2,14 +2,15 @@
 import Search from "../components/nav/search/index.vue";
 import VCard from "../components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Footer from "@/components/common/GlobalFooter.vue";
 ---
 
 <BaseLayout>
 	<div
-		class="h-full w-full bg-cover bg-center"
+		class="h-full w-full flex flex-col bg-cover bg-center"
 		style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
 	>
-		<div class="xl:container mx-auto flex flex-col space-y-64px">
+		<div class="container mx-auto flex flex-col flex-1 space-y-64px">
 			<div class="h-64px"></div>
 			<!-- 搜索开始 -->
 			<div class="">
@@ -20,6 +21,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 				<VCard client:only="vue" />
 			</div>
 		</div>
+		<div class="flex justify-center  bg-white dark:bg-dark">
+			<Footer class="" client:load />
+		</div>
 	</div>
-	<style lang="scss"></style>
+
+	<style lang="css"></style>
 </BaseLayout>

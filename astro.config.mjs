@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
-import UnoCSS from 'unocss/astro'
 import sitemap from '@astrojs/sitemap';
+import UnoCSS from 'unocss/astro'
 import { remarkReadingTime } from './src/utils/readTime'
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +25,9 @@ export default defineConfig({
 			// drafts: true
 		}),
 		sitemap(),
-		vue({ appEntrypoint: "./src/_app",jsx: true }),
-		UnoCSS()
+		vue({ appEntrypoint: "./src/_app", jsx: true }),
+		UnoCSS({
+			injectReset: true // or a path to the reset file
+		}),
 	]
 });

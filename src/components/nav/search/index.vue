@@ -58,7 +58,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <Card class="card">
+    <Card pt:root="card">
         <template #content>
             <Tabs class="w-full" v-model:value="activeName">
                 <TabList>
@@ -69,27 +69,27 @@ onMounted(() => {
                 </TabList>
                 <TabPanels>
                     <TabPanel value="0">
-                        <span class="p-input-icon-left w-full">
+                        <span class="p-input-icon-left w-full ">
                             <i class="pi i-mdi-magnify"></i>
-                            <InputText v-model="searchText" placeholder="百度一下" class="input-with-select" />
+                            <InputText v-model="searchText" placeholder="百度一下" pt:root="input-with-select" />
                         </span>
                     </TabPanel>
                     <TabPanel value="1">
                         <span class="p-input-icon-left w-full">
                             <i class="pi i-mdi-magnify"></i>
-                            <InputText v-model="searchText" placeholder="谷歌搜索" class="input-with-select" />
+                            <InputText v-model="searchText" placeholder="谷歌搜索" pt:root="input-with-select" />
                         </span>
                     </TabPanel>
                     <TabPanel value="2">
                         <span class="p-input-icon-left w-full">
                             <i class="pi i-mdi-magnify"></i>
-                            <InputText v-model="searchText" placeholder="Bing搜索" class="input-with-select" />
+                            <InputText v-model="searchText" placeholder="Bing搜索" pt:root="input-with-select" />
                         </span>
                     </TabPanel>
                     <TabPanel value="3">
                         <span class="p-input-icon-left w-full">
                             <i class="pi i-mdi-magnify"></i>
-                            <InputText v-model="searchText" placeholder="微博搜索" class="input-with-select" />
+                            <InputText v-model="searchText" placeholder="微博搜索" pt:root="input-with-select" />
                         </span>
                     </TabPanel>
                 </TabPanels>
@@ -98,7 +98,7 @@ onMounted(() => {
     </Card>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
     padding: 0.5rem;
     border-radius: 10px;
@@ -107,7 +107,7 @@ onMounted(() => {
 
 
 .input-with-select {
-    --at-apply: pl-[2.5rem] h-[40px] w-full;
     border: 1px solid #cbd5e1;
+    --at-apply: pl-[2.5rem] h-[40px] w-full;
 }
 </style>import type { TabClasses } from "primevue/tab/style";
