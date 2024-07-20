@@ -4,10 +4,6 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 /* The integration's default injected base.css file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* The integration's default injected base.css file */
 :root {
 	font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	--font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -41,7 +37,7 @@
 }
 
 body {
-	@apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark:text-gray-200;
+	--at-apply: bg-white dark:bg-#1c2128 h-full w-full text-gray-700 dark:text-gray-200;
 	font-family: 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
@@ -78,7 +74,7 @@ p {
 	box-sizing: border-box;
 	background-color: transparent;
 	outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
-	color: #000;	/* 去除默认的颜色和点击后变化的颜色 */ 
+
 	&:hover {
 		transition: 0.3s;
 	}
@@ -117,7 +113,7 @@ img {
 
 pre,
 code {
-	color: #d4d4d4;
+
 	font-size: 14px;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	line-height: 1.5;

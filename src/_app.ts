@@ -94,7 +94,23 @@ export default (app: App) => {
     app.use(PrimeVue, {
         theme: {
             ripple: true,
-            preset:  definePreset(Aura, {}),
+            preset: definePreset(Aura, {
+                semantic: {
+                    primary: {
+                        50: '{noir.50}',
+                        100: '{noir.100}',
+                        200: '{noir.200}',
+                        300: '{noir.300}',
+                        400: '{noir.400}',
+                        500: '{noir.500}',
+                        600: '{noir.600}',
+                        700: '{noir.700}',
+                        800: '{noir.800}',
+                        900: '{noir.900}',
+                        950: '{noir.950}'
+                    }
+                }
+            }),
             inputVariant: "filled",
             options: {
                 prefix: 'p',
@@ -113,7 +129,6 @@ export default (app: App) => {
     app.directive('styleclass', StyleClass);
 
     app.component('Accordion', Accordion);
-    app.component('AccordionTab', AccordionTab);
     app.component('AutoComplete', AutoComplete);
     app.component('Avatar', Avatar);
     app.component('AvatarGroup', AvatarGroup);
