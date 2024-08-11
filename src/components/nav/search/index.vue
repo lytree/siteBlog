@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
 import Card from "primevue/card"
 import Tabs from 'primevue/tabs';
@@ -69,28 +69,28 @@ onMounted(() => {
                 </TabList>
                 <TabPanels>
                     <TabPanel value="0">
-                        <span class="p-input-icon-left w-full ">
-                            <i class="pi i-mdi-magnify"></i>
+                        <IconField>
+                            <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="百度一下" pt:root="input-with-select" />
-                        </span>
+                        </IconField>
                     </TabPanel>
                     <TabPanel value="1">
-                        <span class="p-input-icon-left w-full">
-                            <i class="pi i-mdi-magnify"></i>
+                        <IconField>
+                            <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="谷歌搜索" pt:root="input-with-select" />
-                        </span>
+                        </IconField>
                     </TabPanel>
                     <TabPanel value="2">
-                        <span class="p-input-icon-left w-full">
-                            <i class="pi i-mdi-magnify"></i>
+                        <IconField>
+                            <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="Bing搜索" pt:root="input-with-select" />
-                        </span>
+                        </IconField>
                     </TabPanel>
                     <TabPanel value="3">
-                        <span class="p-input-icon-left w-full">
-                            <i class="pi i-mdi-magnify"></i>
+                        <IconField>
+                            <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="微博搜索" pt:root="input-with-select" />
-                        </span>
+                        </IconField>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -105,9 +105,12 @@ onMounted(() => {
     margin-bottom: 0.5rem;
 }
 
+:deep(.p-tabpanels) {
+    --at-apply: py-4 px-0
+}
 
 .input-with-select {
     border: 1px solid #cbd5e1;
-    --at-apply: pl-[2.5rem] h-[40px] w-full;
+    --at-apply: pl-2.5 h-10 w-full;
 }
 </style>import type { TabClasses } from "primevue/tab/style";

@@ -2,7 +2,7 @@ import {
     defineConfig,
     presetAttributify,
     presetIcons,
-    presetTypography,  presetWind,
+    presetTypography, presetWind,
     transformerDirectives,
 } from 'unocss'
 export default defineConfig({
@@ -19,6 +19,9 @@ export default defineConfig({
     ],
     rules: [],
     theme: {
+        colors: {
+            "dark": '#18181b'
+        }
     },
     presets: [
 

@@ -9,6 +9,7 @@
 	--font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+
 /* roboto-regular - latin-ext_latin */
 @font-face {
 	font-family: "Roboto";
@@ -73,12 +74,14 @@ p {
 	text-decoration: none;
 	box-sizing: border-box;
 	background-color: transparent;
-	outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
+	outline: none;
+	/* 去除旧版浏览器的点击后的外虚线框 */
 
 	&:hover {
 		transition: 0.3s;
 	}
 }
+
 li,
 ul {
 	list-style-type: none;
@@ -139,6 +142,7 @@ code::selection {
 }
 
 @media print {
+
 	pre,
 	code {
 		text-shadow: none;
@@ -153,7 +157,7 @@ pre {
 	border-radius: 4px;
 }
 
-:not(pre) > code {
+:not(pre)>code {
 	padding: 0.1em 0.3em;
 	color: #db4c69;
 	background: #f9f2f4;
