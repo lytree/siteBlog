@@ -1,12 +1,7 @@
 <template>
-    <div class="flex justify-center">
-        <Menu :model="items" class="md:w-12">
-            <template #item="{ item, props }">
-                <a v-ripple class="flex items-center" v-bind="props.action">
-                    <span :class="item.icon" />
-                    <span>{{ item.label }}</span>
-                </a>
-            </template>
+    <div class="card flex justify-center">
+        <Menu :model="items">
+
         </Menu>
     </div>
 </template>
