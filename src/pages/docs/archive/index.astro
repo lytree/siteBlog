@@ -10,16 +10,11 @@ const posts = (await getCollection("docs")).sort(
 
 <DocLayout>
     <div class="hero-wave"></div>
-    <article class="inner-container">
+    <div class="container mt-10 flex grow">
         <Archive client:load posts={posts} />
-    </article>
+    </div>
 
     <style>
-        .inner-container {
-            display: flex;
-            flex-grow: 1;
-            justify-content: center;
-            max-width: 1300px;
-        }
-    </style></DocLayout
->
+
+    </style>
+</DocLayout>
