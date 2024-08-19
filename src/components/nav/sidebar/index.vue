@@ -1,9 +1,6 @@
 <template>
-    <div class="card flex justify-center">
-        <Menu :model="items">
-
-        </Menu>
-    </div>
+    <Menu :model="items">
+    </Menu>
 </template>
 
 <script setup lang="tsx">
@@ -20,7 +17,6 @@ const items = ref([
         icon: 'pi pi-search',
         shortcut: '⌘+S'
     }
-
     , {
         label: 'Settings',
         icon: 'pi pi-cog',
