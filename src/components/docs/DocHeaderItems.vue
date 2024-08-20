@@ -34,9 +34,7 @@ const items: Array<MenuItem> = [
 
 </script>
 <template>
-    <Menubar
-        class="absolute -translate-x-2/4 left-2/4 h-[var(--navBar-height)] md:h-[inherit] backdrop-blur-2xl bg-white bg-opacity-80 dark:bg-primary-950 dark:bg-opacity-80 shadow-2xl [transition:top_150ms,height_400ms_cubic-bezier(.47,1.64,.41,.8)] overflow-clip"
-        :model="items">
+    <Menubar class="" :model="items">
         <template #start>
             <slot name="avatar"></slot>
         </template>
@@ -59,18 +57,19 @@ const items: Array<MenuItem> = [
     </Menubar>
 </template>
 <style lang="scss" scoped>
-// :deep(.p-menubar-root-list) {
-//     --at-apply: flex flex-auto justify-center mx-2 leading-12;
+:deep(.p-menubar-root-list) {
+    --at-apply: flex flex-auto justify-center mx-2 leading-12;
 
-//     .p-menuitem {
-//         --at-apply: rounded;
-//     }
+    .p-menuitem {
+        --at-apply: rounded;
+    }
 
-//     .p-menuitem-content {
-//         --at-apply: rounded;
-//     }
-// }
+    .p-menuitem-content {
+        --at-apply: rounded;
+    }
+}
 
-// :deep(.p-menubar-end) {
-//     --at-apply: flex justify-end;
-// }</style>
+:deep(.p-menubar-end) {
+    --at-apply: flex justify-end;
+}
+</style>
