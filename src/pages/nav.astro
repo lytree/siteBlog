@@ -3,7 +3,7 @@ import Search from "../components/nav/search/index.vue";
 import Sidebar from "../components/nav/sidebar/index.vue";
 import VCard from "../components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Footer from "@/components/common/GlobalFooter.vue";
+import Footer from "@components/common/GlobalFooter.astro";
 ---
 
 <BaseLayout>
@@ -33,7 +33,7 @@ import Footer from "@/components/common/GlobalFooter.vue";
 				</div>
 			</div>
 			<div class="flex justify-center bg-white dark:bg-dark">
-				<Footer client:only="vue" />
+				<Footer />
 			</div>
 		</div>
 	</div>

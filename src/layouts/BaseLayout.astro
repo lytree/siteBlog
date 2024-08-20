@@ -3,6 +3,8 @@ import "../styles/global.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+
 ---
 
 <!doctype html>
@@ -21,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <title>{SITE_TITLE}</title>
         <meta name="title" content={SITE_TITLE} />
         <meta name="description" content={SITE_DESCRIPTION} />
-
+        <link rel="stylesheet" href="/fonts/ChillRoundF/ChillRoundF.css"/>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -38,5 +40,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         ></script>
         <slot name="head-end" /></head
     >
-    <body class="w-full h-full overflow-x-hidden"> <slot /></body>
+    <body class="w-full h-full overflow-x-hidden text-gray-700 dark:text-gray-200"> <slot /></body>
 </html>

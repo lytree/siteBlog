@@ -1,16 +1,17 @@
-<script setup lang="ts">
+---
 import ColorSwitch from "@/components/common/ColorSwitch.vue";
-import ClientOnly from "@/components/common/ClientOnly.tsx";
-</script>
+// import ClientOnly from "@/components/common/ClientOnly.tsx";
+---
 
-<template>
-    <ClientOnly>
-        <footer class="footer">
+
+
+<footer class="footer">
+                <!-- <ClientOnly> -->
             <div class="content">
                 <p class="copyright">
                     <slot name="copyright">
-                        Copyright © 2019 - {{ new Date().getFullYear() }}
-                        <ColorSwitch class="h-32px w-32px"></ColorSwitch>
+                        Copyright © 2019 - { new Date().getFullYear() }
+                        <ColorSwitch client:load class="h-32px w-32px"></ColorSwitch>
                     </slot>
                 </p>
                 <p class="message">
@@ -23,14 +24,11 @@ import ClientOnly from "@/components/common/ClientOnly.tsx";
                         </a>备案信息:<a href="https://beian.miit.gov.cn/ ">豫ICP备2021004086号-1</a>
                     </slot>
                 </p>
-            </div>
-        </footer>
-    </ClientOnly>
-</template>
-
-<style lang="css" scoped>
+            </div>    
+        <!-- </ClientOnly> -->
+ </footer>
+<style lang="css" is:global>
 .footer {
-    --at-apply: text-gray-700 dark:text-gray-200;
     font-size: 14px;
     white-space: nowrap;
 

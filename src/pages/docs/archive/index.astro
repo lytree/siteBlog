@@ -1,17 +1,14 @@
 ---
-import { getCollection } from "astro:content";
+
 import DocLayout from "@/layouts/DocLayout.astro";
 import Archive from "@/components/docs/Archive/index.vue";
 
-const posts = (await getCollection("docs")).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-);
 ---
 
 <DocLayout>
     <div class="hero-wave"></div>
     <div class="container mt-10 flex grow">
-        <Archive client:load posts={posts} />
+        <Archive client:load  />
     </div>
 
     <style>

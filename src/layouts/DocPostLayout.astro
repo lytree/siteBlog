@@ -1,51 +1,31 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from "@components/common/FormattedDate.astro";
 import BaseLayout from "./DocLayout.astro";
-interface Props {
-    asideDir?: "left" | "right" | false;
-}
+import Container from "./docs/Container.astro";
+import Header from "./docs/Header.astro";
+import GlobalFooter from '@components/common/GlobalFooter.astro';
 
-const { asideDir } = Astro.props;
+type Props = CollectionEntry<'docs'>['data'];
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <BaseLayout class="home">
-    <Fragment slot="head-end">
-        <script
-          is:inline
-          async
-          src="https://cdn.staticfile.org/fancyapps-ui/5.0.20/fancybox/fancybox.umd.min.js"
-        ></script>
-        <link
-          rel="stylesheet"
-          href="https://cdn.staticfile.org/fancyapps-ui/5.0.20/fancybox/fancybox.min.css"
-        />
-      </Fragment>
-      <slot name="post-hero" />
-      <article class="container md:mx-auto">
-        <main class="">
-          <slot />
-          <!-- {
-            ThemeConfig.postPage.relatedPosts && useRelatedPosts && (
-              <RelatedPosts lang={i18next.language} title={frontmatter.title} />
-            )
-          }
-    
-          {useComments && <PostComment />} -->
-        </main>
-        <div>侧边栏</div>
-      </article>
-      <Fragment slot="body-end">
-        <!-- <script is:inline>
-          siteUtils
-            .waitForGlobal("Fancybox")
-            .then((Fancybox) => {
-              Fancybox.bind("[data-fancybox]", {
-                closeButton: true,
-                Thumbs: {
-                  type: "modern",
-                },
-              });
-            })
-            .catch((err) => console.err(err));
-        </script> -->
-      </Fragment>
+  <Header />
+	<div>
+		<div class="mb-8">
+			<article class="text-black dark:text-white">
+				<h2 class="text-3xl font-bold leading-normal"></h2>
+				<div class="mt-4">
+					<FormattedDate class="opacity-60" date={pubDate} />
+					{updatedDate && <span class="opacity-60">(Last updated on <FormattedDate date={pubDate}/>)</span>}
+				</div>
+				<div class="mt-6">
+					<slot />
+        </div>
+			</article>
+		</div>
+		<slot name="comment" />
+	</div>
+	<GlobalFooter />
 </BaseLayout>

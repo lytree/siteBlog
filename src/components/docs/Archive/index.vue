@@ -2,8 +2,10 @@
 
 import DataView from 'primevue/dataview';
 import ClientOnly from '@components/common/ClientOnly';
-
-const { posts } = defineProps(["posts"]);
+import { getCollection } from "astro:content";
+const posts = (await getCollection("docs")).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+);
 
 console.log(posts);
 </script>
