@@ -1,29 +1,92 @@
 ---
-import "../styles/global.css";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-
+import "@/styles/global.scss";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import { profileConfig, siteConfig } from '@/config'
+import type { Favicon } from '../types/config'
 
+import { defaultFavicons } from '@/constants/icon'
+import {
+  AUTO_MODE,
+  DARK_MODE,
+  DEFAULT_THEME,
+  LIGHT_MODE,
+} from '@/constants/consts'
+import { url, pathsEqual } from '@/utils/url-utils'
+
+
+interface Props {
+  title?: string
+  banner?: string
+  description?: string
+}
+let { title, banner, description } = Astro.props
+
+
+let pageTitle: string
+if (title) {
+  pageTitle = `${title} - ${siteConfig.title}`
+} else {
+  pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`
+}
+const configHue = siteConfig.themeColor.hue
+if (!banner || typeof banner !== 'string' || banner.trim() === '') {
+  banner = siteConfig.banner.src
+}
+
+const favicons: Favicon[] =
+  siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
 
 ---
 
-<!doctype html>
-<html class="h-full w-full">
+<!DOCTYPE html>
+<html class="h-full w-full ">
     <head>
-        <!-- Global Metadata -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
 
-        <!-- Canonical URL -->
-        <link rel="canonical" href={canonicalURL} />
+		<title>{pageTitle}</title>
 
-        <!-- Primary Meta Tags -->
-        <title>{SITE_TITLE}</title>
-        <meta name="title" content={SITE_TITLE} />
-        <meta name="description" content={SITE_DESCRIPTION} />
-        <link rel="stylesheet" href="/fonts/ChillRoundF/ChillRoundF.css"/>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description || pageTitle}>
+		<meta name="author" content={profileConfig.name}>
+
+		<meta property="og:site_name" content={siteConfig.title}>
+		<meta property="og:url" content={Astro.url}>
+		<meta property="og:title" content={pageTitle}>
+		<meta property="og:description" content={description || pageTitle}>
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content={Astro.url}>
+		<meta name="twitter:title" content={pageTitle}>
+		<meta name="twitter:description" content={description || pageTitle}>
+
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{favicons.map(favicon => (
+			<link rel="icon"
+				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
+				  sizes={favicon.sizes}
+				  media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
+			/>
+		))}
+		<!-- Set the theme before the page is rendered to avoid a flash -->
+		<script is:inline define:vars={{DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE}}>
+			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
+			switch (theme) {
+				case LIGHT_MODE:
+					document.documentElement.classList.remove('dark');
+					break
+				case DARK_MODE:
+					document.documentElement.classList.add('dark');
+					break
+				case AUTO_MODE:
+					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.classList.add('dark');
+					} else {
+						document.documentElement.classList.remove('dark');
+					}
+			}
+		</script>
+
+		<slot name="head"></slot>
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -38,7 +101,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"
         ></script>
-        <slot name="head-end" /></head
-    >
-    <body class="w-full h-full overflow-x-hidden text-gray-700 dark:text-gray-200"> <slot /></body>
+        
+		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
+
+		<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
+    <body class="w-full h-full bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200"> <slot /></body>
 </html>
+<style is:global>
+	:root {
+		--hue: var(--configHue);
+		--page-width: 75rem;
+	}
+</style>

@@ -90,7 +90,7 @@ import TreeTable from 'primevue/treetable';
 import VirtualScroller from 'primevue/virtualscroller';
 import 'primeicons/primeicons.css'
 import 'virtual:uno.css'
-import '@/styles/global.css'
+import '@/styles/global.scss'
 export default (app: App) => {
     app.use(PrimeVue, {
         theme: {

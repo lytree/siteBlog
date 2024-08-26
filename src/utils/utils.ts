@@ -1,46 +1,4 @@
 export const siteUtils = {
-    calculateScrollPercentage: () => {
-        // 获取当前页面滚动的高度
-        let scrollPosition = document.documentElement.scrollTop || window.scrollY;
-
-        // 获取页面的总高度
-        let totalHeight = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.offsetHeight,
-            document.body.clientHeight,
-            document.documentElement.clientHeight
-        ) - document.documentElement.clientHeight;
-
-        // 计算滚动百分比并四舍五入
-        let scrollPercentage = Math.round(scrollPosition / totalHeight * 100);
-
-        // 获取用于显示百分比的元素
-        let percentDisplayElement = document.getElementById("percent");
-
-        // 计算可见窗口的底部位置
-        var visibleWindowBottomPosition = window.scrollY + document.documentElement.clientHeight;
-
-        // 获取网站底部元素
-        let siteFooterElement = document.getElementById("site-footer");
-
-        // 判断页面是否滚动到了网站的底部，或者滚动百分比是否超过了95%
-        if (siteFooterElement?.offsetTop + siteFooterElement?.offsetHeight / 2 < visibleWindowBottomPosition || scrollPercentage > 95) {
-            document.getElementById("menu-totop").classList.add("tobottom");
-        } else {
-            document.getElementById("menu-totop").classList.remove("tobottom");
-
-            // 如果滚动百分比是有效的，更新显示的百分比
-            if (scrollPercentage >= 0) {
-                percentDisplayElement.innerHTML = scrollPercentage;
-            }
-        }
-
-        // 判断页面是否在顶部，更改 header 的 class
-        let header = document.getElementById("site-header");
-        scrollPercentage > 0 ? header.classList.add("not-top") : header.classList.remove("not-top");
-    },
     scrollToDestination: (destination: number, duration: number) => {
         // 初始值检查，如果e或t小于0，直接返回
         if (destination < 0 || duration < 0) {
@@ -305,11 +263,3 @@ export const siteUtils = {
         return content;
     },
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    var links = document.querySelectorAll('a[href^="#"]');
-
-    for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', site.anchorScroll)
-    }
-});

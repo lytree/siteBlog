@@ -3,6 +3,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": [
@@ -17,6 +18,9 @@
     },
     "types": [
       "vue"
-    ]
-  }
+    ],
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
