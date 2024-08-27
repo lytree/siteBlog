@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import Menubar from "primevue/menubar";
 import type { MenuItem } from "primevue/menuitem";
-import ColorSwitch from "@/components/common/ColorSwitch.vue";
 
 const items: Array<MenuItem> = [
     {

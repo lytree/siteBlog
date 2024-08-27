@@ -5,28 +5,29 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-	<div class="flex flex-col h-full ">
-		<div class="h-full flex flex-col justify-center items-center">
-			<div class="flex justify-center items-center">
+	<div class="flex flex-col min-h-screen">
+		<div class="flex flex-grow flex-col justify-center items-center">
+			<div>
+				<div class="flex justify-center items-center">
 				<img
 					class="logo inline rounded-full"
-					src="https://blog-1257980368.cos.ap-shanghai.myqcloud.com/avatar.jpg"
+					src="/favicon/favicon192.png"
 					alt="logo"
 					width="150"
 				/>
-			</div>
-
-			<h1
+				</div>
+			
+				<h1
 				class="flex justify-center items-center "
 			>
 				lytree
-			</h1>
-			<h2
+				</h1>
+				<h2
 				class="flex justify-center items-center "
 			>
 				回忆的地方
-			</h2>
-			<p class="flex justify-center items-center">
+				</h2>
+				<p class="flex justify-center items-center">
 				<a href="https://github.com/lytree">
 					<img
 						src="https://img.shields.io/badge/GitHub-181717?logo=Github&logoColor=fff"
@@ -69,9 +70,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 						alt="Github"
 					/>
 				</a>
-			</p>
+				</p>
+			</div>
 		</div>
-		<div class="shrink-0">
+		<div >
 			<GlobalFooter />
 		</div>
 	</div>

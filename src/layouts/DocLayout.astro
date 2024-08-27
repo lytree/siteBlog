@@ -1,37 +1,19 @@
 ---
-import Init from "@/components/common/Init.vue";
-import Footer from "@/components/common/GlobalFooter.astro";
-import Header from "./docs/Header.astro";
+import ImageWrapper from "@components/ImageWrapper.astro";
 import BaseLayout from "./BaseLayout.astro";
-import Container from "./docs/Container.astro";
+import ConfigCarrier from "./components/ConfigCarrier.astro";
+import {  siteConfig } from '@/config'
 ---
 
 <BaseLayout>
-    
-        <Header />
-        <Container defaultPadding={true}>
-            <div class="mb-8">
-                <article class="text-black dark:text-white">
-                    <h2 class="text-3xl font-bold leading-normal"></h2>
-                    <div class="mt-6">
-                        <slot />
-                    </div>
-                </article>
-            </div>
-    
-            <slot name="comment" />
-        </Container>
-        <Footer />
-        <Init client:idle />
-        <script>
-            const html = document.getElementsByTagName("html")[0];
-            const SmoothScroll = () => {
-                html.style["scroll-behavior"] = "auto";
-            };
-            SmoothScroll();
-            document.addEventListener("astro:beforeload", SmoothScroll);
-        </script>
-        <slot name="body-end" />
-    
-    <style lang="scss" is:global></style>
+    <ConfigCarrier></ConfigCarrier>
+		<div id="banner-wrapper" class="absolute w-full transition-all duration-700">
+			<ImageWrapper id="boxtest" alt="Banner image of the blog" class:list={["object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
+					  src={siteConfig.banner.src} position={siteConfig.banner.position}
+			>
+			</ImageWrapper>
+		</div>
+		<slot />
+  
 </BaseLayout>
+<style lang="scss" is:global></style>
