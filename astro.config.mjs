@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import UnoCSS from 'unocss/astro'
 import { remarkReadingTime } from './src/utils/readTime'
-
+import icon from "astro-icon";
 
 
 
@@ -12,6 +12,9 @@ import { remarkReadingTime } from './src/utils/readTime'
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
+	server: {
+		host: "10.100.0.113"
+	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		// drafts: true,
@@ -33,7 +36,7 @@ export default defineConfig({
 		vue({ appEntrypoint: "./src/_app", jsx: true }),
 		UnoCSS({
 			injectReset: true // or a path to the reset file
-		}),
+		}), icon()
 	],
 	vite: {
 		build: {

@@ -20,6 +20,7 @@
     "@swup/astro": "^1.4.1",
     "@vueuse/core": "^10.11.1",
     "astro": "^4.14.5",
+    "astro-icon": "^1.1.1",
     "color": "^4.2.3",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.5",
@@ -27,6 +28,10 @@
     "vue": "^3.4.38"
   },
   "devDependencies": {
+    "@iconify-json/fa6-brands": "^1.1.22",
+    "@iconify-json/fa6-regular": "^1.1.22",
+    "@iconify-json/fa6-solid": "^1.1.24",
+    "@iconify-json/material-symbols": "^1.1.89",
     "@iconify-json/mdi": "^1.1.68",
     "@types/node": "^20.16.1",
     "@unocss/astro": "^0.62.3",

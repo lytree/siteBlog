@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import DocLayout from "@/layouts/DocLayout.astro";
+import DocHomeLayout from "@/layouts/DocHomeLayout.astro";
 import PostCard from "@components/docs/PostCard.vue";
 import type { only } from "node:test";
 // import { siteUtils } from "@/utils/utils";
@@ -10,7 +10,7 @@ const posts = (await getCollection("docs")).sort(
 );
 ---
 
-<DocLayout>
+<DocHomeLayout>
 	<!-- <Fragment slot="beforeContainer">
 		<div class="hero-shoot">
 			<div
@@ -82,4 +82,4 @@ const posts = (await getCollection("docs")).sort(
 			}
 		</style>
 	</Fragment> -->
-</DocLayout>
+</DocHomeLayout>
