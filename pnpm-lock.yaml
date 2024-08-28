@@ -4,13 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-<<<<<<< HEAD
 overrides:
   vite-imagetools: ^6.2.7
   sharp: ^0.33.0
 
-=======
->>>>>>> dev1
 importers:
 
   .:
