@@ -21,6 +21,7 @@ import yaml from '@rollup/plugin-yaml';
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://www.prideyang.top/",
 	base: "/",
 	trailingSlash: "always",
 	markdown: {
@@ -83,11 +84,20 @@ export default defineConfig({
 		appEntrypoint: "./src/_app"
 	}), UnoCSS({
 		injectReset: true // or a path to the reset file
-	}), icon()],
+	}), icon({
+		include: {
+			"material-symbols": ["*"],
+			"fa6-brands": ["*"],
+			"fa6-regular": ["*"],
+			"fa6-solid": ["*"],
+			"mdi": ["*"],
+		},
+	})],
 	vite: {
 		plugins: [yaml()],
 		build: {
 			rollupOptions: {
+
 				onwarn(warning, warn) {
 					// temporarily suppress this warning
 					if (warning.message.includes("is dynamically imported by") && warning.message.includes("but also statically imported by")) {
@@ -95,8 +105,8 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
-				external: ['tsconfig.json']
-			},
+				external: ["fsevents"]
+			}
 
 		}
 	}

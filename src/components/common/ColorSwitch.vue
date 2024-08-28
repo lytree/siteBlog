@@ -1,6 +1,6 @@
 <template>
     <ClientOnly>
-        <Button icon="pi" :iconClass="isDark ? 'pi-moon' : 'pi-sun'" text rounded @click="toggleDark()">
+        <Button icon="pi" :iconClass="isDark ? 'i-mdi:moon-waning-crescent' : 'i-mdi:white-balance-sunny'" text rounded @click="toggleDark()">
         </Button>
     </ClientOnly>
 </template>

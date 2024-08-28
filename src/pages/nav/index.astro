@@ -3,7 +3,7 @@ import Search from "@/components/nav/search/index.vue";
 import Sidebar from "@/components/nav/sidebar/index.vue";
 import VCard from "@/components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import GlobalFooter from "@/components/common/GlobalFooter.astro";
+import GlobalFooter from "@/components/GlobalFooter.astro";
 ---
 
 <BaseLayout>
@@ -15,19 +15,19 @@ import GlobalFooter from "@/components/common/GlobalFooter.astro";
 			<div class="h-[128px]"><!--header--></div>
 			<div id="context" class="lg:container lg:mx-[20%]  flex-1 relative">
 				<div class="hidden lg:block absolute rounded-lg right-[100%] ">
-					<Sidebar client:only="vue" />
+					<Sidebar client:load />
 				</div>
 				<div class="mx-5">
 					<div class="h-[196px]">
 						<!-- 搜索开始 -->
 						<Search
 							class="bg-white dark:bg-dark"
-							client:only="vue"
+							client:load
 						/>
 					</div>
 					<div class="lg:container mx-auto w-max-[1680px]">
 						<div class="flex flex-col space-y-64px">
-							<VCard bg-white dark:bg-dark client:only="vue" />
+							<VCard client:load bg-white dark:bg-dark  />
 						</div>
 					</div>
 				</div>

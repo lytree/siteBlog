@@ -1,7 +1,7 @@
 <template>
     <div class="hide hidden"></div>
 </template>
-  
+
 <script setup>
 import { watch, ref, onMounted } from "vue";
 import { useWindowSize } from "@vueuse/core";
@@ -95,10 +95,9 @@ onMounted(() => {
 watch(width, (val) => {
     if (!shown.value) {
         console.log(
-
+            "init"
         );
         shown.value = true;
     }
 });
 </script>
-  
