@@ -4,7 +4,18 @@ import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
 import UnoCSS from 'unocss/astro'
-import { remarkReadingTime } from './src/utils/time-utils'
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeComponents from "rehype-components"; /* Render the custom directive content */
+import rehypeKatex from "rehype-katex"
+import rehypeSlug from "rehype-slug"
+import remarkDirective from "remark-directive" /* Handle directives */
+import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
+import remarkMath from "remark-math"
+import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs"
+import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs"
+import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
+import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
+import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import icon from "astro-icon";
 
 
@@ -17,7 +28,44 @@ export default defineConfig({
 		host: "10.100.0.113"
 	},
 	markdown: {
-		remarkPlugins: [remarkReadingTime],
+		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
+		rehypePlugins: [
+			rehypeKatex,
+			rehypeSlug,
+			[rehypeComponents, {
+				components: {
+					github: GithubCardComponent,
+					note: (x, y) => AdmonitionComponent(x, y, "note"),
+					tip: (x, y) => AdmonitionComponent(x, y, "tip"),
+					important: (x, y) => AdmonitionComponent(x, y, "important"),
+					caution: (x, y) => AdmonitionComponent(x, y, "caution"),
+					warning: (x, y) => AdmonitionComponent(x, y, "warning"),
+				},
+			}],
+			[
+				rehypeAutolinkHeadings,
+				{
+					behavior: "append",
+					properties: {
+						className: ["anchor"],
+					},
+					content: {
+						type: "element",
+						tagName: "span",
+						properties: {
+							className: ["anchor-icon"],
+							'data-pagefind-ignore': true,
+						},
+						children: [
+							{
+								type: "text",
+								value: "#",
+							},
+						],
+					},
+				},
+			],
+		],
 		// drafts: true,
 		shikiConfig: {
 			theme: 'dracula',

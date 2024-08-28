@@ -75,15 +75,7 @@ export default defineConfig({
             scale: 1.2,
             warn: true,
         }),
-        presetTypography({
-            selectorName: 'markdown-body',
-            cssExtend: {
-                '*': {
-                    'text-align': 'left',
-                },
-                'p img': { display: 'block', margin: '0 auto' },
-            },
-        }),
+        presetTypography(),
         // presetGrid({
         //   piece: "0px"
         // })
