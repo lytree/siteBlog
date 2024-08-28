@@ -10,6 +10,7 @@ export default defineConfig({
 
     content: {
         pipeline: {
+            include: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,mjs}"],
             exclude: ['node_modules', 'dist', '.git', '.husky', '.vscode', 'public', 'build', 'mock', './stats.html', 'assets/style'],
         },
     },
