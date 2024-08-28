@@ -88,7 +88,6 @@ import Tree from 'primevue/tree';
 import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import VirtualScroller from 'primevue/virtualscroller';
-import 'primeicons/primeicons.css'
 import 'virtual:uno.css'
 import '@/styles/global.scss'
 export default (app: App) => {

@@ -6,19 +6,13 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
       "@/*": [
         "src/*"
       ]
     },
     "types": [
       "vue"
-    ],
+    ]
   },
   "include": [
     "src/**/*"

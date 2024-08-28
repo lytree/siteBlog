@@ -17,16 +17,13 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import icon from "astro-icon";
-
+import yaml from '@rollup/plugin-yaml';
 
 
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
-	server: {
-		host: "10.100.0.113"
-	},
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
 		rehypePlugins: [
@@ -103,7 +100,7 @@ export default defineConfig({
 		icon()
 	],
 	vite: {
-		assetsInclude: ['**/*.hdr', '**/*.glb', '**/*.JPG','**/*.JPG'],
+		plugins: [yaml()],
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {
@@ -113,7 +110,6 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
-				exclude: ["pnpm-lock.yaml"],
 			}
 		}
 	}
