@@ -110,6 +110,7 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
+				external: ["fsevents"]
 			}
 		}
 	}
