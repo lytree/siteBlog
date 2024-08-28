@@ -21,12 +21,8 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
 	base: "/",
 	trailingSlash: "always",
-	server: {
-		host: true
-	},
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
 		rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
@@ -84,13 +80,11 @@ export default defineConfig({
 		updateBodyClass: false,
 		globalInstance: true
 	}), vue({
-		appEntrypoint: "./src/_app",
-		jsx: true
+		appEntrypoint: "./src/_app"
 	}), UnoCSS({
 		injectReset: true // or a path to the reset file
 	}), icon()],
 	vite: {
-		assetsInclude: ['**/*.hdr', '**/*.glb', '**/*.JPG', '**/*.JPG'],
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {

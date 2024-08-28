@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev --verbose",
     "start": "astro dev",
-    "build": " astro build && pagefind --site dist ",
+    "build": "astro build --verbose&& pagefind --site dist ",
     "preview": "astro preview",
     "astro": "astro",
     "help": "tsx ./hsublog-cli.ts help"
@@ -26,7 +26,6 @@
     "pagefind": "^1.1.0",
     "hastscript": "^9.0.0",
     "mdast-util-to-string": "^4.0.0",
-    "primeicons": "^7.0.0",
     "primevue": "^4.0.5",
     "typescript": "^5.5.4",
     "unist-util-visit": "^5.0.0",

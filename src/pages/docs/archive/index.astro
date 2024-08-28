@@ -1,15 +1,11 @@
 ---
 
-import DocLayout from "@/layouts/BaseLayout.astro";
-import Archive from "@/components/docs/Archive/index.vue";
+import DocLayout from "@/layouts/DocLayout.astro";
 
 ---
 
 <DocLayout>
     <div class="hero-wave"></div>
-    <div class="container mt-10 flex grow">
-        <Archive client:load  />
-    </div>
 
     <style>
 
