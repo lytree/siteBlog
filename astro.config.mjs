@@ -99,9 +99,11 @@ export default defineConfig({
 		vue({ appEntrypoint: "./src/_app", jsx: true }),
 		UnoCSS({
 			injectReset: true // or a path to the reset file
-		}), icon()
+		}),
+		icon()
 	],
 	vite: {
+		assetsInclude: ['**/*.hdr', '**/*.glb', '**/*.JPG','**/*.JPG'],
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {
@@ -110,7 +112,8 @@ export default defineConfig({
 						return;
 					}
 					warn(warning);
-				}
+				},
+				exclude: ["pnpm-lock.yaml"],
 			}
 		}
 	}
