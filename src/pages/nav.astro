@@ -3,7 +3,7 @@ import Search from "@/components/nav/search/index.vue";
 import Sidebar from "@/components/nav/sidebar/index.vue";
 import VCard from "@/components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Footer from "@components/common/GlobalFooter.astro";
+import GlobalFooter from "@components/common/GlobalFooter.astro";
 ---
 
 <BaseLayout>
@@ -11,7 +11,7 @@ import Footer from "@components/common/GlobalFooter.astro";
 		class="h-full w-full bg-cover bg-center"
 		style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
 	>
-		<div class="h-full w-full flex flex-col">
+		<div class="min-h-screen w-full flex flex-col">
 			<div class="h-[128px]"><!--header--></div>
 			<div id="context" class="lg:container lg:mx-[20%]  flex-1 relative">
 				<div class="hidden lg:block absolute rounded-lg right-[100%] ">
@@ -32,10 +32,10 @@ import Footer from "@components/common/GlobalFooter.astro";
 					</div>
 				</div>
 			</div>
-			<div class="flex justify-center bg-white dark:bg-dark">
-				<Footer />
+			<div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
+				<GlobalFooter />
 			</div>
 		</div>
 	</div>
-	<style lang="css"></style>
+	<style lang="scss"></style>
 </BaseLayout>

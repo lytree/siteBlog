@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import DocPostLayout from "@/layouts/DocPostLayout.astro";
+import DocPostLayout from "@/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("docs");

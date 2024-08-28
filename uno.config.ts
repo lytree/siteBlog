@@ -5,6 +5,7 @@ import {
     presetTypography, presetWind,
     transformerDirectives,
 } from 'unocss'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 export default defineConfig({
 
     content: {
@@ -12,10 +13,11 @@ export default defineConfig({
             exclude: ['node_modules', 'dist', '.git', '.husky', '.vscode', 'public', 'build', 'mock', './stats.html', 'assets/style'],
         },
     },
-    transformers: [transformerDirectives()],
+    transformers: [transformerDirectives(), transformerVariantGroup()],
     shortcuts: [
         ['border-top', 'border-t-[1px] border-b-0 border-x-0   light:border-[#3c3c3c1f] dark:border-[#5454547a] border-solid'],
         ['border-bottom', 'border-b-[1px] border-t-0 border-x-0   light:border-[#3c3c3c1f] dark:border-[#5454547a] border-solid'],
+        ['expand-animation', 'relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10']
     ],
     rules: [],
     theme: {
@@ -60,7 +62,7 @@ export default defineConfig({
         },		// 这里使用了与「吐槽大王部落格」同款的圆体字体。
         // 如果你希望使用其它字体或默认字体，可以修改下面的字体列表或直接删除这一属性。
         fontFamily: {
-            sans: ['"ChillRoundF"', "'-apple-system'", "'Microsoft YaHei'", "sans-serif"]
+            sans: ["'-apple-system'", "'Microsoft YaHei'", "sans-serif"]
         }
     },
     presets: [

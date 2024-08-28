@@ -18,5 +18,5 @@ const category = Astro.params.category as string
 ---
 
 <DocLayout title={"分类"} description={"分类"}>
-    <ArchivePanel ></ArchivePanel>
+    <ArchivePanel categories={[category]}></ArchivePanel>
 </DocLayout>

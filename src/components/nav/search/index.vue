@@ -17,7 +17,6 @@ const searchText = ref('')
 let url = 'https://www.baidu.com/s?wd='
 
 function tabChange(originalEvent: TabViewChangeEvent) {
-    console.log(originalEvent)
 
     switch (originalEvent.index) {
         case 0:

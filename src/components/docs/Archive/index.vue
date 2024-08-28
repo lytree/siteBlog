@@ -4,10 +4,9 @@ import DataView from 'primevue/dataview';
 import ClientOnly from '@components/common/ClientOnly';
 import { getCollection } from "astro:content";
 const posts = (await getCollection("docs")).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+    (a, b) => a.data.published.valueOf() - b.data.published.valueOf(),
 );
 
-console.log(posts);
 </script>
 <template>
     <!-- <ClientOnly>

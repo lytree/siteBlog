@@ -110,8 +110,7 @@ $rainbow-dark: linear-gradient(to right,
 
 
 // 应用颜色集
-@include color-set((
-	    --primary: (oklch(0.70 0.14 var(--hue)), oklch(0.75 0.14 var(--hue))),
+@include color-set((--primary: (oklch(0.70 0.14 var(--hue)), oklch(0.75 0.14 var(--hue))),
 		--page-bg: (oklch(0.95 0.01 var(--hue)), oklch(0.16 0.014 var(--hue))),
 		--card-bg: (white, oklch(0.23 0.015 var(--hue))),
 		--btn-content: (oklch(0.55 0.12 var(--hue)), oklch(0.75 0.1 var(--hue))),
@@ -232,9 +231,6 @@ strong {
 	--at-apply: drop-shadow-[0_2px_4px_rgba(0, 0, 0, 0.005)]
 }
 
-.expand-animation {
-	--at-apply: relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10
-}
 
 .link {
 	--at-apply: transition rounded-md p-1 -m-1 expand-animation;
@@ -288,23 +284,23 @@ strong {
 	--at-apply: transition underline decoration-2 decoration-dashed decoration-[var(--link-underline)] hover:decoration-[var(--link-hover)] active:decoration-[var(--link-active)] underline-offset-[0.25rem]
 }
 
-.text-90 {
+.text-color-90 {
 	--at-apply: text-black/90 dark:text-white/90
 }
 
-.text-75 {
+.text-color-75 {
 	--at-apply: text-black/75 dark:text-white/75
 }
 
-.text-50 {
+.text-color-50 {
 	--at-apply: text-black/50 dark:text-white/50
 }
 
-.text-30 {
+.text-color-30 {
 	--at-apply: text-black/30 dark:text-white/30
 }
 
-.text-25 {
+.text-color-25 {
 	--at-apply: text-black/25 dark:text-white/25
 }
 
@@ -424,4 +420,42 @@ html.is-animating .transition-swup-fade {
 		--os-handle-bg-hover: var(--scrollbar-bg-hover-light);
 		--os-handle-bg-active: var(--scrollbar-bg-active-light);
 	}
+}
+
+@keyframes fade-in-up {
+	0% {
+		transform: translateY(2rem);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.onload-animation {
+	opacity: 0;
+	animation: 300ms fade-in-up;
+	animation-fill-mode: forwards;
+}
+
+#navbar {
+	animation-delay: 0ms
+}
+
+#sidebar {
+	animation-delay: 100ms
+}
+
+#content-wrapper {
+	animation-delay: var(--content-delay);
+}
+
+#footer {
+	animation-delay: 400ms;
+}
+
+#banner-credit {
+	animation-delay: 400ms;
 }

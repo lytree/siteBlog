@@ -1,9 +1,10 @@
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
+import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
 import UnoCSS from 'unocss/astro'
-import { remarkReadingTime } from './src/utils/readTime'
+import { remarkReadingTime } from './src/utils/time-utils'
 import icon from "astro-icon";
 
 
@@ -33,6 +34,20 @@ export default defineConfig({
 			// drafts: true
 		}),
 		sitemap(),
+		swup({
+			theme: false,
+			animationClass: 'transition-swup-',   // see https://swup.js.org/options/#animationselector
+			// the default value `transition-` cause transition delay
+			// when the Tailwind class `transition-all` is used
+			containers: ['main'],
+			smoothScrolling: true,
+			cache: true,
+			preload: true,
+			accessibility: true,
+			updateHead: true,
+			updateBodyClass: false,
+			globalInstance: true,
+		}),
 		vue({ appEntrypoint: "./src/_app", jsx: true }),
 		UnoCSS({
 			injectReset: true // or a path to the reset file
