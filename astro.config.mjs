@@ -17,7 +17,7 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import icon from "astro-icon";
-
+import yaml from '@rollup/plugin-yaml';
 
 // https://astro.build/config
 export default defineConfig({
@@ -85,6 +85,7 @@ export default defineConfig({
 		injectReset: true // or a path to the reset file
 	}), icon()],
 	vite: {
+		plugins: [yaml()],
 		build: {
 			rollupOptions: {
 				onwarn(warning, warn) {
@@ -93,8 +94,10 @@ export default defineConfig({
 						return;
 					}
 					warn(warning);
-				}
-			}
+				},
+				external: ['tsconfig.json']
+			},
+
 		}
 	}
 });

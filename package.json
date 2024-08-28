@@ -7,8 +7,7 @@
     "start": "astro dev",
     "build": "astro build --verbose&& pagefind --site dist ",
     "preview": "astro preview",
-    "astro": "astro",
-    "help": "tsx ./hsublog-cli.ts help"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
