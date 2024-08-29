@@ -1,16 +1,9 @@
 <script lang="tsx" setup>
 import { ref } from "vue";
 
-const getJson = async function (url: string | URL | Request) {
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error("HTTP error " + response.status);
-    }
-    return await response.json();
-}
 
 
-const navs = await getJson(`/scripts/navs.json`);
+const navs: any[] = [];
 
 
 const items = ref([

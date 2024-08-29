@@ -17,7 +17,7 @@
     "@astrojs/vue": "^4.5.0",
     "@primevue/themes": "^4.0.5",
     "@swup/astro": "^1.4.1",
-    "@vueuse/core": "^10.11.1",
+    "@vueuse/core": "^11.0.3",
     "astro": "^4.14.6",
     "astro-icon": "^1.1.1",
     "colorjs.io": "^0.5.2",

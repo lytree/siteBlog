@@ -4,6 +4,13 @@ import Sidebar from "@/components/nav/sidebar/index.vue";
 import VCard from "@/components/nav/card/index.vue";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import GlobalFooter from "@/components/GlobalFooter.astro";
+
+
+
+
+const response  = await fetch(new URL("/scripts/navs.json", Astro.url));
+const navs = await response.json();
+console.log(navs)
 ---
 
 <BaseLayout>

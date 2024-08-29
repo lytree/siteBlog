@@ -22,8 +22,9 @@ import yaml from '@rollup/plugin-yaml';
 // https://astro.build/config
 export default defineConfig({
 	site: "https://www.prideyang.top",
-
-	base:"/",
+	server:{
+		host:"10.100.0.113",
+	},
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
 		rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
