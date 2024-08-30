@@ -7,11 +7,11 @@ import ColorSwitch from "@/components/vue/ColorSwitch.vue"
 
 <footer class="footer">
                 <!-- <ClientOnly> -->
-            <div class="content">
+        
                 <p class="copyright">
                     <slot name="copyright">
-                        Copyright © 2019 - { new Date().getFullYear() }
-                        <ColorSwitch client:load class="h-32px w-32px"></ColorSwitch>
+                        <div class="flex flex-row items-center justify-center">
+                        <div>Copyright © 2019 - { new Date().getFullYear() }</div><ColorSwitch client:load ></ColorSwitch> </div>
                     </slot>
                 </p>
                 <p class="message">
@@ -24,27 +24,19 @@ import ColorSwitch from "@/components/vue/ColorSwitch.vue"
                         </a>备案信息:<a href="https://beian.miit.gov.cn/ ">豫ICP备2021004086号-1</a>
                     </slot>
                 </p>
-            </div>    
+              
         <!-- </ClientOnly> -->
  </footer>
-<style lang="css" is:global>
+<style lang="scss" is:global>
 .footer {
-    font-size: 14px;
+    --at-apply:my-4 mx-auto text-center text-sm m-0 font-medium ;
     white-space: nowrap;
 
-    .content {
-        --at-apply: my-0 mx-auto max-w-[var(--layout-max-width)] text-center;
 
         .copyright,
         .message {
-
-            --at-apply: text-sm m-0 font-medium leading-32px transition: color 0.25s;
-
-            a,
-            p {
-                --at-apply: text-sm m-0 font-medium leading-32px transition: color 0.25s;
-            }
+            --at-apply: text-sm leading-5;
+            transition: color 0.25s;
         }
-    }
 }
 </style>
