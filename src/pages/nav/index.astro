@@ -10,7 +10,7 @@ import GlobalFooter from "@/components/GlobalFooter.astro";
 
 const response  = await fetch(new URL("/scripts/navs.json", Astro.url));
 const navs = await response.json();
-console.log(navs)
+
 ---
 
 <BaseLayout>
@@ -22,7 +22,7 @@ console.log(navs)
 			<div class="h-[128px]"><!--header--></div>
 			<div id="context" class="lg:container lg:mx-[20%]  flex-1 relative">
 				<div class="hidden lg:block absolute rounded-lg right-[100%] ">
-					<Sidebar client:load />
+					<!-- <Sidebar client:load /> -->
 				</div>
 				<div class="mx-5">
 					<div class="h-[196px]">
@@ -34,12 +34,12 @@ console.log(navs)
 					</div>
 					<div class="lg:container mx-auto w-max-[1680px]">
 						<div class="flex flex-col space-y-64px">
-							<VCard client:load bg-white dark:bg-dark  />
+							<VCard list={navs} client:load bg-white dark:bg-dark  />
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="card-base max-w-[var(--page-width)] min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
+			<div class="card-base w-80% min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
 				<GlobalFooter />
 			</div>
 		</div>

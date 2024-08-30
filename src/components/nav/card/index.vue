@@ -1,9 +1,12 @@
 <script lang="tsx" setup>
 import { ref } from "vue";
+import type { NavGroup } from "./type";
 
-
-
-const navs: any[] = [];
+withDefaults(defineProps<{
+    list: NavGroup[]
+}>(), {
+    list: () => [],
+})
 
 
 const items = ref([
@@ -37,7 +40,7 @@ const items = ref([
 </script>
 <template>
 
-    <div v-for="nav in navs" class="py-1 ">
+    <div v-for="nav in list" class="py-1 ">
         <Card pt:root="bg-white" pt:title="border-solid border-b-1 border-slate-600" pt:content="card-content">
             <template #title>
                 <div class=" ">
