@@ -1,5 +1,6 @@
 import type { App } from 'vue';
 import { definePreset } from '@primevue/themes';
+import {} from '@primevue/core'
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import AutoComplete from 'primevue/autocomplete';
@@ -219,4 +220,12 @@ export default (app: App) => {
     app.component('TreeSelect', TreeSelect);
     app.component('TreeTable', TreeTable);
     app.component('VirtualScroller', VirtualScroller);
+    app.directive('removeAriaHidden', (el, binding) => {
+        console.log(el, binding)
+        const ariaEls = el.querySelectorAll('.p-menubar-item-link')
+        ariaEls.forEach((item: any) => {
+            item.removeAttribute('aria-hidden')
+        })
+
+    })
 };

@@ -1,5 +1,4 @@
 <script lang="tsx" setup>
-import Menubar from "primevue/menubar";
 import type { MenuItem } from "primevue/menuitem";
 
 const items: Array<MenuItem> = [
@@ -27,14 +26,14 @@ const items: Array<MenuItem> = [
         label: "关于",
         icon: "pi i-mdi-about",
         url: "/docs/about",
-    },
+    }
 ];
 
 
 </script>
 <template>
     <div>
-        <Menubar :model="items">
+        <Menubar :model="items" v-removeAriaHidden>
             <template #start>
                 <slot name="avatar"></slot>
             </template>
@@ -62,7 +61,5 @@ const items: Array<MenuItem> = [
     .p-menubar-root-list {
         --at-apply: flex flex-auto justify-center mx-2 leading-12;
     }
-
-
 }
 </style>

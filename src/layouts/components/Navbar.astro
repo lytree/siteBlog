@@ -20,7 +20,7 @@ let links: NavBarLink[] = [];
     <div class:list={[
         className,
         "card-base overflow-visible max-w-[var(--page-width)] h-[4.5rem] rounded-t-none mx-auto flex items-center justify-between px-4"]}>
-        <DocHeaderItems client:only="vue"></DocHeaderItems>
+        <DocHeaderItems client:load></DocHeaderItems>
         
         <!-- <DisplaySettings client:only="svelte">
             <Icon slot="restore-icon" name="fa6-solid:arrow-rotate-left" class="text-[0.875rem]"></Icon>
@@ -28,32 +28,32 @@ let links: NavBarLink[] = [];
     </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" is:global>
 </style>
 
 <script>
 
-function loadButtonScript() {
+// function loadButtonScript() {
 
 
-    let settingBtn = document.getElementById("display-settings-switch");
-    settingBtn!.addEventListener("click", function () {
-        let settingPanel = document.getElementById("display-setting");
-        settingPanel!.classList.toggle("float-panel-closed");
-    });
+//     let settingBtn = document.getElementById("display-settings-switch");
+//     settingBtn!.addEventListener("click", function () {
+//         let settingPanel = document.getElementById("display-setting");
+//         settingPanel!.classList.toggle("float-panel-closed");
+//     });
 
-    let menuBtn = document.getElementById("nav-menu-switch");
-    menuBtn!.addEventListener("click", function () {
-        let menuPanel = document.getElementById("nav-menu-panel");
-        menuPanel!.classList.toggle("float-panel-closed");
-    });
-}
+//     let menuBtn = document.getElementById("nav-menu-switch");
+//     menuBtn!.addEventListener("click", function () {
+//         let menuPanel = document.getElementById("nav-menu-panel");
+//         menuPanel!.classList.toggle("float-panel-closed");
+//     });
+// }
 
-loadButtonScript();
+// loadButtonScript();
 
-document.addEventListener('astro:after-swap', () => {
-    loadButtonScript();
-}, { once: false });
+// document.addEventListener('astro:after-swap', () => {
+//     loadButtonScript();
+// }, { once: false });
 </script>
 
 {import.meta.env.PROD && <script is:inline define:vars={{scriptUrl: url('/pagefind/pagefind.js')}}>
