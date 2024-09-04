@@ -3,37 +3,71 @@ import type { MenuItem } from "primevue/menuitem";
 
 const items: Array<MenuItem> = [
     {
+        key: "index",
         label: "首页",
         icon: "pi i-mdi-home",
         url: "/docs",
     },
     {
+        key: "archive",
         label: "归档",
         icon: "pi i-mdi-archive",
         url: "/docs/archive",
     },
     {
+        key: "category",
         label: "分类",
         icon: "pi i-mdi-category",
         url: "/docs/category",
     },
     {
+        key: "tag",
         label: "标签",
         icon: "pi i-mdi-tag",
         url: "/docs/tag",
     },
     {
+        key: "about",
         label: "关于",
         icon: "pi i-mdi-about",
         url: "/docs/about",
     }
 ];
+const pt = {
+    root: ({ instance }: any) => [
+        'p-menubar p-component',
+        {
+            'p-menubar-mobile': instance.queryMatches,
+            'p-menubar-mobile-active': instance.mobileActive
+        }
+    ],
+    start: 'p-menubar-start',
+    button: 'p-menubar-button',
+    rootList: 'p-menubar-root-list',
+    item: ({ instance, processedItem }: any) => {
 
+        return [
+            'p-menubar-item',
+            {
+                'p-menubar-item-active': instance.isItemActive(processedItem),
+
+            }
+        ]
+    },
+    itemContent: 'p-menubar-item-content',
+    itemLink: 'p-menubar-item-link',
+    itemIcon: 'p-menubar-item-icon',
+    itemLabel: 'p-menubar-item-label',
+    submenuIcon: 'p-menubar-submenu-icon',
+    submenu: 'p-menubar-submenu',
+    separator: 'p-menubar-separator',
+    end: 'p-menubar-end'
+}
 
 </script>
 <template>
     <div>
-        <Menubar :model="items" v-removeAriaHidden>
+        <Menubar :model="items" breakpoint="768px" :pt=pt>
             <template #start>
                 <slot name="avatar"></slot>
             </template>

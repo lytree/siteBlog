@@ -1,8 +1,5 @@
 import type { App } from 'vue';
-import { definePreset } from '@primevue/themes';
-import {} from '@primevue/core'
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
 import Avatar from 'primevue/avatar';
@@ -93,44 +90,7 @@ import 'virtual:uno.css'
 import '@/styles/global.scss'
 export default (app: App) => {
     app.use(PrimeVue, {
-        theme: {
-            ripple: true,
-            preset: definePreset(Aura, {
-                primitive: {
-                    borderRadius: {
-                        none: '0',
-                        xs: '2px',
-                        sm: '4px',
-                        md: '6px',
-                        lg: '8px',
-                        xl: '12px',
-                        "2xl": '16px',
-                        "3xl": '24px'
-                    },
-                },
-                semantic: {
-                    primary: {
-                        50: '{noir.50}',
-                        100: '{noir.100}',
-                        200: '{noir.200}',
-                        300: '{noir.300}',
-                        400: '{noir.400}',
-                        500: '{noir.500}',
-                        600: '{noir.600}',
-                        700: '{noir.700}',
-                        800: '{noir.800}',
-                        900: '{noir.900}',
-                        950: '{noir.950}'
-                    },
-                }
-            }),
-            inputVariant: "filled",
-            options: {
-                prefix: 'p',
-                darkModeSelector: '.dark',
-                cssLayer: false
-            }
-        }
+        unstyled: true
     });
     app.use(ToastService);
     app.use(DialogService);
@@ -221,7 +181,6 @@ export default (app: App) => {
     app.component('TreeTable', TreeTable);
     app.component('VirtualScroller', VirtualScroller);
     app.directive('removeAriaHidden', (el, binding) => {
-        console.log(el, binding)
         const ariaEls = el.querySelectorAll('.p-menubar-item-link')
         ariaEls.forEach((item: any) => {
             item.removeAttribute('aria-hidden')
