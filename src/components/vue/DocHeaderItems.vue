@@ -51,7 +51,6 @@ const pt = {
             'p-menubar-item',
             {
                 'p-menubar-item-active': instance.isItemActive(processedItem),
-                'p-focus': instance.isItemFocused(processedItem),
                 'p-disabled': instance.isItemDisabled(processedItem)
             }
         ]
@@ -97,8 +96,14 @@ const pt = {
         </Menubar>
     </div>
 </template>
-<style lang="scss">
-// :deep(.p-menubar) {
-//     --at-apply: w-full h-full bg-[var(--card-bg)] border-0;
-// }
+<style lang="scss" scoped>
+:deep(.p-menubar) {
+    --at-apply: w-full h-full bg-[var(--card-bg)] border-0;
+
+    .p-menubar-root-list {
+        --at-apply: border-0;
+        color: var(--card-bg);
+        background: var(--card-bg);
+    }
+}
 </style>
