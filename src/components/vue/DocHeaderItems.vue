@@ -2,7 +2,7 @@
 import type { MenuItem } from "primevue/menuitem";
 
 const items: Array<MenuItem> = [
-    
+
     {
         key: "index",
         label: "首页",
@@ -14,7 +14,7 @@ const items: Array<MenuItem> = [
         label: "归档",
         icon: "pi i-mdi-archive",
         url: "/docs/archive"
-        
+
     },
     {
         key: "category",
@@ -40,14 +40,13 @@ const pt = {
         'p-menubar p-component',
         {
             'p-menubar-mobile': instance.queryMatches,
-            'p-menubar-mobile-active': instance.mobileActive
+            'p-menubar-mobile-active': instance.mobileActive,
         }
     ],
     start: 'p-menubar-start',
     button: 'p-menubar-button',
     rootList: 'p-menubar-root-list',
     item: ({ instance, processedItem }: any) => {
-
         return [
             'p-menubar-item',
             {
@@ -62,14 +61,21 @@ const pt = {
     itemIcon: 'p-menubar-item-icon',
     itemLabel: 'p-menubar-item-label',
     submenuIcon: 'p-menubar-submenu-icon',
-    submenu: 'p-menubar-submenu',
+    submenu: ({ instance, processedItem }: any) => {
+        return [
+            'p-menubar-submenu',
+            {
+                'flex': instance.isItemActive(processedItem),
+                'hidden': !instance.isItemActive(processedItem),
+            }
+        ]
+    },
     separator: 'p-menubar-separator',
     end: 'p-menubar-end'
 }
-
 </script>
 <template>
-    <div>
+    <div class="w-full h-full">
         <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
             <template #start>
                 <slot name="avatar"></slot>
@@ -91,12 +97,8 @@ const pt = {
         </Menubar>
     </div>
 </template>
-<style lang="scss" scoped>
-:deep(.p-menubar) {
-    --at-apply: w-full bg-[var(--card-bg)] border-0;
-
-    .p-menubar-root-list {
-        --at-apply: flex flex-auto justify-center mx-2 leading-12;
-    }
-}
+<style lang="scss">
+// :deep(.p-menubar) {
+//     --at-apply: w-full h-full bg-[var(--card-bg)] border-0;
+// }
 </style>

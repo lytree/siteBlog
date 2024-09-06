@@ -1,5 +1,5 @@
 diff --git a/menubar/Menubar.vue b/menubar/Menubar.vue
-index 47fa2bd13e2cbb82f1c2aeba479c788fcd975a9c..986eedd5892ff8d855bc6b6f474e8730d302d6c4 100644
+index 47fa2bd13e2cbb82f1c2aeba479c788fcd975a9c..cc460f858fd8ebf29f3c398564a4f1dea7380f49 100644
 --- a/menubar/Menubar.vue
 +++ b/menubar/Menubar.vue
 @@ -622,6 +622,7 @@ export default {
@@ -11,10 +11,10 @@ index 47fa2bd13e2cbb82f1c2aeba479c788fcd975a9c..986eedd5892ff8d855bc6b6f474e8730
          },
          visibleItems() {
 diff --git a/menubar/MenubarSub.vue b/menubar/MenubarSub.vue
-index 28da6afe2cf02e16b53bb5790ff9c956792cd4c4..ffea9823cac1489abcba8c7f666269b1169282d8 100644
+index 28da6afe2cf02e16b53bb5790ff9c956792cd4c4..ead2bd0034c5646511efb1855813d50ec0d3e32a 100644
 --- a/menubar/MenubarSub.vue
 +++ b/menubar/MenubarSub.vue
-@@ -126,6 +126,7 @@ export default {
+@@ -126,12 +126,14 @@ export default {
  
      methods: {
          getItemId(processedItem) {
@@ -22,32 +22,87 @@ index 28da6afe2cf02e16b53bb5790ff9c956792cd4c4..ffea9823cac1489abcba8c7f666269b1
              return `${this.menuId}_${processedItem.key}`;
          },
          getItemKey(processedItem) {
+             return this.getItemId(processedItem);
+         },
+         getItemProp(processedItem, name, params) {
++            console.log(processedItem, name, params)
+             return processedItem && processedItem.item ? resolve(processedItem.item[name], params) : undefined;
+         },
+         getItemLabel(processedItem) {
 diff --git a/menubar/index.mjs b/menubar/index.mjs
-index 51159cbcb8bf12c149f89554ebb1498c43120518..9f523446dc6c9a8a238065cd91f7a05f5f5ee10b 100644
+index 51159cbcb8bf12c149f89554ebb1498c43120518..0c87925a3f3cb53d13fde56a9bebd41a024e2fd8 100644
 --- a/menubar/index.mjs
 +++ b/menubar/index.mjs
-@@ -160,6 +160,7 @@ var script$1 = {
+@@ -90,6 +90,7 @@ var script$1 = {
+   list: null,
+   methods: {
+     getItemId: function getItemId(processedItem) {
++
+       return "".concat(this.menuId, "_").concat(processedItem.key);
+     },
+     getItemKey: function getItemKey(processedItem) {
+@@ -105,16 +106,20 @@ var script$1 = {
+       return "".concat(this.menuId, "_").concat(processedItem.key, "_label");
+     },
+     getPTOptions: function getPTOptions(processedItem, index, key) {
+-      return this.ptm(key, {
+-        context: {
+-          item: processedItem.item,
+-          index: index,
+-          active: this.isItemActive(processedItem),
+-          focused: this.isItemFocused(processedItem),
+-          disabled: this.isItemDisabled(processedItem),
+-          level: this.level
+-        }
+-      });
++      try {
++        return this.ptm(key, {
++          context: {
++            item: processedItem.item,
++            index: index,
++            active: this.isItemActive(processedItem),
++            focused: this.isItemFocused(processedItem, 1),
++            disabled: this.isItemDisabled(processedItem),
++            level: this.level
++          }
++        });
++      } catch (e) {
++        console.log(e)
++      }
+     },
+     isItemActive: function isItemActive(processedItem) {
+       return this.activeItemPath.some(function (path) {
+@@ -127,7 +132,7 @@ var script$1 = {
+     isItemDisabled: function isItemDisabled(processedItem) {
+       return this.getItemProp(processedItem, 'disabled');
+     },
+-    isItemFocused: function isItemFocused(processedItem) {
++    isItemFocused: function isItemFocused(processedItem, index) {
+       return this.focusedItemId === this.getItemId(processedItem);
+     },
+     isItemGroup: function isItemGroup(processedItem) {
+@@ -160,6 +165,7 @@ var script$1 = {
        return index - this.calculateAriaSetSize.slice(0, index).length + 1;
      },
      getMenuItemProps: function getMenuItemProps(processedItem, index) {
-+      
++
        return {
          action: mergeProps({
            "class": this.cx('itemLink'),
-@@ -377,6 +378,8 @@ var script = {
-   },
-   methods: {
-     getItemProp: function getItemProp(item, name) {
-+      console.log("-----------------------")
-+      console.log(item ? resolve(item[name]) : undefined)
-       return item ? resolve(item[name]) : undefined;
-     },
-     getItemLabel: function getItemLabel(item) {
-@@ -922,6 +925,7 @@ var script = {
+@@ -232,7 +238,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+       ref_for: true
+     }, $options.getPTOptions(processedItem, index, 'item'), {
+       "data-p-active": $options.isItemActive(processedItem),
+-      "data-p-focused": $options.isItemFocused(processedItem),
++      "data-p-focused": $options.isItemFocused(processedItem, 2),
+       "data-p-disabled": $options.isItemDisabled(processedItem)
+     }), [createElementVNode("div", mergeProps({
+       "class": _ctx.cx('itemContent'),
+@@ -922,6 +928,7 @@ var script = {
    },
    computed: {
      processedItems: function processedItems() {
-+      
++
        return this.createProcessedItems(this.model || []);
      },
      visibleItems: function visibleItems() {

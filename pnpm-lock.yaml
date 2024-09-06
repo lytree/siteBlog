@@ -10,7 +10,7 @@ overrides:
 
 patchedDependencies:
   primevue@4.0.5:
-    hash: eioumljif6jscuetenzfkuvkd4
+    hash: xk7bsectfsgv6zagyzqxfihn3u
     path: patches/primevue@4.0.5.patch
 
 importers:
@@ -64,7 +64,7 @@ importers:
         version: 1.1.1
       primevue:
         specifier: ^4.0.5
-        version: 4.0.5(patch_hash=eioumljif6jscuetenzfkuvkd4)(vue@3.5.0(typescript@5.5.4))
+        version: 4.0.5(patch_hash=xk7bsectfsgv6zagyzqxfihn3u)(vue@3.5.0(typescript@5.5.4))
       sanitize-html:
         specifier: ^2.13.0
         version: 2.13.0
@@ -10128,7 +10128,7 @@ snapshots:
 
   pretty-bytes@5.6.0: {}
 
-  primevue@4.0.5(patch_hash=eioumljif6jscuetenzfkuvkd4)(vue@3.5.0(typescript@5.5.4)):
+  primevue@4.0.5(patch_hash=xk7bsectfsgv6zagyzqxfihn3u)(vue@3.5.0(typescript@5.5.4)):
     dependencies:
       '@primeuix/styled': 0.0.5
       '@primeuix/utils': 0.0.5

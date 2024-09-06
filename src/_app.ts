@@ -90,7 +90,13 @@ import 'virtual:uno.css'
 import '@/styles/global.scss'
 export default (app: App) => {
     app.use(PrimeVue, {
-        unstyled: true
+        unstyled: true,
+        zIndex: {
+            modal: 1100,        //dialog, drawer
+            overlay: 1000,      //select, popover
+            menu: 1000,         //overlay menus
+            tooltip: 1100       //tooltip
+        }
     });
     app.use(ToastService);
     app.use(DialogService);
