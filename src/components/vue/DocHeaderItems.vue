@@ -2,35 +2,37 @@
 import type { MenuItem } from "primevue/menuitem";
 
 const items: Array<MenuItem> = [
+    
     {
         key: "index",
         label: "首页",
         icon: "pi i-mdi-home",
-        url: "/docs",
+        url: "/docs"
     },
     {
         key: "archive",
         label: "归档",
         icon: "pi i-mdi-archive",
-        url: "/docs/archive",
+        url: "/docs/archive"
+        
     },
     {
         key: "category",
         label: "分类",
         icon: "pi i-mdi-category",
-        url: "/docs/category",
+        url: "/docs/category"
     },
     {
         key: "tag",
         label: "标签",
         icon: "pi i-mdi-tag",
-        url: "/docs/tag",
+        url: "/docs/tag"
     },
     {
         key: "about",
         label: "关于",
         icon: "pi i-mdi-about",
-        url: "/docs/about",
+        url: "/docs/about"
     }
 ];
 const pt = {
@@ -50,7 +52,8 @@ const pt = {
             'p-menubar-item',
             {
                 'p-menubar-item-active': instance.isItemActive(processedItem),
-
+                'p-focus': instance.isItemFocused(processedItem),
+                'p-disabled': instance.isItemDisabled(processedItem)
             }
         ]
     },
@@ -67,7 +70,7 @@ const pt = {
 </script>
 <template>
     <div>
-        <Menubar :model="items" breakpoint="768px" :pt=pt>
+        <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
             <template #start>
                 <slot name="avatar"></slot>
             </template>

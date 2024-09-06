@@ -1,0 +1,53 @@
+diff --git a/menubar/Menubar.vue b/menubar/Menubar.vue
+index 47fa2bd13e2cbb82f1c2aeba479c788fcd975a9c..986eedd5892ff8d855bc6b6f474e8730d302d6c4 100644
+--- a/menubar/Menubar.vue
++++ b/menubar/Menubar.vue
+@@ -622,6 +622,7 @@ export default {
+     },
+     computed: {
+         processedItems() {
++            
+             return this.createProcessedItems(this.model || []);
+         },
+         visibleItems() {
+diff --git a/menubar/MenubarSub.vue b/menubar/MenubarSub.vue
+index 28da6afe2cf02e16b53bb5790ff9c956792cd4c4..ffea9823cac1489abcba8c7f666269b1169282d8 100644
+--- a/menubar/MenubarSub.vue
++++ b/menubar/MenubarSub.vue
+@@ -126,6 +126,7 @@ export default {
+ 
+     methods: {
+         getItemId(processedItem) {
++            
+             return `${this.menuId}_${processedItem.key}`;
+         },
+         getItemKey(processedItem) {
+diff --git a/menubar/index.mjs b/menubar/index.mjs
+index 51159cbcb8bf12c149f89554ebb1498c43120518..9f523446dc6c9a8a238065cd91f7a05f5f5ee10b 100644
+--- a/menubar/index.mjs
++++ b/menubar/index.mjs
+@@ -160,6 +160,7 @@ var script$1 = {
+       return index - this.calculateAriaSetSize.slice(0, index).length + 1;
+     },
+     getMenuItemProps: function getMenuItemProps(processedItem, index) {
++      
+       return {
+         action: mergeProps({
+           "class": this.cx('itemLink'),
+@@ -377,6 +378,8 @@ var script = {
+   },
+   methods: {
+     getItemProp: function getItemProp(item, name) {
++      console.log("-----------------------")
++      console.log(item ? resolve(item[name]) : undefined)
+       return item ? resolve(item[name]) : undefined;
+     },
+     getItemLabel: function getItemLabel(item) {
+@@ -922,6 +925,7 @@ var script = {
+   },
+   computed: {
+     processedItems: function processedItems() {
++      
+       return this.createProcessedItems(this.model || []);
+     },
+     visibleItems: function visibleItems() {
