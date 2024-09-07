@@ -1,12 +1,3 @@
-@use "./variate";
-@use "./components/_button";
-@use "./components/_menubar";
-
-
-
-
-
-
 // 透明度白色和黑色的函数
 @function white($a) {
 	@return rgba(255, 255, 255, $a);

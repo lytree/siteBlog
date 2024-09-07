@@ -1,5 +1,5 @@
 ---
-import "@/styles/global.scss";
+// import "@/styles/global.scss";
 import { profileConfig, siteConfig } from '@/config'
 import type { Favicon } from '../types/config'
 
@@ -87,17 +87,15 @@ const favicons: Favicon[] =
 					}
 			}
 		</script>
-
-		<slot name="head"></slot>
         <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+            href="/katex.min.css"
             integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
             crossorigin="anonymous"
         />
         <script
             defer
-            src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+            src="/katex.min.js"
             integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
             crossorigin="anonymous"></script>
 

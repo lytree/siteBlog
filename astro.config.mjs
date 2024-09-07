@@ -22,7 +22,6 @@ import yaml from '@rollup/plugin-yaml';
 // https://astro.build/config
 export default defineConfig({
 	site: "https://www.prideyang.top",
-	output: "hybrid",
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
 		rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
@@ -105,7 +104,7 @@ export default defineConfig({
 					}
 					warn(warning);
 				},
-				external: ["fsevents"]
+				external: ["fsevents", new RegExp('/patches/.*')]
 			}
 
 		}
