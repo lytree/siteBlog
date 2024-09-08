@@ -37,7 +37,7 @@ const items: Array<MenuItem> = [
 ];
 const pt = {
     root: ({ instance }: any) => [
-        'p-menubar p-component',
+        ' w-full h-full bg-[var(--card-bg)] border-0 p-menubar p-component',
         {
             'p-menubar-mobile': instance.queryMatches,
             'p-menubar-mobile-active': instance.mobileActive,
@@ -45,7 +45,7 @@ const pt = {
     ],
     start: 'p-menubar-start',
     button: 'p-menubar-button',
-    rootList: 'p-menubar-root-list',
+    rootList: 'bg-[var(--card-bg)] border-0 p-menubar-root-list ',
     item: ({ instance, processedItem }: any) => {
         return [
             'p-menubar-item',
@@ -74,7 +74,7 @@ const pt = {
 }
 </script>
 <template>
-    <div class="w-full h-full">
+    <div class="w-full h-full absolute">
         <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
             <template #start>
                 <slot name="avatar"></slot>
@@ -96,14 +96,4 @@ const pt = {
         </Menubar>
     </div>
 </template>
-<style lang="scss" scoped>
-:deep(.p-menubar) {
-    --at-apply: w-full h-full bg-[var(--card-bg)] border-0;
 
-    .p-menubar-root-list {
-        --at-apply: border-0;
-        color: var(--card-bg);
-        background: var(--card-bg);
-    }
-}
-</style>

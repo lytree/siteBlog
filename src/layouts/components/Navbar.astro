@@ -20,6 +20,7 @@ let links: NavBarLink[] = [];
     <div class:list={[
         className,
         "card-base overflow-visible max-w-[var(--page-width)] h-[4.5rem] rounded-t-none mx-auto md:relative items-center justify-between px-4"]}>
+        
         <DocHeaderItems client:only="vue"></DocHeaderItems>
         
         <!-- <DisplaySettings client:only="svelte">
@@ -28,7 +29,7 @@ let links: NavBarLink[] = [];
     </div>
 </div>
 
-<style lang="scss" >
+<style lang="scss" is:global>
 </style>
 
 <script>
