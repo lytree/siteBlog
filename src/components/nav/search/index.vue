@@ -36,6 +36,88 @@ function tabChange(originalEvent: TabViewChangeEvent) {
     }
 }
 
+const CardClass = {
+    /**
+     * Class name of the root element
+     */
+    root: 'p-card',
+    /**
+     * Class name of the header element
+     */
+    header: 'p-card-header',
+    /**
+     * Class name of the body element
+     */
+    body: 'p-card-body',
+    /**
+     * Class name of the caption element
+     */
+    caption: 'p-card-caption',
+    /**
+     * Class name of the title element
+     */
+    title: 'p-card-title',
+    /**
+     * Class name of the subtitle element
+     */
+    subtitle: 'p-card-subtitle',
+    /**
+     * Class name of the content element
+     */
+    content: 'p-card-content',
+    /**
+     * Class name of the footer element
+     */
+    footer: 'p-card-footer'
+}
+
+const TabsClass = {
+    /**
+ * Class name of the root element
+ */
+    root: 'p-tabs'
+}
+const TabListClasses = {
+    /**
+ * Class name of the root element
+ */
+    root: 'p-tablist',
+    /**
+     * Class name of the content element
+     */
+    content: 'p-tablist-content',
+    /**
+     * Class name of the tabs element
+     */
+    tabList: 'p-tablist-tab-list',
+    /**
+     * Class name of the activebar element
+     */
+    activeBar: 'p-tablist-active-bar',
+    /**
+     * Class name of the previous button element
+     */
+    prevButton: 'p-tablist-prev-button',
+    /**
+     * Class name of the next button element
+     */
+    nextButton: 'p-tablist-next-button'
+}
+
+const TabPanelsClasses = {
+    /**
+     * Class name of the root element
+     */
+    root: 'p-tabpanels'
+}
+
+const TabPanelClasses = {
+    /**
+     * Class name of the root element
+     */
+    root: 'p-tabpanel'
+}
+
 onMounted(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Enter') {
@@ -57,35 +139,35 @@ onMounted(() => {
 </script>
 
 <template>
-    <Card pt:root="card">
+    <Card :pt="CardClass">
         <template #content>
-            <Tabs class="w-full" v-model:value="activeName">
-                <TabList>
+            <Tabs class="w-full" v-model:value="activeName" :pt="TabsClass">
+                <TabList :pt="TabListClasses">
                     <Tab value="0">百度一下</Tab>
                     <Tab value="1">谷歌搜索</Tab>
                     <Tab value="2">Bing</Tab>
                     <Tab value="3">微博</Tab>
                 </TabList>
-                <TabPanels>
-                    <TabPanel value="0">
+                <TabPanels :pt="TabPanelsClasses">
+                    <TabPanel :pt="TabPanelClasses" value="0">
                         <IconField>
                             <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="百度一下" pt:root="input-with-select" />
                         </IconField>
                     </TabPanel>
-                    <TabPanel value="1">
+                    <TabPanel :pt="TabPanelClasses" value="1">
                         <IconField>
                             <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="谷歌搜索" pt:root="input-with-select" />
                         </IconField>
                     </TabPanel>
-                    <TabPanel value="2">
+                    <TabPanel :pt="TabPanelClasses" value="2">
                         <IconField>
                             <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="Bing搜索" pt:root="input-with-select" />
                         </IconField>
                     </TabPanel>
-                    <TabPanel value="3">
+                    <TabPanel :pt="TabPanelClasses" value="3">
                         <IconField>
                             <InputIcon class="pi pi-search" />
                             <InputText v-model="searchText" placeholder="微博搜索" pt:root="input-with-select" />
@@ -112,4 +194,4 @@ onMounted(() => {
     border: 1px solid #cbd5e1;
     --at-apply: pl-2.5 h-10 w-full;
 }
-</style>import type { TabClasses } from "primevue/tab/style";
+</style>
