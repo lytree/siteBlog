@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --verbose",
-    "start": "astro dev  --force",
+    "start": "astro dev  --force --host",
     "build": "astro build --verbose&& pagefind --site dist ",
     "preview": "astro preview",
     "astro": "astro"

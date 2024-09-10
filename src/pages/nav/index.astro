@@ -9,8 +9,8 @@ import type { NavGroup } from "@/components/nav/card/type";
 
 
 
-// const response  = await fetch(new URL("/scripts/navs.json", Astro.url));
-const navs: NavGroup[] = [];
+const response  = await fetch(new URL("/scripts/navs.json", Astro.url));
+const navs: NavGroup[] = await response.json();
 
 ---
 
@@ -29,7 +29,6 @@ const navs: NavGroup[] = [];
 					<div class="h-[196px]">
 						<!-- 搜索开始 -->
 						<Search
-							class="bg-white dark:bg-dark"
 							client:only="vue"
 						/>
 					</div>
@@ -45,5 +44,5 @@ const navs: NavGroup[] = [];
 			</div>
 		</div>
 	</div>
-	<style lang="scss"></style>
+	<style lang="scss" is:global></style>
 </BaseLayout>

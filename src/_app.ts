@@ -88,7 +88,7 @@ import TreeTable from 'primevue/treetable';
 import VirtualScroller from 'primevue/virtualscroller';
 
 import 'virtual:uno.css'
-
+import "@/styles/global.scss";
 export default (app: App) => {
     app.use(PrimeVue, {
         unstyled: true,
@@ -97,6 +97,40 @@ export default (app: App) => {
             overlay: 1000,      //select, popover
             menu: 1000,         //overlay menus
             tooltip: 1100       //tooltip
+        },
+        pt: {
+            button: {
+                /**
+                 * Class name of the root element
+                 */
+                root: 'p-button',
+                /**
+                 * Class name of the loading icon element
+                 */
+                loadingIcon: 'p-button-loading-icon',
+                /**
+                 * Class name of the icon element
+                 */
+                icon: 'p-button-icon',
+                /**
+                 * Class name of the label element
+                 */
+                label: 'p-button-label'
+            },
+            tab: {
+                root: 'p-tab'
+            }, iconfield: {
+                root: 'p-iconfield'
+            }, card: {
+                root: 'p-card',
+                header: 'p-card-header',
+                body: 'p-card-body',
+                caption: 'p-card-caption',
+                title: 'p-card-title',
+                subtitle: 'p-card-subtitle',
+                content: 'p-card-content',
+                footer: 'p-card-footer'
+            }
         }
     });
     app.use(ToastService);

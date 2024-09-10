@@ -96,4 +96,3 @@ const pt = {
         </Menubar>
     </div>
 </template>
-
