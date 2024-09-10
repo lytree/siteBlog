@@ -175,10 +175,18 @@ $rainbow-dark: linear-gradient(to right,
 	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* roboto-700 - latin-ext_latin */
+@font-face {
+	font-family: "LXGWNeoXiHei";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Roboto Bold"), local("Roboto-Bold"), url("/fonts/LXGWNeoXiHei.woff2") format("woff2"), url("/fonts/LXGWNeoXiHei.woff") format("woff");
+	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 
 body {
-	font-family: 'Atkinson', sans-serif;
+	font-family: 'LXGWNeoXiHei', 'Atkinson', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;

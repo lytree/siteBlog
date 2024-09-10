@@ -59,10 +59,9 @@ export default defineConfig({
                 '900': '#7c300b',
                 '950': '#481700',
             },
-        },		// 这里使用了与「吐槽大王部落格」同款的圆体字体。
-        // 如果你希望使用其它字体或默认字体，可以修改下面的字体列表或直接删除这一属性。
+        },
         fontFamily: {
-            sans: ["'-apple-system'", "'Microsoft YaHei'", "sans-serif"]
+            sans: ["'-apple-system'", "'Microsoft YaHei'", "sans-serif", "LXGWNeoXiHei"]
         }
     },
     presets: [

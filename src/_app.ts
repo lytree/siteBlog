@@ -100,28 +100,39 @@ export default (app: App) => {
         },
         pt: {
             button: {
-                /**
-                 * Class name of the root element
-                 */
-                root: 'p-button',
-                /**
-                 * Class name of the loading icon element
-                 */
+                root: ({ instance, props }: any) => [
+                    'p-button p-component',
+                    {
+                        'p-button-icon-only': instance.hasIcon && !props.label && !props.badge,
+                        'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
+                        'p-button-loading': props.loading,
+                        'p-button-link': props.link,
+                        [`p-button-${props.severity}`]: props.severity,
+                        'p-button-raised': props.raised,
+                        'p-button-rounded': props.rounded,
+                        'p-button-text': props.text,
+                        'p-button-outlined': props.outlined,
+                        'p-button-sm': props.size === 'small',
+                        'p-button-lg': props.size === 'large',
+                        'p-button-plain': props.plain,
+                        'p-button-fluid': instance.hasFluid
+                    }
+                ],
                 loadingIcon: 'p-button-loading-icon',
-                /**
-                 * Class name of the icon element
-                 */
-                icon: 'p-button-icon',
-                /**
-                 * Class name of the label element
-                 */
+                icon: ({ props }: any) => [
+                    'p-button-icon',
+                    {
+                        [`p-button-icon-${props.iconPos}`]: props.label
+                    }
+                ],
                 label: 'p-button-label'
             },
             tab: {
                 root: 'p-tab'
             }, iconfield: {
                 root: 'p-iconfield'
-            }, card: {
+            },
+            card: {
                 root: 'p-card',
                 header: 'p-card-header',
                 body: 'p-card-body',
