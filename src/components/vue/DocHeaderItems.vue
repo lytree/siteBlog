@@ -6,32 +6,32 @@ const items: Array<MenuItem> = [
     {
         key: "index",
         label: "首页",
-        icon: "pi i-mdi-home",
+        icon: "pi i-material-symbols-home",
         url: "/docs"
     },
     {
         key: "archive",
         label: "归档",
-        icon: "pi i-mdi-archive",
+        icon: "pi i-material-symbols-archive",
         url: "/docs/archive"
 
     },
     {
         key: "category",
         label: "分类",
-        icon: "pi i-mdi-category",
+        icon: "pi i-material-symbols-category",
         url: "/docs/category"
     },
     {
         key: "tag",
         label: "标签",
-        icon: "pi i-mdi-tag",
+        icon: "pi i-material-symbols-tag",
         url: "/docs/tag"
     },
     {
         key: "about",
         label: "关于",
-        icon: "pi i-mdi-about",
+        icon: "pi i-material-symbols-about",
         url: "/docs/about"
     }
 ];
@@ -87,7 +87,7 @@ const pt = {
                         class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{
                             item.shortcut }}</span>
                     <i v-if="hasSubmenu"
-                        :class="['pi i-mdi-arrow-down', { 'i-mdi-arrow-down ml-2': root, 'i-mdi-arrow-right ml-auto': !root }]"></i>
+                        :class="['pi i-material-symbols-arrow-downward', { 'i-material-symbols-arrow-downward ml-2': root, 'i-material-symbols-arrow-right ml-auto': !root }]"></i>
                 </a>
             </template>
             <template #end>

@@ -1,7 +1,7 @@
 <template>
     <div class="inline-block">
         <ClientOnly>
-            <Button icon="pi" :iconClass="isDark ? 'i-mdi:moon-waning-crescent' : 'i-mdi:white-balance-sunny'"
+            <Button icon="pi" :iconClass="isDark ? 'i-material-symbols:mode-night' : 'i-material-symbols:sunny'"
                 size="small" text rounded @click="toggleDark()">
             </Button>
         </ClientOnly>

@@ -326,33 +326,6 @@
 }
 
 
-.p-iconfield {
-    position: relative;
-}
-
-.p-inputicon {
-    position: absolute;
-    top: 50%;
-    margin-top: calc(-1 * (var(--p-icon-size) / 2));
-    color: var(--p-iconfield-icon-color);
-    line-height: 1;
-}
-
-.p-iconfield .p-inputicon:first-child {
-    left: var(--p-form-field-padding-x);
-}
-
-.p-iconfield .p-inputicon:last-child {
-    right: var(--p-form-field-padding-x);
-}
-
-.p-iconfield .p-inputtext:not(:first-child) {
-    padding-left: calc((var(--p-form-field-padding-x) * 2) + var(--p-icon-size));
-}
-
-.p-iconfield .p-inputtext:not(:last-child) {
-    padding-right: calc((var(--p-form-field-padding-x) * 2) + var(--p-icon-size));
-}
 
 .p-button {
     display: inline-flex;

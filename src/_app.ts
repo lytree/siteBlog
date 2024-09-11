@@ -126,11 +126,34 @@ export default (app: App) => {
                     }
                 ],
                 label: 'p-button-label'
+            }, tabs: {
+                root: 'p-tabs'
             },
             tab: {
                 root: 'p-tab'
-            }, iconfield: {
+            },
+            iconfield: {
                 root: 'p-iconfield'
+            },
+            inputicon: {
+                root: 'p-inputicon'
+            },
+            inputtext: {
+                root: 'p-inputtext'
+            },
+            tablist: {
+                root: 'p-tablist',
+                content: 'p-tablist-content',
+                tabList: 'p-tablist-tab-list',
+                activeBar: 'p-tablist-active-bar',
+                prevButton: 'p-tablist-prev-button',
+                nextButton: 'p-tablist-next-button'
+            },
+            tabpanels: {
+                root: 'p-tabpanels'
+            },
+            tabpanel: {
+                root: 'p-tabpanel'
             },
             card: {
                 root: 'p-card',
