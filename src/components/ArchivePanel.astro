@@ -16,15 +16,22 @@ if (Array.isArray(tags) && tags.length > 0) {
   posts = posts.filter(
     post =>
       Array.isArray(post.data.tags) &&
-      post.data.tags.some(tag => tags.includes(tag)),
+      post.data.tags.some((tag: string) => tags.includes(tag)),
   )
 }
 
 if (Array.isArray(categories) && categories.length > 0) {
   posts = posts.filter(
-    post =>
-      (post.data.category && categories.includes(post.data.category)) ||
-      (!post.data.category && categories.includes(UNCATEGORIZED)),
+    post =>{
+      for(var ca of  post.data.category){
+       var flag = (post.data.category && categories.includes(ca)) || (post.data.category.length<=0 && categories.includes(UNCATEGORIZED)) ;
+       if(flag){
+        return true;
+       }
+      }
+      return false;
+    }
+      
   )
 }
 

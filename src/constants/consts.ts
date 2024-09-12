@@ -1,4 +1,4 @@
-export const UNCATEGORIZED = '__uncategorized__'
+export const UNCATEGORIZED = 'uncategorized'
 
 export const PAGE_SIZE = 8
 

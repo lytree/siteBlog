@@ -31,7 +31,7 @@ const items: Array<MenuItem> = [
     {
         key: "about",
         label: "关于",
-        icon: "pi i-material-symbols-about",
+        icon: "pi i-material-symbols-person",
         url: "/docs/about"
     }
 ];

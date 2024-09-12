@@ -44,17 +44,20 @@
                 {
                     "title": "tags",
                     "name": "tags",
-                    "type": "list"
+                    "type": "list",
+                    "default": []
                 },
                 {
                     "title": "category",
                     "name": "category",
-                    "type": "string"
+                    "type": "list",
+                    "default": ["Uncategorized"]
                 },
                 {
                     "title": "draft",
                     "name": "draft",
-                    "type": "boolean"
+                    "type": "boolean",
+                    "default": false
                 }
             ]
         }

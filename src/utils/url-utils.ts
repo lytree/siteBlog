@@ -15,7 +15,7 @@ export function getPostUrlBySlug(slug: string): string {
 }
 
 export function getCategoryUrl(category: string): string {
-    if (category === "uncategorized")
+    if (category === "Uncategorized")
         return url('/docs/category/uncategorized/')
     return url(`/docs/category/${category}/`)
 }

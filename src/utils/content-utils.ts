@@ -62,7 +62,7 @@ export async function getCategoryList(): Promise<Category[]> {
     const count: { [key: string]: number } = {}
     allBlogPosts.map(post => {
         if (!post.data.category) {
-            const ucKey = i18n(I18nKey.uncategorized)
+            const ucKey = "Uncategorized"
             count[ucKey] = count[ucKey] ? count[ucKey] + 1 : 1
             return
         }
@@ -77,7 +77,12 @@ export async function getCategoryList(): Promise<Category[]> {
 
     const ret: Category[] = []
     for (const c of lst) {
-        ret.push({ name: c, count: count[c] })
+        if (c === undefined || "" === c) {
+            ret.push({ name: "Uncategorized", count: count[c] })
+        } else {
+            ret.push({ name: c, count: count[c] })
+        }
+
     }
     return ret
 }
