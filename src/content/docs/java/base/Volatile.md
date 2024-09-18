@@ -1,11 +1,7 @@
 ---
 title: Volatile
-published: 2022-10-30T13:27:45Z
+date: 2022-10-30T13:27:45Z
 lastmod: 2023-05-27T18:46:40Z
-description:  'Volatile'
-image: ''
-category: ['Java']
-tags: ['基础','volatile']
 ---
 
 # Volatile
@@ -33,7 +29,7 @@ i = i + 1;
 但是上面的方式会有一个问题，由于在锁住总线期间，其他CPU无法访问内存，导致效率低下。  
 所以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。
 
-![](assets/net-img-1639574230606-ee713d6a-1223-4275-bfaa-f60258aa6eea-20221030132914-2yfiwaf.jpeg)
+![image](assets/net-img-1639574230606-ee713d6a-1223-4275-bfaa-f60258aa6eea-20221030132914-2yfiwaf.jpeg)
 
 ### Java内存模型
 

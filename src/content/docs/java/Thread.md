@@ -1,11 +1,7 @@
 ---
-title: Thread
-published: 2023-05-14T22:53:28Z
+title: thread
+date: 2023-05-14T22:53:28Z
 lastmod: 2023-08-25T16:32:48Z
-description:  'Thread'
-image: ''
-category: ['Java']
-tags: ['Thread']
 ---
 
 # thread

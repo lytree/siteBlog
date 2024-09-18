@@ -1,11 +1,7 @@
 ---
 title: ThreadLocal
-published: 2023-05-27T19:29:23Z
+date: 2023-05-27T19:29:23Z
 lastmod: 2023-05-29T22:47:04Z
-description:  'ThreadLocal'
-image: ''
-category: ['Java']
-tags: ['基础']
 ---
 
 # ThreadLocal

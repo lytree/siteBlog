@@ -1,11 +1,7 @@
 ---
 title: Queue
-published: 2022-10-30T13:22:56Z
+date: 2022-10-30T13:22:56Z
 lastmod: 2023-05-27T15:51:10Z
-description:  'Queue'
-image: ''
-category: ['Java']
-tags: ['基础','Queue']
 ---
 
 # Queue

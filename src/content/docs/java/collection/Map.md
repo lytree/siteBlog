@@ -1,11 +1,7 @@
 ---
 title: Map
-published: 2022-10-30T13:21:46Z
+date: 2022-10-30T13:21:46Z
 lastmod: 2022-10-30T13:21:46Z
-description:  'Map'
-image: ''
-category: ['Java']
-tags: ['基础','Map']
 ---
 
 # Map

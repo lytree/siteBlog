@@ -27,33 +27,35 @@ export default defineConfig({
 	},
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
-		rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
-			components: {
-				github: GithubCardComponent,
-				note: (x, y) => AdmonitionComponent(x, y, "note"),
-				tip: (x, y) => AdmonitionComponent(x, y, "tip"),
-				important: (x, y) => AdmonitionComponent(x, y, "important"),
-				caution: (x, y) => AdmonitionComponent(x, y, "caution"),
-				warning: (x, y) => AdmonitionComponent(x, y, "warning")
-			}
-		}], [rehypeAutolinkHeadings, {
-			behavior: "append",
-			properties: {
-				className: ["anchor"]
-			},
-			content: {
-				type: "element",
-				tagName: "span",
+		rehypePlugins: [rehypeKatex, rehypeSlug,
+			[rehypeComponents, {
+				components: {
+					github: GithubCardComponent,
+					note: (x, y) => AdmonitionComponent(x, y, "note"),
+					tip: (x, y) => AdmonitionComponent(x, y, "tip"),
+					important: (x, y) => AdmonitionComponent(x, y, "important"),
+					caution: (x, y) => AdmonitionComponent(x, y, "caution"),
+					warning: (x, y) => AdmonitionComponent(x, y, "warning")
+				}
+			}],
+			[rehypeAutolinkHeadings, {
+				behavior: "append",
 				properties: {
-					className: ["anchor-icon"],
-					'data-pagefind-ignore': true
+					className: ["anchor"]
 				},
-				children: [{
-					type: "text",
-					value: "#"
-				}]
-			}
-		}]],
+				content: {
+					type: "element",
+					tagName: "span",
+					properties: {
+						className: ["anchor-icon"],
+						'data-pagefind-ignore': true
+					},
+					children: [{
+						type: "text",
+						value: "#"
+					}]
+				}
+			}]],
 		// drafts: true,
 		shikiConfig: {
 			theme: 'dracula',
@@ -99,7 +101,9 @@ export default defineConfig({
 
 		build: {
 			rollupOptions: {
-
+				output: {
+					assetFileNames: `assets/[name].[ext]`,
+				},
 				onwarn(warning, warn) {
 					// temporarily suppress this warning
 					if (warning.message.includes("is dynamically imported by") && warning.message.includes("but also statically imported by")) {

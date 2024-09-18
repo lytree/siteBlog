@@ -1,11 +1,7 @@
 ---
 title: JVM
-published: 2022-10-30T13:39:04Z
+date: 2022-10-30T13:39:04Z
 lastmod: 2023-11-26T14:54:43Z
-description:  'JVM'
-image: ''
-category: ['Java']
-tags: ['JVM']
 ---
 
 # JVM
@@ -65,7 +61,7 @@ tags: ['JVM']
 
 　　一个类的实例总是引用代表这个类的Class对象。在Object类中定义了getClass()方法，这个方法返回代表对象所属类的Class对象的引用。此外，所有的Java类都有一个静态属性class，它引用代表这个类的Class对象。
 
-​![图像](assets/image-20231119124615-vxa33dm.png)​
+​![图像](assets/图像-20231119124615-vxa33dm.png)​
 
 ## to区域被填满了，to区中的有的对象年龄还没被复制15次，也会被移动到年老代中吗？
 

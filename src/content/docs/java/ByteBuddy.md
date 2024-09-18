@@ -1,11 +1,7 @@
 ---
 title: ByteBuddy
-published: 2023-06-19T22:23:00Z
+date: 2023-06-19T22:23:00Z
 lastmod: 2023-07-08T13:54:37Z
-description:  '线程间通讯'
-image: ''
-category: ['Java']
-tags: ['Thrad']
 ---
 
 # ByteBuddy

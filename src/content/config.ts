@@ -7,8 +7,8 @@ const docs = defineCollection({
 		title: z.string(),
 		// Transform string to Date object
 		permalink: z.string().optional(),
-		published: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
+		date: z.coerce.date(),
+		lastmod: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 		draft: z.boolean().optional().default(false),
 		description: z.string().optional().default(''),

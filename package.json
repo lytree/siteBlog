@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev --verbose",
     "start": "astro dev  --force --host",
-    "build": "astro build --verbose&& pagefind --site dist ",
+    "build": "astro build && pagefind --site dist ",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -27,6 +27,7 @@
     "pagefind": "^1.1.1",
     "primevue": "^4.0.7",
     "sanitize-html": "^2.13.0",
+    "sharp": "^0.33.0",
     "typescript": "^5.6.2",
     "unist-util-visit": "^5.0.0",
     "vue": "^3.5.6"

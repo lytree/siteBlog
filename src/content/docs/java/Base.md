@@ -1,14 +1,11 @@
 ---
 title: Base
-published: 2022-10-30T13:24:18Z
-lastmod: 2022-10-30T13:24:18Z
-description:  '线程间通讯'
-image: ''
-category: ['Java']
-tags: ['Thrad']
+date: 2022-10-30T13:24:18Z
+lastmod: 2024-09-16T19:39:24Z
 ---
 
 # Base
+
 
 ## String 类和常量池
 

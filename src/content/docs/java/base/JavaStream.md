@@ -1,11 +1,7 @@
 ---
 title: JavaStream
-published: 2022-10-30T13:27:17Z
+date: 2022-10-30T13:27:17Z
 lastmod: 2023-08-25T20:01:12Z
-description:  'JavaStream'
-image: ''
-category: ['Java']
-tags: ['基础']
 ---
 
 # JavaStream

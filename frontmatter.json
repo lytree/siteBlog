@@ -26,11 +26,12 @@
                 {
                     "title": "description",
                     "name": "description",
-                    "type": "string"
+                    "type": "string",
+                    "default": ""
                 },
                 {
-                    "title": "published",
-                    "name": "published",
+                    "title": "date",
+                    "name": "date",
                     "type": "datetime",
                     "default": "{{now}}",
                     "isPublishDate": true
