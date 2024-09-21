@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
-    "@astrojs/mdx": "^3.1.6",
+    "@astrojs/mdx": "^3.1.7",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/vue": "^4.5.1",
     "@swup/astro": "^1.4.1",
     "@vueuse/core": "^11.1.0",
-    "astro": "^4.15.7",
+    "astro": "^4.15.8",
     "astro-icon": "^1.1.1",
     "colorjs.io": "^0.5.2",
     "hastscript": "^9.0.0",
@@ -27,10 +27,10 @@
     "pagefind": "^1.1.1",
     "primevue": "^4.0.7",
     "sanitize-html": "^2.13.0",
-    "sharp": "^0.33.0",
+    "sharp": "^0.33.5",
     "typescript": "^5.6.2",
     "unist-util-visit": "^5.0.0",
-    "vue": "^3.5.6"
+    "vue": "^3.5.7"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.2",
@@ -62,7 +62,7 @@
     "remark-directive-rehype": "^0.4.2",
     "remark-github-admonitions-to-directives": "^1.0.5",
     "remark-math": "^6.0.0",
-    "sass": "^1.79.1",
+    "sass": "^1.79.3",
     "tsx": "^4.19.1",
     "unocss": "^0.62.4",
     "yargs": "^17.7.2"
