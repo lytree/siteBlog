@@ -7,8 +7,8 @@ export async function getSortedPosts() {
         return import.meta.env.PROD ? data.draft !== true : true
     })
     const sorted = allBlogPosts.sort((a, b) => {
-        const dateA = new Date(a.data.published)
-        const dateB = new Date(b.data.published)
+        const dateA = new Date(a.data.date)
+        const dateB = new Date(b.data.date)
         return dateA > dateB ? -1 : 1
     })
 

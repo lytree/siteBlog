@@ -32,7 +32,7 @@
                 {
                     "title": "date",
                     "name": "date",
-                    "type": "datetime",
+                    "type": "string",
                     "default": "{{now}}",
                     "isPublishDate": true
                 },
@@ -51,8 +51,8 @@
                 {
                     "title": "category",
                     "name": "category",
-                    "type": "list",
-                    "default": ["Uncategorized"]
+                    "type": "string",
+                    "default": "Uncategorized"
                 },
                 {
                     "title": "draft",

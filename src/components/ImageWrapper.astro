@@ -35,11 +35,11 @@ if (isLocal) {
     
   if(files[normalizedPath]){
     img = await files[normalizedPath]()
+  }
+  console.log(img)
   if (!img) {
     console.error(`No image found for path ${normalizedPath}`)
   }
-  }
-
 }
 
 const imageClass = 'w-full h-full object-cover'
