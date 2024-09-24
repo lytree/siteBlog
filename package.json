@@ -17,7 +17,7 @@
     "@astrojs/vue": "^4.5.1",
     "@swup/astro": "^1.4.1",
     "@vueuse/core": "^11.1.0",
-    "astro": "^4.15.8",
+    "astro": "^4.15.9",
     "astro-icon": "^1.1.1",
     "colorjs.io": "^0.5.2",
     "hastscript": "^9.0.0",
@@ -30,7 +30,7 @@
     "sharp": "^0.33.5",
     "typescript": "^5.6.2",
     "unist-util-visit": "^5.0.0",
-    "vue": "^3.5.7"
+    "vue": "^3.5.8"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.2",
@@ -41,7 +41,7 @@
     "@rollup/plugin-yaml": "^4.1.2",
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^20.16.5",
+    "@types/node": "^20.16.6",
     "@types/sanitize-html": "^2.13.0",
     "@unocss/astro": "^0.62.4",
     "@unocss/preset-wind": "^0.62.4",
