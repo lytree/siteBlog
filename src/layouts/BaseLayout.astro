@@ -101,7 +101,7 @@ const favicons: Favicon[] =
         <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"></script>
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
-		<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
+	<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
     <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
 		<div>
 			<div id="banner-wrapper" class="absolute w-full transition-all duration-700">
@@ -110,7 +110,7 @@ const favicons: Favicon[] =
 				>
 				</ImageWrapper>
 			</div>	
-			
+
 			<slot />
 		</div>
 	</body>
