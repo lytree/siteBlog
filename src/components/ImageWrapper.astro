@@ -32,7 +32,6 @@ if (isLocal) {
   let normalizedPath = path
     .normalize(path.join('../', basePath, src))
     .replace(/\\/g, '/')
-  console.log(files,normalizedPath)
   if(files[normalizedPath]){
     img = await files[normalizedPath]()
   }

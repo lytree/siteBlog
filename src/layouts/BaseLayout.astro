@@ -11,6 +11,7 @@ import {
   LIGHT_MODE,
 } from '@/constants/consts'
 import { url, pathsEqual } from '@/utils/url-utils'
+import ImageWrapper from '@/components/ImageWrapper.astro'
 
 
 interface Props {
@@ -34,7 +35,7 @@ if (!banner || typeof banner !== 'string' || banner.trim() === '') {
 banner = siteConfig.banner.src
 const enableBanner = siteConfig.banner.enable
 
-const isHomePage = pathsEqual(Astro.url.pathname, url('/'))
+const isHomePage = pathsEqual(Astro.url.pathname, url('/docs'))
 const favicons: Favicon[] =
   siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
 
@@ -101,11 +102,35 @@ const favicons: Favicon[] =
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
 		<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
-    <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}> <slot /></body>
+    <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
+		<div>
+			<div id="banner-wrapper" class="absolute w-full transition-all duration-700">
+				<ImageWrapper id="boxtest" alt="Banner image of the blog" class:list={["object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
+						  src={siteConfig.banner.src} position={siteConfig.banner.position}
+				>
+				</ImageWrapper>
+			</div>	
+			
+			<slot />
+		</div>
+	</body>
 </html>
-<style is:global>
+<style is:global lang="scss">
 	:root {
 		--hue: var(--configHue);
 		--page-width: 75rem;
+	}
+	.enable-banner.is-home #banner-wrapper {
+		--at-apply: h-[var(--banner-height)] md:h-[var(--banner-height-home)];
+	}
+	.enable-banner #banner-wrapper {
+		--at-apply: h-[var(--banner-height)];
+	}
+
+	.enable-banner.is-home #top-row {
+		--at-apply: h-[calc(var(--banner-height)_-_4.5rem)] md:h-[calc(var(--banner-height-home)_-_4.5rem)];
+	}
+	.enable-banner #top-row {
+		--at-apply: h-[calc(var(--banner-height)_-_4.5rem)];
 	}
 </style>

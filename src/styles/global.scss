@@ -1,6 +1,13 @@
 @use "./variate";
 @use "./components/index";
 
+:root {
+	--radius-large: 1rem;
+	--banner-height-home: 65vh;
+	--banner-height: 35vh;
+	--content-delay: 150ms;
+}
+
 // 透明度白色和黑色的函数
 @function white($a) {
 	@return rgba(255, 255, 255, $a);
