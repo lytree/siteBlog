@@ -48,6 +48,7 @@
 
 .p-menubar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: var(--p-menubar-padding);
     gap: var(--p-menubar-gap);

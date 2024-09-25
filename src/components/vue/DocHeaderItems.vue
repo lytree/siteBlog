@@ -16,18 +16,18 @@ const items: Array<MenuItem> = [
         url: "/docs/archive"
 
     },
-    {
-        key: "category",
-        label: "分类",
-        icon: "pi i-material-symbols-category",
-        url: "/docs/category"
-    },
-    {
-        key: "tag",
-        label: "标签",
-        icon: "pi i-material-symbols-tag",
-        url: "/docs/tag"
-    },
+    // {
+    //     key: "category",
+    //     label: "分类",
+    //     icon: "pi i-material-symbols-category",
+    //     url: "/docs/category"
+    // },
+    // {
+    //     key: "tag",
+    //     label: "标签",
+    //     icon: "pi i-material-symbols-tag",
+    //     url: "/docs/tag"
+    // },
     {
         key: "about",
         label: "关于",
@@ -37,7 +37,7 @@ const items: Array<MenuItem> = [
 ];
 const pt = {
     root: ({ instance }: any) => [
-        ' w-full h-full bg-[var(--card-bg)] border-0 p-menubar p-component',
+        ' w-full h-full bg-[var(--card-bg)] border-0  p-menubar p-component',
         {
             'p-menubar-mobile': instance.queryMatches,
             'p-menubar-mobile-active': instance.mobileActive,
@@ -74,7 +74,7 @@ const pt = {
 }
 </script>
 <template>
-    <div class="w-full h-full absolute">
+    <div class="w-full h-full absolute transition">
         <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
             <template #start>
                 <slot name="avatar"></slot>
@@ -91,7 +91,6 @@ const pt = {
                 </a>
             </template>
             <template #end>
-
             </template>
         </Menubar>
     </div>
