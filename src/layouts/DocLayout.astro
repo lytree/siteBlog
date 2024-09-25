@@ -7,6 +7,7 @@ import { siteConfig } from '@/config'
 import SideBar from "./components/SideBar.astro";
 import GlobalFooter from "@/components/GlobalFooter.astro";
 import BackToTop from "@/components/BackToTop.astro";
+import ImageWrapper from "@/components/ImageWrapper.astro";
 interface Props {
   title?: string
   banner?: string
@@ -21,8 +22,15 @@ const hasBannerLink = !!siteConfig.banner.credit.url
 
 ---
 
-<BaseLayout   title={title} banner={banner} description={description}>
-    <slot slot="head" name="head"></slot>
+<BaseLayout  title={title} banner={banner} description={description}>
+    <slot  name="banner">
+        <div id="banner-wrapper" class="absolute w-full transition-all duration-700">
+            <ImageWrapper id="boxtest" alt="Banner image of the blog" class:list={["object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
+                      src={siteConfig.banner.src} position={siteConfig.banner.position}
+            >
+            </ImageWrapper>
+        </div>	
+    </slot>
     <div class="max-w-[var(--page-width)] min-h-screen grid grid-cols-[17.5rem_auto] grid-rows-[auto_auto_1fr_auto] lg:grid-rows-[auto_1fr_auto]
     mx-auto gap-4 relative px-0 md:px-4"
 >

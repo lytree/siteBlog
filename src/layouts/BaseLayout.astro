@@ -104,13 +104,7 @@ const favicons: Favicon[] =
 	<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
     <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
 		<div>
-			<div id="banner-wrapper" class="absolute w-full transition-all duration-700">
-				<ImageWrapper id="boxtest" alt="Banner image of the blog" class:list={["object-cover h-full", {"hidden": !siteConfig.banner.enable}]}
-						  src={siteConfig.banner.src} position={siteConfig.banner.position}
-				>
-				</ImageWrapper>
-			</div>	
-
+			<slot name="banner" />
 			<slot />
 		</div>
 	</body>
