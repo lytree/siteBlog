@@ -111,11 +111,11 @@ onMounted(() => {
 }
 
 :deep(.p-tabpanels) {
-    --at-apply: py-4 px-0
+    @apply py-4 px-0
 }
 
 .input-with-select {
     border: 1px solid #cbd5e1;
-    --at-apply: pl-2.5 h-10 w-full;
+    @apply pl-2.5 h-10 w-full;
 }
 </style>

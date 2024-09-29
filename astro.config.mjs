@@ -3,7 +3,7 @@ import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
-import UnoCSS from 'unocss/astro';
+import tailwind from '@astrojs/tailwind';
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
@@ -85,8 +85,8 @@ export default defineConfig({
 		globalInstance: true
 	}), vue({
 		appEntrypoint: "./src/_app"
-	}), UnoCSS({
-		injectReset: true // or a path to the reset file
+	}), tailwind({
+
 	}), icon({
 		include: {
 			"material-symbols": ["*"],

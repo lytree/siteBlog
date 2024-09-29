@@ -127,7 +127,7 @@ function formatTag(tag: string[]) {
 .dash-line {
 }
 .dash-line::before {
-    --at-apply: absolute w-[10%] h-full  -top-1/2 left-[calc(50%_-_1px)] -top-[50%] border-l-[2px] border-dashed pointer-events-none border-[var(--line-color)] transition;
+    @apply absolute w-[10%] h-full  -top-1/2 left-[calc(50%_-_1px)] -top-[50%] border-l-[2px] border-dashed pointer-events-none border-[var(--line-color)] transition;
     content: "";
 }
     

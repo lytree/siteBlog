@@ -34,7 +34,7 @@ if (!banner || typeof banner !== 'string' || banner.trim() === '') {
 banner = siteConfig.banner.src
 const enableBanner = siteConfig.banner.enable
 
-const isHomePage = pathsEqual(Astro.url.pathname, url('blog'))
+const isHomePage = pathsEqual(Astro.url.pathname, url('/blog'))
 const favicons: Favicon[] =
   siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
 console.log(isHomePage,enableBanner)
@@ -108,22 +108,41 @@ console.log(isHomePage,enableBanner)
 		</div>
 	</body>
 </html>
-<style is:global lang="scss">
+<style is:global>
 	:root {
 		--hue: var(--configHue);
 		--page-width: 75rem;
 	}
+</style>
+<style is:global >
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
 	.enable-banner.is-home #banner-wrapper {
-		--at-apply: h-[var(--banner-height)] md:h-[var(--banner-height-home)];
+		@apply h-[var(--banner-height-home)] translate-y-[30vh]
 	}
 	.enable-banner #banner-wrapper {
-		--at-apply: h-[var(--banner-height)];
+		@apply h-[var(--banner-height-home)]
 	}
 
-	.enable-banner.is-home #top-row {
-		--at-apply: h-[calc(var(--banner-height)_-_4.5rem)] md:h-[calc(var(--banner-height-home)_-_4.5rem)];
+	.enable-banner.is-home #banner {
+		@apply h-[var(--banner-height-home)] translate-y-0
+	}
+	.enable-banner #banner {
+		@apply h-[var(--banner-height-home)] translate-y-[30vh]
+	}
+	.enable-banner.is-home #main-grid {
+		@apply translate-y-[30vh];
 	}
 	.enable-banner #top-row {
-		--at-apply: h-[calc(var(--banner-height)_-_4.5rem)];
+		@apply h-[calc(var(--banner-height-home)_-_4.5rem)] transition-all duration-300
 	}
+	.enable-banner.is-home #sidebar-sticky {
+		@apply top-[calc(-30vh_+_1rem)]
+	}
+	.navbar-hidden {
+		@apply opacity-0 -translate-y-16
+	}
+}
 </style>

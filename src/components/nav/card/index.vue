@@ -35,6 +35,6 @@ withDefaults(defineProps<{
 </template>
 <style lang="scss" scoped>
 svg.icon {
-    --at-apply: mx-0 h-[42px] w-[42px] rounded-[10px] p-[8px];
+    @apply mx-0 h-[42px] w-[42px] rounded-[10px] p-[8px];
 }
 </style>
