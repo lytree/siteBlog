@@ -101,7 +101,7 @@ console.log(isHomePage,enableBanner)
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 
 	<style define:vars={{ configHue }}></style>  <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
-    <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"is-home": isHomePage, "enable-banner": enableBanner}]}>
+    <body class="min-h-screen bg-white dark:bg-dark transition text-gray-700 dark:text-gray-200" class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}>
 		<div>
 			<slot name="banner" />
 			<slot />
