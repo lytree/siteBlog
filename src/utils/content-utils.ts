@@ -3,7 +3,7 @@
 import { getCollection } from 'astro:content'
 
 export async function getSortedPosts() {
-    const allBlogPosts = await getCollection('docs', ({ data }) => {
+    const allBlogPosts = await getCollection('blog', ({ data }) => {
         return import.meta.env.PROD ? data.draft !== true : true
     })
     const sorted = allBlogPosts.sort((a, b) => {
@@ -30,7 +30,7 @@ export type Tag = {
 }
 
 export async function getTagList(): Promise<Tag[]> {
-    const allBlogPosts = await getCollection('docs', ({ data }) => {
+    const allBlogPosts = await getCollection('blog', ({ data }) => {
         return import.meta.env.PROD ? data.draft !== true : true
     })
 
@@ -56,7 +56,7 @@ export type Category = {
 }
 
 export async function getCategoryList(): Promise<Category[]> {
-    const allBlogPosts = await getCollection('docs', ({ data }) => {
+    const allBlogPosts = await getCollection('blog', ({ data }) => {
         return import.meta.env.PROD ? data.draft !== true : true
     })
     const count: { [key: string]: number } = {}

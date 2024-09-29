@@ -1,6 +1,6 @@
 ---
 
-import DocLayout from "@/layouts/DocLayout.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
 import { PAGE_SIZE } from '@/constants/consts'
 import Pagination from "@/components/Pagination.astro";
 import { getSortedPosts } from "@/utils/content-utils";
@@ -19,7 +19,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths
 ---
 
-<DocLayout>
+<BlogLayout>
   <PostPage page={page}></PostPage>
 	<Pagination class="mx-auto onload-animation" page={page} style=`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`></Pagination>
-</DocLayout>
+</BlogLayout>

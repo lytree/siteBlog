@@ -1,6 +1,6 @@
 ---
 import { getCategoryList } from '@/utils/content-utils'
-import DocLayout from '@/layouts/DocLayout.astro'
+import DocLayout from '@/layouts/BlogLayout.astro'
 import ArchivePanel from '@/components/ArchivePanel.astro'
 
 export async function getStaticPaths() {
@@ -15,10 +15,8 @@ export async function getStaticPaths() {
 }
 
 const category = Astro.params.category as string
-
-console.log(category)
 ---
 
 <DocLayout title={"分类"} description={"分类"}>
-    <ArchivePanel categories={[category]}></ArchivePanel>
+    <ArchivePanel ></ArchivePanel>
 </DocLayout>

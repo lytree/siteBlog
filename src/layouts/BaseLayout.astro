@@ -11,7 +11,6 @@ import {
   LIGHT_MODE,
 } from '@/constants/consts'
 import { url, pathsEqual } from '@/utils/url-utils'
-import ImageWrapper from '@/components/ImageWrapper.astro'
 
 
 interface Props {
@@ -35,10 +34,10 @@ if (!banner || typeof banner !== 'string' || banner.trim() === '') {
 banner = siteConfig.banner.src
 const enableBanner = siteConfig.banner.enable
 
-const isHomePage = pathsEqual(Astro.url.pathname, url('/docs'))
+const isHomePage = pathsEqual(Astro.url.pathname, url('blog'))
 const favicons: Favicon[] =
   siteConfig.favicon.length > 0 ? siteConfig.favicon : defaultFavicons
-
+console.log(isHomePage,enableBanner)
 ---
 
 <!DOCTYPE html>

@@ -7,32 +7,32 @@ const items: Array<MenuItem> = [
         key: "index",
         label: "首页",
         icon: "pi i-material-symbols-home",
-        url: "/docs"
+        url: "/blog"
     },
     {
         key: "archive",
         label: "归档",
         icon: "pi i-material-symbols-archive",
-        url: "/docs/archive"
+        url: "/blog/archive"
 
     },
     // {
     //     key: "category",
     //     label: "分类",
     //     icon: "pi i-material-symbols-category",
-    //     url: "/docs/category"
+    //     url: "/blog/category"
     // },
     // {
     //     key: "tag",
     //     label: "标签",
     //     icon: "pi i-material-symbols-tag",
-    //     url: "/docs/tag"
+    //     url: "/blog/tag"
     // },
     {
         key: "about",
         label: "关于",
         icon: "pi i-material-symbols-person",
-        url: "/docs/about"
+        url: "/blog/about"
     }
 ];
 const pt = {

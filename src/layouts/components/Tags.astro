@@ -21,7 +21,7 @@ const style = Astro.props.style
 <WidgetLayout name="标签" id="tags" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT} class={className} style={style}>
     <div class="flex gap-2 flex-wrap">
         {tags.map(t => (
-            <ButtonTag href={url(`/docs/tag/${t.name}/`)} label={`View all posts with the ${t.name} tag`}>
+            <ButtonTag href={url(`/blog/tag/${t.name}/`)} label={`View all posts with the ${t.name} tag`}>
                 {t.name}
             </ButtonTag>
         ))}
