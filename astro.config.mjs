@@ -25,6 +25,7 @@ export default defineConfig({
 	devToolbar: {
 		enabled: false
 	},
+	trailingSlash: "always",
 	markdown: {
 		remarkPlugins: [remarkMath, remarkReadingTime, remarkExcerpt, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
 		rehypePlugins: [rehypeKatex, rehypeSlug,

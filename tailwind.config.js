@@ -11,11 +11,11 @@ export default {
       md: '6px',
       lg: '8px',
       xl: '12px',
-      "2xl": '16px',
-      "3xl": '24px'
+      '2xl': '16px',
+      '3xl': '24px'
     },
     color: {
-      "dark": '#18181b',
+      'dark': '#18181b',
       'primary': {
         '50': '#f2f7fb',
         '100': '#e7f0f8',

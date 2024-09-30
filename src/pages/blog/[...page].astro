@@ -1,25 +1,22 @@
 ---
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import { PAGE_SIZE } from '@/constants/consts';
+import Pagination from '@/components/Pagination.astro';
+import { getSortedPosts } from '@/utils/content-utils';
+import type { GetStaticPaths } from 'astro';
+import PostPage from '@/components/PostPage.astro';
 
-import BlogLayout from "@/layouts/BlogLayout.astro";
-import { PAGE_SIZE } from '@/constants/consts'
-import Pagination from "@/components/Pagination.astro";
-import { getSortedPosts } from "@/utils/content-utils";
-import type { GetStaticPaths } from "astro";
-import PostPage from "@/components/PostPage.astro";
+const { page } = Astro.props;
 
-
-
-const { page } = Astro.props
-
-const len = page.data.length
+const len = page.data.length;
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allBlogPosts = await getSortedPosts()
-  return paginate(allBlogPosts, { pageSize: PAGE_SIZE })
-}) satisfies GetStaticPaths
+  const allBlogPosts = await getSortedPosts();
+  return paginate(allBlogPosts, { pageSize: PAGE_SIZE });
+}) satisfies GetStaticPaths;
 ---
 
-<BlogLayout>
-  <PostPage page={page}></PostPage>
-	<Pagination class="mx-auto onload-animation" page={page} style=`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`></Pagination>
+<BlogLayout title="首页">
+  <PostPage page={page} />
+  <Pagination class="onload-animation mx-auto" page={page} style=`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)` />
 </BlogLayout>
