@@ -26,7 +26,7 @@ console.log(isHomePage)
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class:list={[{ 'lg:is-home': isHomePage }, 'enable-banner']} data-overlayscrollbars-initialize>
+  <div id="body" class:list={[{ 'lg:is-home': isHomePage }, 'enable-banner']} data-overlayscrollbars-initialize>
     <div id="banner-wrapper" class="absolute -top-[30vh] w-full overflow-hidden transition duration-700">
       <ImageWrapper
         id="banner"
@@ -295,7 +295,8 @@ function disableAnimation() {
       // prevent elements from overlapping the navbar
       let threshold = window.innerHeight * 0.3 - 72 - 16;
       let navbar = document.getElementById('navbar-wrapper');
-      if (!navbar || !document.body.classList.contains('lg:is-home')) {
+      if (!navbar || ! document.getElementById('body')?.classList.contains('lg:is-home')) {
+        
         return;
       }
       if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
@@ -305,8 +306,8 @@ function disableAnimation() {
     window.swup.hooks.on('content:replace', initCustomScrollbar);
     window.swup.hooks.on('visit:start', (visit: { to: { url: string } }) => {
       // change banner height immediately when a link is clicked
-      const bodyElement = document.querySelector('body');
-      if (pathsEqual(visit.to.url, url('/'))) {
+      const bodyElement = document.getElementById('body');
+      if (pathsEqual(visit.to.url, url('/blog/'))) {
         bodyElement!.classList.add('lg:is-home');
       } else {
         bodyElement!.classList.remove('lg:is-home');
@@ -338,7 +339,7 @@ function disableAnimation() {
   } else {
     document.addEventListener('swup:enable', setup);
   }
-
+  
   let backToTopBtn = document.getElementById('back-to-top-btn');
   let navbar = document.getElementById('navbar-wrapper');
   function scrollFunction() {
