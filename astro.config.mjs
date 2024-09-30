@@ -86,9 +86,7 @@ export default defineConfig({
 		globalInstance: true
 	}), vue({
 		appEntrypoint: "./src/_app"
-	}), tailwind({
-
-	}), icon({
+	}), tailwind({}), icon({
 		include: {
 			"material-symbols": ["*"],
 			"fa6-brands": ["*"],

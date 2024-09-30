@@ -1,85 +1,49 @@
 ---
-import GlobalFooter from "@/components/GlobalFooter.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-
+import GlobalFooter from '@/components/GlobalFooter.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-	<div class="flex flex-col min-h-screen">
-		<div class="flex flex-grow flex-col justify-center items-center">
-			<div>
-				<div class="flex justify-center items-center">
-				<img
-					class="logo inline rounded-full"
-					src="/favicon/favicon192.png"
-					alt="logo"
-					width="150"
-				/>
-				</div>
-				<h1
-				class="flex justify-center items-center "
-			>
-				lytree
-				</h1>
-				<h2
-				class="flex justify-center items-center "
-			>
-				回忆的地方
-				</h2>
-				<p class="flex justify-center items-center">
-				<a href="https://github.com/lytree">
-					<img
-						src="https://img.shields.io/badge/GitHub-181717?logo=Github&logoColor=fff"
-						alt="Github"
-					/>
-				</a>
-				<a href="https://space.bilibili.com/89673196">
-					<img
-						src="https://img.shields.io/badge/bilibili-181717?logo=bilibili&logoColor=fff"
-						alt="Bilibili"
-					/>
-				</a>
-				<a href="https://www.zhihu.com/people/zang-xin-18-71">
-					<img
-						src="https://img.shields.io/badge/知乎-181717?logo=zhihu&logoColor=fff"
-						alt="Zhihu"
-					/>
-				</a>
-				<a href="https://weibo.com/u/5648434038">
-					<img
-						src="https://img.shields.io/badge/微博-181717?logo=sinaweibo&logoColor=fff"
-						alt="weibo"
-					/>
-				</a>
-				<a href="https://juejin.cn/user/307518986271495">
-					<img
-						src="https://img.shields.io/badge/掘金-181717?logo=juejin&logoColor=fff"
-						alt="Juejin"
-					/>
-				</a>
-				<a href="/blog/">
-					<img
-						src="https://img.shields.io/badge/博客-181717?logo=bloglovin&logoColor=fff"
-						alt="Github"
-					/>
-				</a>
-				<a href="/nav/">
-					<img
-						src="https://img.shields.io/badge/导航-181717?logo=accenture&logoColor=fff"
-						alt="NAV"
-					/>
-				</a>
-				</p>
-			</div>
-		</div>
-		<GlobalFooter />
-	</div>
+  <div class="flex min-h-screen flex-col">
+    <div class="flex flex-grow flex-col items-center justify-center">
+      <div>
+        <div class="flex items-center justify-center">
+          <img class="logo rounded-full inline" src="/favicon/favicon192.png" alt="logo" width="150" />
+        </div>
+        <h1 class="flex items-center justify-center">lytree</h1>
+        <h2 class="flex items-center justify-center">回忆的地方</h2>
+        <p class="flex items-center justify-center">
+          <a href="https://github.com/lytree">
+            <img src="https://img.shields.io/badge/GitHub-181717?logo=Github&logoColor=fff" alt="Github" />
+          </a>
+          <a href="https://space.bilibili.com/89673196">
+            <img src="https://img.shields.io/badge/bilibili-181717?logo=bilibili&logoColor=fff" alt="Bilibili" />
+          </a>
+          <a href="https://www.zhihu.com/people/zang-xin-18-71">
+            <img src="https://img.shields.io/badge/知乎-181717?logo=zhihu&logoColor=fff" alt="Zhihu" />
+          </a>
+          <a href="https://weibo.com/u/5648434038">
+            <img src="https://img.shields.io/badge/微博-181717?logo=sinaweibo&logoColor=fff" alt="weibo" />
+          </a>
+          <a href="https://juejin.cn/user/307518986271495">
+            <img src="https://img.shields.io/badge/掘金-181717?logo=juejin&logoColor=fff" alt="Juejin" />
+          </a>
+          <a href="/blog/">
+            <img src="https://img.shields.io/badge/博客-181717?logo=bloglovin&logoColor=fff" alt="Github" />
+          </a>
+          <a href="/nav/">
+            <img src="https://img.shields.io/badge/导航-181717?logo=accenture&logoColor=fff" alt="NAV" />
+          </a>
+        </p>
+      </div>
+    </div>
+    <GlobalFooter />
+  </div>
 
-	<style lang="scss">
-		.logo:hover {
-			transform: rotate(666turn);
-			transition: transform 59s 1s cubic-bezier(0.3, 0, 0.8, 1);
-		}
-	</style>
+  <style lang="scss">
+    .logo:hover {
+      transform: rotate(666turn);
+      transition: transform 59s 1s cubic-bezier(0.3, 0, 0.8, 1);
+    }
+  </style>
 </BaseLayout>

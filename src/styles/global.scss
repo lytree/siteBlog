@@ -2,7 +2,7 @@
 @use "./components/index";
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+
 
 :root {
 	--radius-large: 1rem;
@@ -473,3 +473,5 @@ body {
 * {
 	box-sizing: border-box;
 }
+
+@tailwind utilities;

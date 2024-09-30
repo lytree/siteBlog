@@ -22,7 +22,6 @@ const { title, description } = Astro.props;
 const hasBannerCredit = siteConfig.banner.enable && siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
 
-console.log(isHomePage)
 ---
 
 <BaseLayout title={title} description={description}>
@@ -295,8 +294,7 @@ function disableAnimation() {
       // prevent elements from overlapping the navbar
       let threshold = window.innerHeight * 0.3 - 72 - 16;
       let navbar = document.getElementById('navbar-wrapper');
-      if (!navbar || ! document.getElementById('body')?.classList.contains('lg:is-home')) {
-        
+      if (!navbar || !document.getElementById('body')?.classList.contains('lg:is-home')) {
         return;
       }
       if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
@@ -339,7 +337,7 @@ function disableAnimation() {
   } else {
     document.addEventListener('swup:enable', setup);
   }
-  
+
   let backToTopBtn = document.getElementById('back-to-top-btn');
   let navbar = document.getElementById('navbar-wrapper');
   function scrollFunction() {
