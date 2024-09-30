@@ -7,13 +7,13 @@ const items: Array<MenuItem> = [
         key: "index",
         label: "首页",
         icon: "pi i-material-symbols-home",
-        url: "/blog"
+        url: "/blog/"
     },
     {
         key: "archive",
         label: "归档",
         icon: "pi i-material-symbols-archive",
-        url: "/blog/archive"
+        url: "/blog/archive/"
 
     },
     // {
@@ -32,7 +32,7 @@ const items: Array<MenuItem> = [
         key: "about",
         label: "关于",
         icon: "pi i-material-symbols-person",
-        url: "/blog/about"
+        url: "/blog/about/"
     }
 ];
 const pt = {

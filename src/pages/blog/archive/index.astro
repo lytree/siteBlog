@@ -1,22 +1,22 @@
 ---
-import { getCategoryList } from '@/utils/content-utils'
-import DocLayout from '@/layouts/BlogLayout.astro'
-import ArchivePanel from '@/components/ArchivePanel.astro'
+import { getCategoryList } from '@/utils/content-utils';
+import BlogLayout from '@/layouts/BlogLayout.astro';
+import ArchivePanel from '@/components/ArchivePanel.astro';
 
 export async function getStaticPaths() {
-  const categories = await getCategoryList()
-  return categories.map(category => {
+  const categories = await getCategoryList();
+  return categories.map((category) => {
     return {
       params: {
-        category: category.name,
-      },
-    }
-  })
+        category: category.name
+      }
+    };
+  });
 }
 
-const category = Astro.params.category as string
+const category = Astro.params.category as string;
 ---
 
-<DocLayout title={"分类"} description={"分类"}>
-    <ArchivePanel ></ArchivePanel>
-</DocLayout>
+<BlogLayout title="归档" description="归档">
+  <ArchivePanel />
+</BlogLayout>
