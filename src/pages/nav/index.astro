@@ -1,48 +1,43 @@
 ---
-import Search from "@/components/nav/search/index.vue";
-import Sidebar from "@/components/nav/sidebar/index.vue";
-import VCard from "@/components/nav/card/index.vue";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import GlobalFooter from "@/components/GlobalFooter.astro";
-import type { NavGroup } from "@/components/nav/card/type";
-import navs from "@/navs.json"
-
-
+import Search from '@/components/nav/search/index.vue';
+import Sidebar from '@/components/nav/sidebar/index.vue';
+import VCard from '@/components/nav/card/index.vue';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GlobalFooter from '@/components/GlobalFooter.astro';
+import type { NavGroup } from '@/components/nav/card/type';
+import navs from '@/navs.json';
 
 // const response  = await fetch(new URL("scripts/navs.json", Astro.url));
-// const navs: NavGroup[] = await response.json(); 
-
+// const navs: NavGroup[] = await response.json();
 ---
 
 <BaseLayout>
-	<div
-		class="h-full w-full bg-cover bg-center"
-		style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
-	>
-		<div class="min-h-screen w-full flex flex-col">
-			<div class="h-[128px]"><!--header--></div>
-			<div id="context" class="lg:container lg:mx-[20%]  flex-1 relative">
-				<div class="hidden lg:block absolute rounded-lg right-[100%] ">
-					<!-- <Sidebar client:load /> -->
-				</div>
-				<div class="mx-5">
-					<div class="h-[196px]">
-						<!-- 搜索开始 -->
-						<Search
-							client:only="vue"
-						/>
-					</div>
-					<div class="lg:container mx-auto w-max-[1680px]">
-						<div class="flex flex-col space-y-64px">
-							<VCard list={navs} client:load bg-white dark:bg-dark  />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card-base w-80% min-h-[4.5rem] rounded-b-none mx-auto flex items-center px-6">
-				<GlobalFooter />
-			</div>
-		</div>
-	</div>
-	<style lang="scss" is:global></style>
+  <div
+    class="h-full w-full bg-cover bg-center"
+    style="background-image:url('https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')"
+  >
+    <div class="flex min-h-screen w-full flex-col">
+      <div class="h-[128px]"><!--header--></div>
+      <div id="context" class="relative flex-1 lg:container lg:mx-[20%]">
+        <div class="absolute right-[100%] hidden rounded-lg lg:block">
+          <!-- <Sidebar client:load /> -->
+        </div>
+        <div class="mx-5">
+          <div class="h-[196px]">
+            <!-- 搜索开始 -->
+            <Search client:only="vue" />
+          </div>
+          <div class="w-max-[1680px] mx-auto lg:container">
+            <div class="space-y-64px flex flex-col">
+              <VCard list={navs} client:load bg-white dark:bg-dark />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-base w-80% mx-auto flex min-h-[4.5rem] items-center rounded-b-none px-6">
+        <GlobalFooter />
+      </div>
+    </div>
+  </div>
+  <style lang="scss" is:global></style>
 </BaseLayout>

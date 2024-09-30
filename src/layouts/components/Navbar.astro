@@ -14,17 +14,13 @@ let links: NavBarLink[] = [];
 //   },
 // )
 ---
-<div id="navbar" class="sticky top-0 z-50 onload-animation">
+<div id="navbar" class="z-50 onload-animation">
     <div class="absolute h-8 left-0 right-0 -top-8 bg-[var(--card-bg)] transition"></div> <!-- used for onload animation -->
     
     <div class:list={[
         className,
-        "card-base overflow-visible max-w-[var(--page-width)] h-[4.5rem] rounded-t-none mx-auto md:relative items-center justify-between px-auto"]}>
+        "card-base overflow-visible max-w-[var(--page-width)] h-[4.5rem] rounded-t-none mx-auto flex items-center justify-between px-4"]}>
         <DocHeaderItems client:only="vue"></DocHeaderItems>
-        
-        <!-- <DisplaySettings client:only="svelte">
-            <Icon slot="restore-icon" name="fa6-solid:arrow-rotate-left" class="text-[0.875rem]"></Icon>
-        </DisplaySettings> -->
     </div>
 </div>
 

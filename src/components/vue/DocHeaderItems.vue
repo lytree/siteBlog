@@ -37,7 +37,7 @@ const items: Array<MenuItem> = [
 ];
 const pt = {
     root: ({ instance }: any) => [
-        ' w-full h-full bg-[var(--card-bg)] border-0  p-menubar p-component',
+        ' w-full h-full bg-[var(--card-bg)]  border-0  p-menubar p-component',
         {
             'p-menubar-mobile': instance.queryMatches,
             'p-menubar-mobile-active': instance.mobileActive,
@@ -74,24 +74,23 @@ const pt = {
 }
 </script>
 <template>
-    <div class="w-full h-full absolute transition">
-        <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
-            <template #start>
-                <slot name="avatar"></slot>
-            </template>
-            <template #item="{ item, props, hasSubmenu, root }">
-                <a :href="item.url" v-ripple class="px-2 flex items-center" v-bind="props.action">
-                    <span class="ml-1px" :class="item.icon" />
-                    <span class="ml-2px">{{ item.label }}</span>
-                    <span v-if="item.shortcut"
-                        class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{
-                            item.shortcut }}</span>
-                    <i v-if="hasSubmenu"
-                        :class="['pi i-material-symbols-arrow-downward', { 'i-material-symbols-arrow-downward ml-2': root, 'i-material-symbols-arrow-right ml-auto': !root }]"></i>
-                </a>
-            </template>
-            <template #end>
-            </template>
-        </Menubar>
-    </div>
+    <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
+        <template #start>
+            <!-- <div>test</div> -->
+        </template>
+        <template #item="{ item, props, hasSubmenu, root }">
+            <a :href="item.url" v-ripple class="px-2 flex items-center" v-bind="props.action">
+                <span class="ml-1px" :class="item.icon" />
+                <span class="ml-2px">{{ item.label }}</span>
+                <span v-if="item.shortcut"
+                    class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{
+                        item.shortcut }}</span>
+                <i v-if="hasSubmenu"
+                    :class="['pi i-material-symbols-arrow-downward', { 'i-material-symbols-arrow-downward ml-2': root, 'i-material-symbols-arrow-right ml-auto': !root }]"></i>
+            </a>
+        </template>
+        <template #end>
+            <!-- <div>test</div> -->
+        </template>
+    </Menubar>
 </template>
