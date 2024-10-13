@@ -10,7 +10,7 @@ withDefaults(defineProps<{
 
 </script>
 <template>
-    <div v-for="nav in list" class="py-1 ">
+    <div v-for="nav in list" class="py-1  ">
         <Card>
             <template #title>
                 <div class=" ">
