@@ -63,38 +63,41 @@ export default defineConfig({
 			wrap: true
 		}
 	},
-	integrations: [mdx({
-		syntaxHighlight: 'shiki',
-		shikiConfig: {
-			theme: 'dracula',
-			wrap: true
-		}
-		// drafts: true
-	}), sitemap(), swup({
-		theme: false,
-		animationClass: 'transition-swup-',
-		// see https://swup.js.org/options/#animationselector
-		// the default value `transition-` cause transition delay
-		// when the Tailwind class `transition-all` is used
-		containers: ['main'],
-		smoothScrolling: true,
-		cache: true,
-		preload: true,
-		accessibility: true,
-		updateHead: true,
-		updateBodyClass: false,
-		globalInstance: true
-	}), vue({
-		appEntrypoint: "./src/_app"
-	}), tailwind({}), icon({
-		include: {
-			"material-symbols": ["*"],
-			"fa6-brands": ["*"],
-			"fa6-regular": ["*"],
-			"fa6-solid": ["*"],
-			"mdi": ["*"],
-		},
-	})],
+	integrations: [
+		mdx({
+			syntaxHighlight: 'shiki',
+			shikiConfig: {
+				theme: 'dracula',
+				wrap: true
+			}
+			// drafts: true
+		}), sitemap(), swup({
+			theme: false,
+			animationClass: 'transition-swup-',
+			// see https://swup.js.org/options/#animationselector
+			// the default value `transition-` cause transition delay
+			// when the Tailwind class `transition-all` is used
+			containers: ['main'],
+			smoothScrolling: true,
+			cache: true,
+			preload: true,
+			accessibility: true,
+			updateHead: true,
+			updateBodyClass: false,
+			globalInstance: true
+		}), vue({
+			appEntrypoint: "./src/_app"
+		}), tailwind({}), icon({
+			include: {
+				"material-symbols": ["*"],
+				"fa6-brands": ["*"],
+				"fa6-regular": ["*"],
+				"fa6-solid": ["*"],
+				"mdi": ["*"],
+			},
+		}),
+
+	],
 	vite: {
 		plugins: [yaml()],
 

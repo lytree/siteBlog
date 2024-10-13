@@ -26,6 +26,7 @@
     "mdast-util-to-string": "^4.0.0",
     "overlayscrollbars": "^2.10.0",
     "pagefind": "^1.1.1",
+    "@pagefind/default-ui": "^1.0.3",
     "primevue": "^4.1.0",
     "sanitize-html": "^2.13.1",
     "sharp": "^0.33.5",

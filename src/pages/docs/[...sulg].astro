@@ -1,0 +1,23 @@
+---
+import Markdown from '@/components/Markdown.astro';
+import DocLayout from '@/layouts/DocLayout.astro';
+import { getCollection } from 'astro:content';
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('docs', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { remarkPluginFrontmatter } = await entry.render();
+---
+
+<DocLayout>
+  <Markdown class="markdown-content onload-animation mb-6">
+    <Content />
+  </Markdown>
+</DocLayout>
