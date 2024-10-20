@@ -1,5 +1,8 @@
 @use "./variate";
 @use "./components/index";
+@use 'sass:list';
+@use "sass:string";
+@use 'sass:math';
 @tailwind base;
 @tailwind components;
 
@@ -10,7 +13,6 @@
 	--banner-height: 35vh;
 	--content-delay: 150ms;
 }
-
 // 透明度白色和黑色的函数
 @function white($a) {
 	@return rgba(255, 255, 255, $a);
@@ -20,23 +22,6 @@
 	@return rgba(0, 0, 0, $a);
 }
 
-// 检测是否为 OKLCH 颜色
-@function is-oklch($c) {
-	@return str-slice($c, 1, 5)=='oklch';
-}
-
-// OKLCH 回退处理函数
-@function oklch-fallback($c) {
-	$str: #{$c}; // 转换颜色为字符串
-
-	@if is-oklch($str) {
-		// 需要替换为实际的 OKLCH 转 HEX 函数
-		@return oklchToHex($str);
-	}
-
-	@return $c;
-}
-
 // 颜色设置混入
 @mixin color-set($colors) {
 
@@ -44,14 +29,14 @@
 	@supports(color: oklch(0 0 0)) {
 		:root {
 			@each $key, $value in $colors {
-				#{$key}: nth($value, 1);
+				#{$key}: list.nth($value, 1);
 			}
 		}
 
 		:root.dark {
 			@each $key, $value in $colors {
-				@if length($value)>1 {
-					#{$key}: nth($value, 2);
+				@if list.length($value)>1 {
+					#{$key}: list.nth($value, 2);
 				}
 			}
 		}
@@ -60,14 +45,14 @@
 	@supports not (color: oklch(0 0 0)) {
 		:root {
 			@each $key, $value in $colors {
-				#{$key}: oklch-fallback(nth($value, 1));
+				#{$key}: list.nth($value, 1);
 			}
 		}
 
 		:root.dark {
 			@each $key, $value in $colors {
-				@if length($value)>1 {
-					#{$key}: oklch-fallback(nth($value, 2));
+				@if list.length($value)>1 {
+					#{$key}: list.nth($value, 2);
 				}
 			}
 		}
