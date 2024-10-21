@@ -1,7 +1,20 @@
 ---
-import DocHeader from '@/components/DocHeader.astro';
 import BaseLayout from './BaseLayout.astro';
-import PageFrame from '@/components/PageFrame.astro';
+import Banner from './docs/Banner.astro';
+import ContentPanel from './docs/ContentPanel.astro';
+import FallbackContentNotice from './docs/FallbackContentNotice.astro';
+import DraftContentNotice from './docs/DraftContentNotice.astro';
+import Head from './docs/Head.astro';
+import Header from './docs/Header.astro';
+import Hero from './docs/Hero.astro';
+import MarkdownContent from './docs/MarkdownContent.astro';
+import PageFrame from './docs/PageFrame.astro';
+import PageSidebar from './docs/PageSidebar.astro';
+import PageTitle from './docs/PageTitle.astro';
+import Sidebar from './docs/Sidebar.astro';
+import SkipLink from './docs/SkipLink.astro';
+import TwoColumnContent from './docs/TwoColumnContent.astro';
+import GlobalFooter from '@/components/GlobalFooter.astro';
 interface Props {
   title: string;
   description?: string;
@@ -10,5 +23,41 @@ interface Props {
 ---
 
 <BaseLayout title={Astro.props.title} description={Astro.props.title}>
-  <PageFrame {...Astro.props}> <DocHeader slot="header" {...Astro.props} /><slot /></PageFrame>
+  <PageFrame {...Astro.props}>
+    <Header slot="header" {...Astro.props} />
+    {Astro.props.hasSidebar && <Sidebar slot="sidebar" {...Astro.props} />}
+    <script src="./SidebarPersistState"></script>
+    <TwoColumnContent {...Astro.props}>
+      <PageSidebar slot="right-sidebar" {...Astro.props} />
+      <main data-pagefind-body="true">
+        {/* TODO: Revisit how this logic flows. */}
+        <Banner {...Astro.props} />
+        {
+          true ? (
+            <ContentPanel {...Astro.props}>
+              <Hero {...Astro.props} />
+              <MarkdownContent {...Astro.props}>
+                <slot />
+              </MarkdownContent>
+              <GlobalFooter />
+            </ContentPanel>
+          ) : (
+            <>
+              <ContentPanel {...Astro.props}>
+                <PageTitle {...Astro.props} />
+                {true && <DraftContentNotice {...Astro.props} />}
+                {true && <FallbackContentNotice {...Astro.props} />}
+              </ContentPanel>
+              <ContentPanel {...Astro.props}>
+                <MarkdownContent {...Astro.props}>
+                  <slot />
+                </MarkdownContent>
+                <Footer {...Astro.props} />
+              </ContentPanel>
+            </>
+          )
+        }
+      </main>
+    </TwoColumnContent>
+  </PageFrame>
 </BaseLayout>

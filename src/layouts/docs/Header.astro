@@ -1,14 +1,33 @@
 ---
-import Search from './DocSearch.astro';
-import SiteTitle from './DocSiteTitle.astro';
+// import docConfig from '@/doc-config';
+// 
+
+// import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+// import Search from 'virtual:starlight/components/Search';
+// import SiteTitle from 'virtual:starlight/components/SiteTitle';
+// import SocialIcons from 'virtual:starlight/components/SocialIcons';
+// import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
+
+/**
+ * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
+ */
+const shouldRenderSearch = false;
+// docConfig.pagefind || docConfig.components.Search !== './Search.astro';
 ---
 
-<div class="header flex">
-  <div class="title-wrapper flex">
-    <SiteTitle {...Astro.props} />
+<div class="header sl-flex">
+  <div class="title-wrapper sl-flex">
+    <!-- <SiteTitle {...Astro.props} /> -->
   </div>
-  <div class="flex">
-    <Search {...Astro.props} />}
+  <div class="sl-flex">
+    <!-- {shouldRenderSearch && <Search {...Astro.props} />} -->
+  </div>
+  <div class="sl-hidden md:sl-flex right-group">
+    <div class="sl-flex social-icons">
+      <!-- <SocialIcons {...Astro.props} /> -->
+    </div>
+    <!-- <ThemeSelect {...Astro.props} />
+		<LanguageSelect {...Astro.props} /> -->
   </div>
 </div>
 

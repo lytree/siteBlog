@@ -3,7 +3,11 @@
 @use "./menubar";
 @use "./tabs";
 @use "./input";
-
+@use "./asides";
+@use "./markdown";
+@use "./props";
+@use "./shiki";
+@use "./util";
 
 
 .p-connected-overlay {
