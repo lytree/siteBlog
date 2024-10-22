@@ -41,7 +41,7 @@ const items: Array<MenuItem> = [
 ];
 const pt = {
     root: ({ instance }: any) => [
-        ' w-full h-full bg-[var(--card-bg)]  border-0  p-menubar p-component',
+        ' w-full h-full   border-0  p-menubar p-component',
         {
             'p-menubar-mobile': instance.queryMatches,
             'p-menubar-mobile-active': instance.mobileActive,
@@ -49,7 +49,7 @@ const pt = {
     ],
     start: 'p-menubar-start',
     button: 'p-menubar-button',
-    rootList: 'bg-[var(--card-bg)] border-0 p-menubar-root-list ',
+    rootList: ' border-0 p-menubar-root-list ',
     item: ({ instance, processedItem }: any) => {
         return [
             'p-menubar-item',

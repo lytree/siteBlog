@@ -2,6 +2,11 @@
 import Markdown from '@/components/Markdown.astro';
 import DocLayout from '@/layouts/DocLayout.astro';
 import { getCollection } from 'astro:content';
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { remarkPluginFrontmatter } = await entry.render();
+
 export async function getStaticPaths() {
   const blogEntries = await getCollection('docs', ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
@@ -11,12 +16,10 @@ export async function getStaticPaths() {
     props: { entry }
   }));
 }
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-const { remarkPluginFrontmatter } = await entry.render();
+console.log(entry.slug);
 ---
 
-<DocLayout>
+<DocLayout title="考试" description="公考" hasSidebar={true}>
   <Markdown class="markdown-content onload-animation mb-6">
     <Content />
   </Markdown>
