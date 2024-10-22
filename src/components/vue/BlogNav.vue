@@ -1,18 +1,22 @@
 <script lang="tsx" setup>
 import type { MenuItem } from "primevue/menuitem";
-
+withDefaults(defineProps<{
+    title: string
+}>(), {
+    title: ""
+})
 const items: Array<MenuItem> = [
 
     {
         key: "index",
         label: "首页",
-        icon: "pi i-material-symbols-home",
+        icon: "pi icon-[material-symbols--home]",
         url: "/blog/"
     },
     {
         key: "archive",
         label: "归档",
-        icon: "pi i-material-symbols-archive",
+        icon: "pi icon-[material-symbols--archive]",
         url: "/blog/archive/"
 
     },
@@ -31,7 +35,7 @@ const items: Array<MenuItem> = [
     {
         key: "about",
         label: "关于",
-        icon: "pi i-material-symbols-person",
+        icon: "pi icon-[material-symbols--person]",
         url: "/blog/about/"
     }
 ];
@@ -76,12 +80,21 @@ const pt = {
 <template>
     <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
         <template #start>
-            <!-- <div>test</div> -->
+            <a href="/docs/" class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
+                <div class="flex flex-row text-[var(--primary)] items-center text-md">
+                    <span class="text-[1.75rem] mb-1 mr-2 icon-[material-symbols--home-outline-rounded]" />
+                    {{ title }}
+                </div>
+            </a>
         </template>
         <template #item="{ item, props, hasSubmenu, root }">
-            <a :href="item.url" v-ripple class="px-2 flex items-center" v-bind="props.action">
-                <span class="ml-1px" :class="item.icon" />
-                <span class="ml-2px">{{ item.label }}</span>
+            <a :href="item.url" v-ripple :aria-label=item.name :target=item.external
+                class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95"
+                v-bind="props.action">
+                <div class="flex flex-row text-[var(--primary)] items-center text-md">
+                    <span class="text-[1.75rem] mb-1 mr-2 " :class="item.icon" />
+                    {{ item.label }}
+                </div>
                 <span v-if="item.shortcut"
                     class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{
                         item.shortcut }}</span>
@@ -90,7 +103,8 @@ const pt = {
             </a>
         </template>
         <template #end>
-            <!-- <div>test</div> -->
+            <div class="">
+            </div>
         </template>
     </Menubar>
 </template>

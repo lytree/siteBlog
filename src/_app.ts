@@ -85,6 +85,7 @@ import Tooltip from 'primevue/tooltip';
 import Tree from 'primevue/tree';
 import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
+import ToggleSwitch from 'primevue/toggleswitch';
 import VirtualScroller from 'primevue/virtualscroller';
 import "@/styles/global.scss";
 export default (app: App) => {
@@ -124,7 +125,8 @@ export default (app: App) => {
                     }
                 ],
                 label: 'p-button-label'
-            }, tabs: {
+            },
+            tabs: {
                 root: 'p-tabs'
             },
             tab: {
@@ -152,6 +154,18 @@ export default (app: App) => {
             },
             tabpanel: {
                 root: 'p-tabpanel'
+            },
+            toggleswitch: {
+                root: ({ instance, props }: any) => [
+                    'p-toggleswitch  p-component',
+                    {
+                        'p-toggleswitch-checked': instance.checked,
+                        'p-disabled': props.disabled,
+                        'p-invalid': props.invalid
+                    }
+                ],
+                input: 'p-toggleswitch-input',
+                slider: 'p-toggleswitch-slider'
             },
             card: {
                 root: 'p-card',
@@ -252,6 +266,7 @@ export default (app: App) => {
     app.component('Tree', Tree);
     app.component('TreeSelect', TreeSelect);
     app.component('TreeTable', TreeTable);
+    app.component('ToggleSwitch', ToggleSwitch);
     app.component('VirtualScroller', VirtualScroller);
     app.directive('removeAriaHidden', (el, binding) => {
         const ariaEls = el.querySelectorAll('.p-menubar-item-link')
