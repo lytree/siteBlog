@@ -1,0 +1,10 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/PageTitle.astro';
+
+const { data } = Astro.props.entry;
+---
+
+<Default {...Astro.props} siteTitle={'考试'} siteTitleHref={'/docs/'}>
+  <slot />
+</Default>

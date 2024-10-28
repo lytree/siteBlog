@@ -68,6 +68,10 @@ export default defineConfig({
     integrations: [
         starlight({
             title: '考试',
+            components: {
+                SiteTitle: './src/components/doc/SiteTitle.astro',
+
+            },
         }),
         mdx({
             syntaxHighlight: 'shiki',
