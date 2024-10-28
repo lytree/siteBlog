@@ -19,7 +19,7 @@
     "@pagefind/default-ui": "^1.1.1",
     "@swup/astro": "^1.4.1",
     "@vueuse/core": "^11.1.0",
-    "astro": "^4.16.6",
+    "astro": "^4.16.7",
     "astro-icon": "^1.1.1",
     "colorjs.io": "^0.5.2",
     "hastscript": "^9.0.0",
@@ -36,7 +36,7 @@
     "vue": "^3.5.12"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "^1.10.3",
+    "@astrojs/ts-plugin": "^1.10.4",
     "@iconify-json/fa6-brands": "^1.2.1",
     "@iconify-json/fa6-regular": "^1.2.1",
     "@iconify-json/fa6-solid": "^1.2.1",
@@ -46,7 +46,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
-    "@types/node": "^20.16.13",
+    "@types/node": "^20.17.1",
     "@types/sanitize-html": "^2.13.0",
     "autoprefixer": "^10.4.20",
     "glob": "^11.0.0",
@@ -66,8 +66,8 @@
     "remark-directive-rehype": "^0.4.2",
     "remark-github-admonitions-to-directives": "^1.0.5",
     "remark-math": "^6.0.0",
-    "sass": "^1.80.3",
-    "tsx": "^4.19.1",
+    "sass": "^1.80.4",
+    "tsx": "^4.19.2",
     "yargs": "^17.7.2"
   },
   "pnpm": {
