@@ -70,7 +70,6 @@ export default defineConfig({
             title: '考试',
             components: {
                 SiteTitle: './src/components/doc/SiteTitle.astro',
-
             },
         }),
         mdx({
