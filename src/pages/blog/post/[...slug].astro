@@ -1,7 +1,7 @@
 ---
 import path from 'node:path';
 import { getCollection } from 'astro:content';
-import DocLayout from '@/layouts/BlogLayout.astro';
+import BlogLayout from '@/layouts/BlogLayout.astro';
 import { getDir, getPostUrlBySlug } from '@/utils/url-utils';
 import { Icon } from 'astro-icon/components';
 import PostMetadata from '@/components/PostMeta.astro';
@@ -41,7 +41,7 @@ const jsonLd = {
 };
 ---
 
-<DocLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
+<BlogLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="relative mb-4 flex w-full overflow-hidden rounded-[var(--radius-large)]">
     <div id="post-container" class:list={['card-base relative z-10 w-full px-6 pb-4 pt-6 md:px-9', {}]}>
@@ -133,7 +133,7 @@ const jsonLd = {
       }
     </a>
   </div>
-</DocLayout>
+</BlogLayout>
 
 <style is:global>
   #post-container :nth-child(1) {

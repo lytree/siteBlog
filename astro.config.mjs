@@ -19,8 +19,6 @@ import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import icon from "astro-icon";
 import yaml from '@rollup/plugin-yaml';
 
-import starlight from "@astrojs/starlight";
-
 // https://astro.build/config
 export default defineConfig({
     site: "https://www.prideyang.top",
@@ -66,12 +64,6 @@ export default defineConfig({
         }
     },
     integrations: [
-        starlight({
-            title: '考试',
-            components: {
-                SiteTitle: './src/components/doc/SiteTitle.astro',
-            },
-        }),
         mdx({
             syntaxHighlight: 'shiki',
             shikiConfig: {
