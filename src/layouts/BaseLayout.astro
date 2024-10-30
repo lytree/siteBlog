@@ -5,8 +5,8 @@ import type { Favicon } from '../types/config';
 import { defaultFavicons } from '@/constants/icon';
 import { AUTO_MODE, DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from '@/constants/consts';
 import { url, pathsEqual } from '@/utils/url-utils';
-import "@/styles/global.scss";
-import 'bootstrap/dist/js/bootstrap';
+import '@/styles/global.scss';
+
 interface Props {
   title?: string;
   description?: string;
@@ -44,7 +44,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description || pageTitle} />
 
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     {
       favicons.map((favicon) => (
@@ -62,15 +62,19 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
       switch (theme) {
         case LIGHT_MODE:
           document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-bs-theme','light');
           break;
         case DARK_MODE:
           document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-bs-theme','dark');
           break;
         case AUTO_MODE:
           if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-bs-theme','dark');
           } else {
             document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-bs-theme','light');
           }
       }
     </script>

@@ -1,6 +1,7 @@
-@use "./variate";
-@use "./bootstrap";
-@use "./components/index";
+@use "./_bootstrap";
+@use "./_variate";
+// @use "./components/index";
+
 @use 'sass:list';
 @use "sass:string";
 @use 'sass:math';

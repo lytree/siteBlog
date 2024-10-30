@@ -1,14 +1,14 @@
-@use "./button";
-@use "./card";
-@use "./menubar";
-@use "./tabs";
-@use "./input";
-@use "_toggleswitch";
-@use "./asides";
-@use "./markdown";
-@use "./props";
-@use "./shiki";
-@use "./util";
+@use "./_button";
+@use "./_card";
+@use "./_menubar";
+@use "./_tabs";
+@use "./_input";
+@use "./_toggleswitch";
+@use "./_asides";
+@use "./_markdown";
+@use "./_props";
+@use "./_shiki";
+@use "./_util";
 
 
 .p-connected-overlay {

@@ -17,6 +17,7 @@
     "@astrojs/tailwind": "^5.1.2",
     "@astrojs/vue": "^4.5.2",
     "@pagefind/default-ui": "^1.1.1",
+    "@popperjs/core": "^2.11.8",
     "@swup/astro": "^1.4.1",
     "@vueuse/core": "^11.1.0",
     "astro": "^4.16.7",
