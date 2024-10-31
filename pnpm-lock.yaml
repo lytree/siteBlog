@@ -48,9 +48,6 @@ importers:
       astro-icon:
         specifier: ^1.1.1
         version: 1.1.1
-      bootstrap:
-        specifier: ^5.3.3
-        version: 5.3.3(@popperjs/core@2.11.8)
       colorjs.io:
         specifier: ^0.5.2
         version: 0.5.2
@@ -115,9 +112,6 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.14)
-      '@types/bootstrap':
-        specifier: ^5.2.10
-        version: 5.2.10
       '@types/markdown-it':
         specifier: ^14.1.2
         version: 14.1.2
@@ -1776,9 +1770,6 @@ packages:
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
 
-  '@types/bootstrap@5.2.10':
-    resolution: {integrity: sha512-F2X+cd6551tep0MvVZ6nM8v7XgGN/twpdNDjqS1TUM7YFNEtQYWk+dKAnH+T1gr6QgCoGMPl487xw/9hXooa2g==}
-
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
@@ -2120,11 +2111,6 @@ packages:
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
-
-  bootstrap@5.3.3:
-    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
-    peerDependencies:
-      '@popperjs/core': ^2.11.8
 
   boxen@8.0.1:
     resolution: {integrity: sha512-F3PH5k5juxom4xktynS7MoFY+NUWH5LC4CnH11YB8NPew+HLpmBLCybSAEyb2F+4pRXhuhWqFesoQd6DAyc2hw==}
@@ -7025,10 +7011,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.0
 
-  '@types/bootstrap@5.2.10':
-    dependencies:
-      '@popperjs/core': 2.11.8
-
   '@types/cookie@0.6.0': {}
 
   '@types/debug@4.1.12':
@@ -7540,10 +7522,6 @@ snapshots:
   birpc@0.2.19: {}
 
   boolbase@1.0.0: {}
-
-  bootstrap@5.3.3(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
 
   boxen@8.0.1:
     dependencies:
