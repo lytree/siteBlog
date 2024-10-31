@@ -1,4 +1,5 @@
 import type { App } from 'vue';
+import Aura from '@primevue/themes/aura';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -90,92 +91,13 @@ import VirtualScroller from 'primevue/virtualscroller';
 import "@/styles/global.scss";
 export default (app: App) => {
     app.use(PrimeVue, {
-        unstyled: true,
-        zIndex: {
-            modal: 1100,        //dialog, drawer
-            overlay: 1000,      //select, popover
-            menu: 1000,         //overlay menus
-            tooltip: 1100       //tooltip
-        },
-        pt: {
-            button: {
-                root: ({ instance, props }: any) => [
-                    'p-button p-component',
-                    {
-                        'p-button-icon-only': instance.hasIcon && !props.label && !props.badge,
-                        'p-button-vertical': (props.iconPos === 'top' || props.iconPos === 'bottom') && props.label,
-                        'p-button-loading': props.loading,
-                        'p-button-link': props.link,
-                        [`p-button-${props.severity}`]: props.severity,
-                        'p-button-raised': props.raised,
-                        'p-button-rounded': props.rounded,
-                        'p-button-text': props.text,
-                        'p-button-outlined': props.outlined,
-                        'p-button-sm': props.size === 'small',
-                        'p-button-lg': props.size === 'large',
-                        'p-button-plain': props.plain,
-                        'p-button-fluid': instance.hasFluid
-                    }
-                ],
-                loadingIcon: 'p-button-loading-icon',
-                icon: ({ props }: any) => [
-                    'p-button-icon',
-                    {
-                        [`p-button-icon-${props.iconPos}`]: props.label
-                    }
-                ],
-                label: 'p-button-label'
-            },
-            tabs: {
-                root: 'p-tabs'
-            },
-            tab: {
-                root: 'p-tab'
-            },
-            iconfield: {
-                root: 'p-iconfield'
-            },
-            inputicon: {
-                root: 'p-inputicon'
-            },
-            inputtext: {
-                root: 'p-inputtext'
-            },
-            tablist: {
-                root: 'p-tablist',
-                content: 'p-tablist-content',
-                tabList: 'p-tablist-tab-list',
-                activeBar: 'p-tablist-active-bar',
-                prevButton: 'p-tablist-prev-button',
-                nextButton: 'p-tablist-next-button'
-            },
-            tabpanels: {
-                root: 'p-tabpanels'
-            },
-            tabpanel: {
-                root: 'p-tabpanel'
-            },
-            toggleswitch: {
-                root: ({ instance, props }: any) => [
-                    'p-toggleswitch  p-component',
-                    {
-                        'p-toggleswitch-checked': instance.checked,
-                        'p-disabled': props.disabled,
-                        'p-invalid': props.invalid
-                    }
-                ],
-                input: 'p-toggleswitch-input',
-                slider: 'p-toggleswitch-slider'
-            },
-            card: {
-                root: 'p-card',
-                header: 'p-card-header',
-                body: 'p-card-body',
-                caption: 'p-card-caption',
-                title: 'p-card-title',
-                subtitle: 'p-card-subtitle',
-                content: 'p-card-content',
-                footer: 'p-card-footer'
+        theme: {
+            preset: Aura,
+            options: {
+                cssLayer: {
+                    name: 'primevue',
+                    order: 'tailwind-base, primevue, tailwind-utilities'
+                }
             }
         }
     });

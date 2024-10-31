@@ -41,7 +41,8 @@ export default {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"),        // Iconify plugin, requires writing list of icon sets to load
+    require("@tailwindcss/typography"),
+    require('tailwindcss-primeui'),        // Iconify plugin, requires writing list of icon sets to load
     addDynamicIconSelectors()
   ]
 }

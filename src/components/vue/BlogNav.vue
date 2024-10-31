@@ -39,48 +39,14 @@ const items: Array<MenuItem> = [
         url: "/blog/about/"
     }
 ];
-const pt = {
-    root: ({ instance }: any) => [
-        ' w-full h-full   border-0  p-menubar p-component',
-        {
-            'p-menubar-mobile': instance.queryMatches,
-            'p-menubar-mobile-active': instance.mobileActive,
-        }
-    ],
-    start: 'p-menubar-start',
-    button: 'p-menubar-button',
-    rootList: ' border-0 p-menubar-root-list ',
-    item: ({ instance, processedItem }: any) => {
-        return [
-            'p-menubar-item',
-            {
-                'p-menubar-item-active': instance.isItemActive(processedItem),
-                'p-disabled': instance.isItemDisabled(processedItem)
-            }
-        ]
-    },
-    itemContent: 'p-menubar-item-content',
-    itemLink: 'p-menubar-item-link',
-    itemIcon: 'p-menubar-item-icon',
-    itemLabel: 'p-menubar-item-label',
-    submenuIcon: 'p-menubar-submenu-icon',
-    submenu: ({ instance, processedItem }: any) => {
-        return [
-            'p-menubar-submenu',
-            {
-                'flex': instance.isItemActive(processedItem),
-                'hidden': !instance.isItemActive(processedItem),
-            }
-        ]
-    },
-    separator: 'p-menubar-separator',
-    end: 'p-menubar-end'
-}
 </script>
 <template>
-    <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt=pt>
+    <Menubar id="MenuHeader" :model="items" breakpoint="768px" :pt="{
+        root: 'w-full bg-[var(--card-bg)]',
+        rootList: 'bg-inherit'
+    }">
         <template #start>
-            <a href="/docs/" class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
+            <a href="/blog/" class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
                 <div class="flex flex-row text-[var(--primary)] items-center text-md">
                     <span class="text-[1.75rem] mb-1 mr-2 icon-[material-symbols--home-outline-rounded]" />
                     {{ title }}
