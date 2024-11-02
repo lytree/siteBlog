@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 const { addDynamicIconSelectors } = require('@iconify/tailwind');
 
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/flowbite/**/*.js'],
   darkMode: "class", // allows toggling dark mode manually
   theme: {
     extend: {
@@ -43,6 +43,7 @@ export default {
   plugins: [
     require("@tailwindcss/typography"),
     require('tailwindcss-primeui'),        // Iconify plugin, requires writing list of icon sets to load
+    require('flowbite/plugin'),
     addDynamicIconSelectors()
   ]
 }
