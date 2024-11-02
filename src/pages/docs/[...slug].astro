@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Markdown from '@/components/Markdown.astro';
-import DocsLayout from '@/layouts/DocsLayout.astro';
+import DocsLayout from '@/theme/docs/DocsLayout.astro';
 export async function getStaticPaths() {
   const docsEntries = await getCollection('docs', ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
@@ -19,7 +18,7 @@ const { remarkPluginFrontmatter } = await entry.render();
 ---
 
 <DocsLayout isHome={false} banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
-  <Markdown class="markdown-content onload-animation mb-6">
+  <div class="markdown-content onload-animation mb-6">
     <Content />
-  </Markdown>
+  </div>
 </DocsLayout>
