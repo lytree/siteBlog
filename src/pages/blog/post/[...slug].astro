@@ -2,12 +2,12 @@
 import path from 'node:path';
 import { getCollection } from 'astro:content';
 import BlogLayout from '@/layouts/BlogLayout.astro';
-import { getDir, getPostUrlBySlug } from '@/utils/url-utils';
+import { getDir, getPostUrlBySlug } from '@/theme/blog/utils/url-utils';
 import { Icon } from 'astro-icon/components';
 import PostMetadata from '@/components/PostMeta.astro';
 import ImageWrapper from '@/components/ImageWrapper.astro';
 import { profileConfig } from '@/blog-config';
-import { formatDateToYYYYMMDD } from '@/utils/time-utils';
+import { formatDateToYYYYMMDD } from '@/theme/blog/utils/time-utils';
 import Markdown from '@/components/Markdown.astro';
 
 export async function getStaticPaths() {

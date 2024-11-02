@@ -1,13 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
-import BaseLayout from './BaseLayout.astro';
-import Navbar from './blog/Navbar.astro';
-import { url, pathsEqual } from '../utils/url-utils';
+import BaseLayout from '../BaseLayout.astro';
+import Navbar from './components/BlogNav.vue';
+import { url, pathsEqual } from './utils/url-utils';
 import { siteConfig } from '@/blog-config';
-import SideBar from './blog/SideBar.astro';
-import GlobalFooter from '@/components/GlobalFooter.astro';
-import BackToTop from '@/components/BackToTop.astro';
-import ImageWrapper from '@/components/ImageWrapper.astro';
+import SideBar from './components/SideBar.astro';
+import GlobalFooter from './components/GlobalFooter.astro';
+import BackToTop from './components/BackToTop.astro';
+import ImageWrapper from './components/ImageWrapper.astro';
 interface Props {
   title?: string;
   banner?: string;

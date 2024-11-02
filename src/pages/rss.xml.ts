@@ -2,7 +2,7 @@ import rss from '@astrojs/rss'
 import { siteConfig } from '@/blog-config'
 import sanitizeHtml from 'sanitize-html'
 import MarkdownIt from 'markdown-it'
-import { getSortedPosts } from '@/utils/content-utils.ts'
+import { getSortedPosts } from '@/theme/blog/utils/content-utils'
 const parser = new MarkdownIt()
 
 export async function GET(context: any) {

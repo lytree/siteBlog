@@ -2,8 +2,8 @@
 
 import WidgetLayout from './WidgetLayout.astro'
 import ButtonTag from '../../components/TagButton.astro'
-import { getTagList } from '@/utils/content-utils'
-import { url } from '@/utils/url-utils'
+import { getTagList } from '@/theme/blog/utils/content-utils'
+import { url } from '@/theme/blog/utils/url-utils'
 
 const tags = await getTagList()
 
