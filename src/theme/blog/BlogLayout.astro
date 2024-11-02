@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../BaseLayout.astro';
-import Navbar from './components/BlogNav.vue';
+import Navbar from './components/Navbar.astro';
 import { url, pathsEqual } from './utils/url-utils';
 import { siteConfig } from '@/blog-config';
 import SideBar from './components/SideBar.astro';
@@ -141,7 +141,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
     // ClickScrollPlugin
   } from 'overlayscrollbars';
   // import {getHue, getStoredTheme, setHue, setTheme} from "../utils/setting-utils";
-  import { pathsEqual, url } from '../utils/url-utils';
+  import { pathsEqual, url } from './utils/url-utils';
 
   /* Preload fonts */
   // (async function() {
