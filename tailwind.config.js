@@ -42,7 +42,6 @@ export default {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    require('tailwindcss-primeui'),        // Iconify plugin, requires writing list of icon sets to load
     require('flowbite/plugin'),
     addDynamicIconSelectors()
   ]

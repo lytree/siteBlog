@@ -1,6 +1,6 @@
 ---
 
-import BlogNav from './BlogNav.vue'
+import BlogNav from './BlogNav.astro'
 import { url } from '../utils/url-utils'
 const className = Astro.props.class
 
@@ -11,7 +11,7 @@ const className = Astro.props.class
     <div class:list={[
         className,
         "card-base overflow-visible max-w-[var(--page-width)] h-[4.5rem] rounded-t-none mx-auto flex items-center justify-between px-4"]}>
-        <BlogNav title={"杨柳亭"} client:only="vue" ></BlogNav>
+        <BlogNav title={"杨柳亭"}></BlogNav>
     </div>
 </div>
 
