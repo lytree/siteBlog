@@ -4,7 +4,7 @@
             <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button"
                 :class="isDark ? 'icon-[material-symbols--mode-night]' : 'icon-[material-symbols--sunny]'"
                 aria-label="Toggle dark mode" @click="toggleDark()"
-                class="inline-flex items-center justify-center w-5 h-5  focus:outline-none rounded-lg p-2">
+                class="inline-flex items-center justify-center w-5 h-5  rounded-lg p-2">
             </button>
         </ClientOnly>
     </div>
