@@ -25,6 +25,7 @@
     "astro": "^4.16.9",
     "astro-icon": "^1.1.2",
     "colorjs.io": "^0.5.2",
+    "dayjs": "^1.11.13",
     "flowbite": "^2.5.2",
     "hastscript": "^9.0.0",
     "markdown-it": "^14.1.0",
