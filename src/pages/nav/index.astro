@@ -1,13 +1,14 @@
 ---
-import Search from '@/theme/nav/components/search/index.vue';
-import Sidebar from '@/theme/nav/components/sidebar/index.vue';
-import VCard from '@/theme/nav/components/card/index.vue';
 import BaseLayout from '@/theme/BaseLayout.astro';
 import GlobalFooter from '@/components/GlobalFooter.astro';
-import type { NavGroup } from '@/theme/nav/components/card/type';
 import list from '@/navs.json';
 var groups: any[] = [];
-var navs: any[] = [];
+var navs: any[] = [
+  {
+    url: '/',
+    title: '主页'
+  }
+];
 var searchs: any[] = [];
 // const response  = await fetch(new URL("scripts/navs.json", Astro.url));
 // const navs: NavGroup[] = await response.json();
@@ -15,14 +16,6 @@ var searchs: any[] = [];
 
 <BaseLayout>
   <div class="banner-video">
-    <!-- 
-		<?php
-		if (theme_config('background_position', 0) == 1) {
-			echo '<style>.banner-video{position: fixed !important;}</style>';
-		}
-		if (!empty(background())) {
-			echo '<img src="' . background() . '">';
-		} ?> -->
     <img src="https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" />
   </div>
   <div class="bottom-cover" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244 248 251 / 0.6) 50%, rgb(244 248 251) 100%);"></div>
@@ -33,7 +26,7 @@ var searchs: any[] = [];
         <ul>
           <li data-lylme="search"><a>搜索</a><span></span></li>
           {
-            groups.forEach((group) => {
+            groups.map((group) => {
               <li data-lylme={'group_' + group.group_id}>
                 <a> {group.name}</a>
                 <span />
@@ -47,7 +40,7 @@ var searchs: any[] = [];
 
   <!--topbar开始-->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="position: absolute; z-index: 10000;">
-    <!--<a class="navbar-brand" href="/"><img src="./assets/img/logo.png" height="25"  title="LyLme_Spage"></a>-->
+    <!-- <a class="navbar-brand" href="/"><img src="./assets/img/logo.png" height="25"  title="LyLme_Spage"></a> -->
     <button
       class="navbar-toggler collapsed"
       style="border: none; outline: none;"
@@ -75,19 +68,8 @@ var searchs: any[] = [];
     </div>
     <div class="navbar-collapse collapse" id="navbarsExample05">
       <ul class="navbar-nav mr-auto">
-        <!-- <?php
-				$tagslists = $site->getTags();
-				while ($taglists = $DB->fetch($tagslists)) {
-					echo '<li class="nav-item"><a class="nav-link" href="' . $taglists["tag_link"] . '"';
-					if ($taglists["tag_target"] == 1) {
-						echo ' target="_blank"';
-					}
-					echo '>' . $taglists["tag_name"] . '</a></li>
-				    ';
-				}
-				?> -->
         {
-          navs.forEach((nav) => {
+          navs.map((nav) => {
             <li class="nav-item">
               <a class="nav-link" href={nav.url} target={nav.target === '_blank' ? '_blank' : '_self'}>
                 {nav.title}
@@ -102,6 +84,7 @@ var searchs: any[] = [];
       </div>
     </div>
   </nav>
+
   <!--topbar结束-->
   <div class="container" style="margin-top:10vh; position: relative; z-index: 100;">
     <!--搜索开始-->
@@ -110,7 +93,7 @@ var searchs: any[] = [];
         <div class="search-group group-a s-current" style=" margin-top: 50px;">
           <ul class="search-type">
             {
-              searchs.forEach((search) => {
+              searchs.map((search) => {
                 <li>
                   <input hidden="" checked="" type="radio" name="type" id={'type-' + search.alias} value={search.link} data-placeholder={search.hint} />
                   <label for={'type-' + search.alias} style="font-weight:600">
@@ -141,13 +124,13 @@ var searchs: any[] = [];
       </form>
     </div>
     {
-      list.forEach((siteGroup) => {
+      list.map((siteGroup) => {
         <ul class="mylist row">
           <li id={'group_' + siteGroup.id} class="title">
             {siteGroup.icon}
             <sapn>{siteGroup.title}</sapn>
           </li>
-          {siteGroup.items?.forEach((site) => {
+          {siteGroup.items?.map((site) => {
             <li class="col-3 col-sm-3 col-md-3 col-lg-1">
               <a rel="nofollow" href={site.url} target="_blank">
                 <svg class="icon" aria-hidden="true">

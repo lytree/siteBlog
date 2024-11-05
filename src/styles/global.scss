@@ -1,6 +1,3 @@
-@use "./_variate";
-// @use "./components/index";
-
 @use 'sass:list';
 @use "sass:string";
 @use 'sass:math';
@@ -462,13 +459,3 @@ body {
 }
 
 @tailwind utilities;
-@layer tailwind-base, primevue, tailwind-utilities;
-
-@layer tailwind-base {
-	@tailwind base;
-}
-
-@layer tailwind-utilities {
-	@tailwind components;
-	@tailwind utilities;
-}

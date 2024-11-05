@@ -6,6 +6,8 @@ import { defaultFavicons } from '@/constants/icon';
 import { AUTO_MODE, DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from '@/constants/consts';
 import { url, pathsEqual } from '@/theme/blog/utils/url-utils';
 import '@/styles/global.scss';
+import GlobalFooter from '@/components/GlobalFooter.astro';
+import GlobalStyles from '@/components/GlobalStyles.astro';
 
 interface Props {
   title?: string;
@@ -62,19 +64,19 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
       switch (theme) {
         case LIGHT_MODE:
           document.documentElement.classList.remove('dark');
-          document.documentElement.setAttribute('data-bs-theme','light');
+          document.documentElement.setAttribute('data-bs-theme', 'light');
           break;
         case DARK_MODE:
           document.documentElement.classList.add('dark');
-          document.documentElement.setAttribute('data-bs-theme','dark');
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
           break;
         case AUTO_MODE:
           if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
-            document.documentElement.setAttribute('data-bs-theme','dark');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
           } else {
             document.documentElement.classList.remove('dark');
-            document.documentElement.setAttribute('data-bs-theme','light');
+            document.documentElement.setAttribute('data-bs-theme', 'light');
           }
       }
     </script>
@@ -88,7 +90,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
     <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
   </head>
   <body class="min-h-screen bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
-    <slot />
+    <GlobalStyles> <slot /></GlobalStyles>
   </body>
 </html>
 <style is:global>
