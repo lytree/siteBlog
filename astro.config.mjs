@@ -91,7 +91,7 @@ export default defineConfig({
         vue({
             appEntrypoint: "./src/_app"
         }),
-        tailwind({}),
+        tailwind(),
         icon({
             include: {
                 "material-symbols": ["*"],
