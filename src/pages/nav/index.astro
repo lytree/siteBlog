@@ -1133,13 +1133,13 @@ function clearTimer() {
       </form>
     </div>
     {
-      list.map((siteGroup) => {
+      list.map((siteGroup) => (
         <ul class="mylist row">
           <li id={'group_' + siteGroup.id} class="title">
             {siteGroup.icon}
             <sapn>{siteGroup.title}</sapn>
           </li>
-          {siteGroup.items?.map((site) => {
+          {siteGroup.items?.map((site) => (
             <li class="col-3 col-sm-3 col-md-3 col-lg-1">
               <a rel="nofollow" href={site.url} target="_blank">
                 <svg class="icon" aria-hidden="true">
@@ -1147,13 +1147,72 @@ function clearTimer() {
                 </svg>
                 <span>{site.content}</span>
               </a>
-            </li>;
-          })}
-        </ul>;
-      })
+            </li>
+          ))}
+        </ul>
+      ))
     }
   </div>
 </BaseLayout>
+<script lang="js">
+  //输入框获取焦点
+  window.onload = function () {
+    var text = document.getElementById('search-text');
+    text.focus();
+  };
+
+  const searchInput = document.getElementById('search-text');
+  const wordList = document.getElementById('word').getElementsByTagName('li');
+  let selectedWordIndex = -1;
+  let ignoreKeyEvents = false; // 新增标志用于判断是否忽略键盘事件
+
+  // 监听键盘事件
+  searchInput.addEventListener('keydown', function (event) {
+    switch (event.key) {
+      case 'ArrowUp':
+        event.preventDefault();
+        selectPreviousWord();
+        fillInputWithSelectedWord();
+        break;
+      case 'ArrowDown':
+        event.preventDefault();
+        selectNextWord();
+        fillInputWithSelectedWord();
+        break;
+      default:
+        ignoreKeyEvents = false; // 其他键盘事件恢复正常
+        break;
+    }
+  });
+
+  // 选中上一个选项
+  function selectPreviousWord() {
+    if (selectedWordIndex > 0) {
+      wordList[selectedWordIndex].classList.remove('selected');
+      selectedWordIndex--;
+      wordList[selectedWordIndex].classList.add('selected');
+    }
+  }
+
+  // 选中下一个选项
+  function selectNextWord() {
+    if (selectedWordIndex < wordList.length - 1) {
+      if (selectedWordIndex >= 0) {
+        wordList[selectedWordIndex].classList.remove('selected');
+      }
+      selectedWordIndex++;
+      wordList[selectedWordIndex].classList.add('selected');
+    }
+  }
+
+  // 将选中的选项填入输入框
+  function fillInputWithSelectedWord() {
+    if (selectedWordIndex !== -1) {
+      searchInput.value = wordList[selectedWordIndex].innerText;
+      ignoreKeyEvents = true; // 标记忽略键盘事件
+    }
+  }
+</script>
 <script lang="js">
   var y,
     a = document.querySelectorAll('input[name="type"]'),
