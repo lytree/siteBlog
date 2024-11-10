@@ -1134,21 +1134,25 @@ function clearTimer() {
     </div>
     {
       list.map((siteGroup) => (
-        <ul class="mylist row">
+        <ul class="mylist flex flex-col">
           <li id={'group_' + siteGroup.id} class="title">
-            {siteGroup.icon}
-            <sapn>{siteGroup.title}</sapn>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href={siteGroup.icon} />
+            </svg>
+            <span>{siteGroup.title}</span>
           </li>
-          {siteGroup.items?.map((site) => (
-            <li class="col-3 col-sm-3 col-md-3 col-lg-1">
-              <a rel="nofollow" href={site.url} target="_blank">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-tengxunshipin" />
-                </svg>
-                <span>{site.content}</span>
-              </a>
-            </li>
-          ))}
+          <div class="flex flex-row">
+            {siteGroup.items?.map((site) => (
+              <li class="col-3 flex-[0_0_1/12]">
+                <a rel="nofollow" href={site.url} target="_blank">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href={site.icon} />
+                  </svg>
+                  <span>{site.content}</span>
+                </a>
+              </li>
+            ))}
+          </div>
         </ul>
       ))
     }
