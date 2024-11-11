@@ -1134,25 +1134,23 @@ function clearTimer() {
     </div>
     {
       list.map((siteGroup) => (
-        <ul class="mylist flex flex-col">
-          <li id={'group_' + siteGroup.id} class="title">
-            <svg class="icon" aria-hidden="true">
+        <ul class="mx-0 my-4 flex list-none flex-wrap rounded-md bg-[#ffffffe6] shadow-[0_0.5rem_0.625rem_rgb(212,212,212)]">
+          <li id={'group_' + siteGroup.id} class="w-full text leading">
+            <svg class="inline-block size-4 bg-[#eee]" aria-hidden="true">
               <use xlink:href={siteGroup.icon} />
             </svg>
-            <span>{siteGroup.title}</span>
+            <span class="inline-block">{siteGroup.title}</span>
           </li>
-          <div class="flex flex-row">
-            {siteGroup.items?.map((site) => (
-              <li class="col-3 flex-[0_0_1/12]">
-                <a rel="nofollow" href={site.url} target="_blank">
-                  <svg class="icon" aria-hidden="true">
-                    <use xlink:href={site.icon} />
-                  </svg>
-                  <span>{site.content}</span>
-                </a>
-              </li>
-            ))}
-          </div>
+          {siteGroup.items?.map((site) => (
+            <li class="flex-[0_0_8%] py-4">
+              <a rel="nofollow" class="block text-[#555]" href={site.url} target="_blank">
+                <svg class="mx-auto my-0 block h-[45px] w-[45px] rounded-lg bg-[#eee] p-2" aria-hidden="true">
+                  <use xlink:href={site.icon} />
+                </svg>
+                <span class="block h-[26px] w-full text-center text-xs">{site.content}</span>
+              </a>
+            </li>
+          ))}
         </ul>
       ))
     }
