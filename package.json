@@ -71,6 +71,7 @@
     "remark-github-admonitions-to-directives": "^1.0.5",
     "remark-math": "^6.0.0",
     "sass": "^1.81.0",
+    "tailwind-bootstrap-grid": "^5.1.0",
     "tsx": "^4.19.2",
     "yargs": "^17.7.2"
   },
