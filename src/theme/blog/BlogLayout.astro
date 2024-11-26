@@ -18,7 +18,7 @@ interface Props {
 // so use Swup hooks instead to change the height immediately when a link is clicked
 const isHomePage = pathsEqual(Astro.url.pathname, url('/blog'));
 
-const { title, description} = Astro.props;
+const { title, description } = Astro.props;
 const hasBannerCredit = siteConfig.banner.enable && siteConfig.banner.credit.enable;
 const hasBannerLink = !!siteConfig.banner.credit.url;
 ---
@@ -75,7 +75,7 @@ const hasBannerLink = !!siteConfig.banner.credit.url;
             )
           }
 
-          <SideBar class="onload-animation col-span-2 row-start-2 row-end-3 mb-4 lg:col-span-1 lg:row-start-1 lg:row-end-2 lg:max-w-[17.5rem]" />
+          <SideBar class="card-base onload-animation col-span-2 row-start-2 row-end-3 mb-4 lg:col-span-1 lg:row-start-1 lg:row-end-2 lg:max-w-[17.5rem]" />
 
           <main id="swup-container" class="transition-swup-fade col-span-2 overflow-hidden lg:col-span-1">
             <div id="content-wrapper" class="onload-animation">
