@@ -40,6 +40,9 @@ export default {
       },
     },
   },
+  corePlugins: {
+    container: false, // 不在项目中使用 container 类; 禁用
+  },
   plugins: [
     require("@tailwindcss/typography"),
     require('flowbite/plugin'),
