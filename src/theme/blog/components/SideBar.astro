@@ -2,7 +2,6 @@
 import Profile from './Profile.astro';
 import Tag from './Tags.astro';
 import Categories from './Categories.astro';
-import TOC from './TOC.astro';
 const className = Astro.props.class;
 ---
 
@@ -13,6 +12,5 @@ const className = Astro.props.class;
   <div id="sidebar-sticky" class="sticky top-4 flex w-full flex-col gap-4 transition-all duration-700">
     <Categories class="onload-animation" style="animation-delay: 150ms" />
     <Tag class="onload-animation" style="animation-delay: 200ms" />
-    <TOC class="onload-animation" headings={[]} style="animation-delay: 200ms" />
   </div>
 </div>
