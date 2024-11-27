@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();
 
@@ -41,7 +41,7 @@ const jsonLd = {
 };
 ---
 
-<BlogLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description}>
+<BlogLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} headings={headings}>
   <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <div class="relative mb-4 flex w-full overflow-hidden rounded-[var(--radius-large)]">
     <div id="post-container" class:list={['card-base relative z-10 w-full px-6 pb-4 pt-6 md:px-9', {}]}>
