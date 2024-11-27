@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme")
 const { addDynamicIconSelectors } = require('@iconify/tailwind');
-
+import plugin from 'tailwindcss/plugin';
 export default {
   content: ['./src/**/*.{astro,html,css,scss,js,jsx,md,mdx,svelte,ts,tsx,vue}', './public/**/*.{astro,html,css,scss,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/flowbite/**/*.js'],
   darkMode: "class", // allows toggling dark mode manually

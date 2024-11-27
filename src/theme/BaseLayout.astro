@@ -6,8 +6,6 @@ import { defaultFavicons } from '@/constants/icon';
 import { AUTO_MODE, DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from '@/constants/consts';
 import { url, pathsEqual } from '@/theme/blog/utils/url-utils';
 
-import GlobalStyles from '@/components/GlobalStyles.astro';
-
 interface Props {
   title?: string;
   description?: string;
@@ -89,7 +87,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
     <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
   </head>
   <body class="min-h-screen bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
-    <GlobalStyles><slot /></GlobalStyles>
+    <slot />
   </body>
 </html>
 <style is:global>

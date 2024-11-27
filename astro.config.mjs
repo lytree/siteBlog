@@ -18,7 +18,15 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import icon from "astro-icon";
 import yaml from '@rollup/plugin-yaml';
-
+const oklchToHex = str => {
+    const DEFAULT_HUE = 250
+    const regex = /-?\d+(\.\d+)?/g
+    const matches = str.string.match(regex)
+    const lch = [matches[0], matches[1], DEFAULT_HUE]
+    return new Color('oklch', lch).to('srgb').toString({
+        format: 'hex',
+    })
+}
 // https://astro.build/config
 export default defineConfig({
     site: "https://www.prideyang.top",
@@ -91,7 +99,10 @@ export default defineConfig({
         vue({
             appEntrypoint: "./src/_app"
         }),
-        tailwind(),
+        tailwind({
+            nesting: true,
+
+        }),
         icon({
             include: {
                 "material-symbols": ["*"],
