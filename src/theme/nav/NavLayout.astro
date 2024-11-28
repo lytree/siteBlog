@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import BaseLayout from '../BaseLayout.astro';
+import BaseLayout from './BaseLayout.astro';
 interface Props {
   title?: string;
   banner?: string;
@@ -12,13 +12,7 @@ const { title, description, isHome } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} htmlClass={'doc'}>
-  {
-    isHome ? (
-      <slot />
-    ) : (
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <slot />
-      </div>
-    )
-  }
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <slot />
+  </div>
 </BaseLayout>

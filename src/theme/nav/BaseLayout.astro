@@ -1,10 +1,10 @@
 ---
-import { profileConfig, siteConfig } from '@/blog-config';
-import type { Favicon } from '../types/config';
+import { profileConfig, siteConfig } from '@/nav-config';
+import type { Favicon } from '@/types/config';
 
 import { defaultFavicons } from '@/constants/icon';
 import { AUTO_MODE, DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from '@/constants/consts';
-import { url, pathsEqual } from '@/theme/blog/utils/url-utils';
+import { url, pathsEqual } from './utils/url-utils';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
@@ -58,28 +58,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
         />
       ))
     }
-    <!-- Set the theme before the page is rendered to avoid a flash -->
-    <script is:inline define:vars={{ DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE }}>
-      const theme = localStorage.getItem('theme') || DEFAULT_THEME;
-      switch (theme) {
-        case LIGHT_MODE:
-          document.documentElement.classList.remove('dark');
-          document.documentElement.setAttribute('data-bs-theme', 'light');
-          break;
-        case DARK_MODE:
-          document.documentElement.classList.add('dark');
-          document.documentElement.setAttribute('data-bs-theme', 'dark');
-          break;
-        case AUTO_MODE:
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-            document.documentElement.setAttribute('data-bs-theme', 'dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.setAttribute('data-bs-theme', 'light');
-          }
-      }
-    </script>
+
     <script defer src="/scripts/flowbite.min.js"></script>
     <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"></script>
     <link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`} />

@@ -1048,10 +1048,10 @@ function clearTimer() {
     <div class="change-type">
       <div class="type-left" id="type-left">
         <ul>
-          <li data-lylme="search"><a>搜索</a><span></span></li>
+          <li><a>搜索</a><span></span></li>
           {
             groups.map((group) => {
-              <li data-lylme={'group_' + group.group_id}>
+              <li>
                 <a> {group.name}</a>
                 <span />
               </li>;
@@ -1104,7 +1104,7 @@ function clearTimer() {
               searchs.map((search) => (
                 <li class="w-32">
                   <input class="hidden" checked="" type="radio" name="type" id={'type-' + search.alias} value={search.link} data-placeholder={search.hint} />
-                  <label class="w-full" for={'type-' + search.alias} style="font-weight:600">
+                  <label class="w-full " role="tab" for={'type-' + search.alias} style="font-weight:600">
                     <svg class="icon" aria-hidden="true">
                       <use xlink:href={search.icon} />
                     </svg>
@@ -1130,8 +1130,8 @@ function clearTimer() {
     </div>
     {
       list.map((siteGroup) => (
-        <div class="shadow-secondary-1 dark:bg-surface-dark text-surface my-4 block rounded-lg bg-white dark:text-white">
-          <div class="flex justify-start border-b-2 border-neutral-100 px-6 py-3 text-black dark:border-white/10">
+        <div class="shadow-secondary-1 my-4 block rounded-lg bg-white text-black">
+          <div class="flex justify-start border-b-2 border-neutral-100 px-6 py-3 text-black">
             <svg class="size-6" aria-hidden="true">
               <use xlink:href={siteGroup.icon} />
             </svg>
@@ -1154,7 +1154,7 @@ function clearTimer() {
     }
   </div>
   <div style="position: relative; z-index: 100;">
-    <GlobalFooter />
+    <GlobalFooter isDark={false} />
   </div>
 </BaseLayout>
 <script lang="js">

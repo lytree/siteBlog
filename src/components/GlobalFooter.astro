@@ -1,12 +1,17 @@
 ---
 import ColorSwitch from '@/components/vue/ColorSwitch.vue';
+interface Props {
+  isDark: boolean;
+}
+const { isDark } = Astro.props;
 ---
 
 <footer class="footer">
   <p class="copyright">
     <slot name="copyright">
       <div class="flex flex-row items-center justify-center">
-        <div>Copyright © 2019 - {new Date().getFullYear()}</div><ColorSwitch client:load />
+        <div>Copyright © 2019 - {new Date().getFullYear()}</div>
+        {isDark == true ? <ColorSwitch client:load /> : <div />}
       </div>
     </slot>
   </p>
