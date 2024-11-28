@@ -66,7 +66,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
     <style define:vars={{ configHue }}></style>
     <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
   </head>
-  <body class="min-h-screen bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
+  <body class="min-h-screen bg-white text-gray-700 transition" class:list={[bodyClass]}>
     <slot />
   </body>
 </html>
