@@ -23,7 +23,7 @@ onBeforeUnmount(() => {
   <div>
     <ClientOnly>
       <div id="show_date" class="m-[10px] text-center">{{ dayjs.default(currentTime).locale('zh-cn').format('YYYY-MM-DD dddd') }}</div>
-      <div id="show_time" class="text-center" style="text-shadow: 1px 1px 2px #000">{{ dayjs.default(currentTime).format('HH:mm:ss') }}</div>
+      <div id="show_time" class="text-center" style="text-shadow: 1px 1px 2px #000">{{ dayjs.default(currentTime).format('HH:mm') }}</div>
     </ClientOnly>
   </div>
 </template>

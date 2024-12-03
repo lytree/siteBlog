@@ -1043,9 +1043,8 @@ function clearTimer() {
     <img src="https://cn.bing.com//th?id=OHR.HuntsMesa_JA-JP3140979616_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" />
     <div class="bottom-cover"></div>
   </div>
-  
 
-  <div class="box">
+  <!-- <div class="box">
     <div class="change-type">
       <div class="type-left" id="type-left">
         <ul>
@@ -1061,9 +1060,9 @@ function clearTimer() {
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <nav class="relative">
+  <nav slot="nav" class="relative z-[100]">
     <div class="max-w-screen flex flex-wrap items-center justify-between p-4">
       <div class="flex items-center space-x-3">
         <svg t="1711940240250" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7074" width="200" height="200">
@@ -1154,10 +1153,10 @@ function clearTimer() {
       ))
     }
   </div>
-  <div style="position: relative; z-index: 100;">
-    <GlobalFooter isDark={false} />
-  </div>
+
+  <GlobalFooter slot="footer" isDark={false} />
 </NavLayout>
+
 <script lang="js">
   //输入框获取焦点
   window.onload = function () {
