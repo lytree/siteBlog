@@ -54,7 +54,9 @@ export default {
         xl: '1140px',
       },
     }),
-    addDynamicIconSelectors()
+    addDynamicIconSelectors({
+      scale: 1.5,
+    })
   ]
 }
 
