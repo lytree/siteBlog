@@ -1,5 +1,8 @@
 /* The integration's default injected base.css file */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
 
 :root {
     --radius-large: 1rem;
