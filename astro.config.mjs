@@ -3,7 +3,6 @@ import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components";/* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
@@ -16,6 +15,7 @@ import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
+import tailwindcss from '@tailwindcss/vite'
 import icon from "astro-icon";
 import yaml from '@rollup/plugin-yaml';
 const oklchToHex = str => {
@@ -99,10 +99,6 @@ export default defineConfig({
         vue({
             appEntrypoint: "./src/_app"
         }),
-        tailwind({
-            nesting: true,
-
-        }),
         icon({
             include: {
                 "material-symbols": ["*"],
@@ -113,7 +109,7 @@ export default defineConfig({
             },
         })],
     vite: {
-        plugins: [yaml()],
+        plugins: [yaml(), tailwindcss()],
         build: {
             rollupOptions: {
                 output: {
