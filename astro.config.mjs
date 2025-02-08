@@ -3,7 +3,6 @@ import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components";/* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
@@ -98,10 +97,6 @@ export default defineConfig({
         }),
         vue({
             appEntrypoint: "./src/_app"
-        }),
-        tailwind({
-            nesting: true,
-
         }),
         icon({
             include: {
