@@ -139,7 +139,11 @@ const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || 'cente
     <script defer src="/scripts/flowbite.min.js"></script>
     <link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`} />
   </head>
-  <body class="min-h-screen transition" class:list={[{ 'lg:is-home': isHomePage, 'enable-banner': enableBanner }]} data-overlayscrollbars-initialize>
+  <body
+    class="min-h-screen bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200"
+    class:list={[{ 'lg:is-home': isHomePage, 'enable-banner': enableBanner }]}
+    data-overlayscrollbars-initialize
+  >
     <ConfigCarrier />
     <GlobalStyles>
       <slot />

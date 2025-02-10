@@ -1,5 +1,5 @@
 ---
-import Footer from '@/components/GlobalFooter.astro'
+import Footer from './components/Footer.astro'
 import Navbar from './components/Navbar.astro'
 import BackToTop from './components/BackToTop.astro'
 import SideBar from './components/SideBar.astro'
@@ -80,7 +80,7 @@ const mainPanelTop = siteConfig.banner.enable ? `calc(${BANNER_HEIGHT}vh - ${MAI
             </main>
 
             <div class="footer col-span-2 onload-animation block lg:hidden">
-                <Footer isDark={true}></Footer>
+                <Footer></Footer>
             </div>
         </div>
 
