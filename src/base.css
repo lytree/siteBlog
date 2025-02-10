@@ -1,13 +1,53 @@
 /* The integration's default injected base.css file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
+@import "tailwindcss";
+
+
+@import "flowbite/src/themes/default";
+
+@plugin '@tailwindcss/typography';
+
+@plugin "@iconify/tailwind4" {
+    scale: 1.5;
+}
+
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+
 
 :root {
     --radius-large: 1rem;
     --content-delay: 150ms
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary-50: #f2f7fb;
+    --color-primary-100: #e7f0f8;
+    --color-primary-200: #d3e2f2;
+    --color-primary-300: #b9cfe8;
+    --color-primary-400: #9cb6dd;
+    --color-primary-500: #839dd1;
+    --color-primary-600: #6a7fc1;
+    --color-primary-700: #6374ae;
+    --color-primary-800: #4a5989;
+    --color-primary-900: #414e6e;
+    --color-primary-950: #262c40;
+
+    --color-accent-50: #fffbea;
+    --color-accent-100: #fff2c5;
+    --color-accent-200: #ffe585;
+    --color-accent-300: #ffd146;
+    --color-accent-400: #ffbc1b;
+    --color-accent-500: #ff9800;
+    --color-accent-600: #e27100;
+    --color-accent-700: #bb4c02;
+    --color-accent-800: #983a08;
+    --color-accent-900: #7c300b;
+    --color-accent-950: #481700;
+}
+
 
 
 @supports (color: oklch(0 0 0)) {
@@ -275,16 +315,16 @@
 
 
 
-    .expand-animation {
+    /* .expand-animation {
         @apply relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10
-    }
+    } */
 
     .link {
-        @apply transition rounded-md p-1 -m-1 expand-animation;
+        @apply transition rounded-md p-1 -m-1 relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10;
     }
 
     .link-lg {
-        @apply transition rounded-md p-1.5 -m-1.5 expand-animation;
+        @apply transition rounded-md p-1.5 -m-1.5 relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10;
     }
 
     .float-panel {
@@ -315,7 +355,7 @@
         }
 
         &.scale-animation {
-            @apply expand-animation;
+            @apply relative before:ease-out before:transition active:bg-none hover:before:bg-[var(--btn-plain-bg-hover)] active:before:bg-[var(--btn-plain-bg-active)] z-0 before:absolute before:rounded-[inherit] before:inset-0 before:scale-[0.85] hover:before:scale-100 before:-z-10;
 
             &.current-theme-btn {
                 @apply before:scale-100 before:opacity-100 before:bg-[var(--btn-plain-bg-hover)] text-[var(--primary)]
@@ -379,20 +419,20 @@
 
     /* PhotoSwipe */
     .pswp__button {
-        @apply transition bg-black/40 hover:bg-black/50 active:bg-black/60 flex items-center justify-center mr-0 w-12 h-12 !important;
+        @apply transition! bg-black/40! hover:bg-black/50! active:bg-black/60! flex! items-center! justify-center! mr-0! w-12! h-12!;
     }
 
     .pswp__button--zoom,
     .pswp__button--close {
-        @apply mt-4 rounded-xl active:scale-90 !important;
+        @apply mt-4! rounded-xl! active:scale-90!;
     }
 
     .pswp__button--zoom {
-        @apply mr-2.5 !important;
+        @apply mr-2.5!;
     }
 
     .pswp__button--close {
-        @apply mr-4 !important;
+        @apply mr-4!;
     }
 
     .custom-md img,

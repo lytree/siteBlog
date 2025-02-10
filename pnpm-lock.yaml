@@ -69,6 +69,9 @@ importers:
       hastscript:
         specifier: ^9.0.0
         version: 9.0.0
+      lightningcss:
+        specifier: ^1.29.1
+        version: 1.29.1
       markdown-it:
         specifier: ^14.1.0
         version: 14.1.0
@@ -85,7 +88,7 @@ importers:
         specifier: ^2.14.0
         version: 2.14.0
       sharp:
-        specifier: ^0.33.5
+        specifier: ^0.33.0
         version: 0.33.5
       tailwindcss:
         specifier: ^4.0.5
@@ -118,6 +121,9 @@ importers:
       '@iconify/tailwind':
         specifier: ^1.2.0
         version: 1.2.0
+      '@iconify/tailwind4':
+        specifier: ^1.0.3
+        version: 1.0.3(tailwindcss@4.0.5)
       '@rollup/plugin-yaml':
         specifier: ^4.1.2
         version: 4.1.2(rollup@2.79.2)
@@ -187,12 +193,6 @@ importers:
       remark-math:
         specifier: ^6.0.0
         version: 6.0.0
-      sass:
-        specifier: ^1.84.0
-        version: 1.84.0
-      tailwind-bootstrap-grid:
-        specifier: ^5.1.0
-        version: 5.1.0(tailwindcss@4.0.5)
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
@@ -1185,12 +1185,6 @@ packages:
   '@fontsource/roboto@5.1.1':
     resolution: {integrity: sha512-XwVVXtERDQIM7HPUIbyDe0FP4SRovpjF7zMI8M7pbqFp3ahLJsJTd18h+E6pkar6UbV3btbwkKjYARr5M+SQow==}
 
-  '@hapi/hoek@9.3.0':
-    resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
-
-  '@hapi/topo@5.1.0':
-    resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
-
   '@iconify-json/fa6-brands@1.2.5':
     resolution: {integrity: sha512-U/iFfziz6jSN9zArOJZYTtoj2tQyh6MxPdI8M84DQ2kEulPaj8j+h9bqvjmzszNHmD7v+kmmKd/MLkMKk+3Zuw==}
 
@@ -1202,6 +1196,11 @@ packages:
 
   '@iconify-json/material-symbols@1.2.14':
     resolution: {integrity: sha512-S0AAFFQPVr8Dkrprspz/otNjxdD3rJRXDGZjbO8a8zn8ZR5mO8jAF81lVoTfUWxPH6SCtH2lK1JQGXHGPxld7g==}
+
+  '@iconify/tailwind4@1.0.3':
+    resolution: {integrity: sha512-qhgEBFwbhoWWGo3X27KInvNQOjt7UwmZTuLpjYQlYMTkcXzwPnomqmxzsBUC2L0ySA105BFDppYBv4CuWBQKwA==}
+    peerDependencies:
+      tailwindcss: '>= 4'
 
   '@iconify/tailwind@1.2.0':
     resolution: {integrity: sha512-KgpIHWOTcRYw1XcoUqyNSrmYyfLLqZYu3AmP8zdfLk0F5TqRO8YerhlvlQmGfn7rJXgPeZN569xPAJnJ53zZxA==}
@@ -1696,15 +1695,6 @@ packages:
 
   '@shikijs/vscode-textmate@10.0.1':
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
-
-  '@sideway/address@4.1.5':
-    resolution: {integrity: sha512-IqO/DUQHUkPeixNQ8n0JA6102hT9CmaljNTPmQ1u8MEhBo/R4Q8eKLN/vGZxuebwOroDB4cbpjheD4+/sKFK4Q==}
-
-  '@sideway/formula@3.0.1':
-    resolution: {integrity: sha512-/poHZJJVjx3L+zVD6g9KgHfYnb443oi7wLu/XKojDviHy6HOEOA6z1Trk5aR1dGcmPenJEgb2sK2I80LeS3MIg==}
-
-  '@sideway/pinpoint@2.0.0':
-    resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
 
   '@sindresorhus/merge-streams@4.0.0':
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
@@ -3417,9 +3407,6 @@ packages:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
-  joi@17.13.3:
-    resolution: {integrity: sha512-otDA4ldcIx+ZXsKHWmp0YizCweVRZG96J10b0FevjfuncLO1oX59THoAmHkNubYJ+9gWsYsp5k8v4ib6oDv1fA==}
-
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -5045,12 +5032,6 @@ packages:
 
   swup@4.8.1:
     resolution: {integrity: sha512-MEXrQUvsUE9lyt1SX8KEZcGmPigAvtkVvHwJf22MOKsjb+aDgiljTc5LTXz0ehsA/1OOXRqvtS4kWLey26i/hQ==}
-
-  tailwind-bootstrap-grid@5.1.0:
-    resolution: {integrity: sha512-B++VQUxYyBdOV8M+LCGb1SJaESX/SqFZbbY9mOK5YNiVS2htR83m6RPOppWApSGPK19xSWxzFt/jPUXGfWCa7w==}
-    engines: {node: '>= 12.0.0'}
-    peerDependencies:
-      tailwindcss: ^3
 
   tailwindcss@4.0.5:
     resolution: {integrity: sha512-DZZIKX3tA23LGTjHdnwlJOTxfICD1cPeykLLsYF1RQBI9QsCR3i0szohJfJDVjr6aNRAIio5WVO7FGB77fRHwg==}
@@ -6744,12 +6725,6 @@ snapshots:
 
   '@fontsource/roboto@5.1.1': {}
 
-  '@hapi/hoek@9.3.0': {}
-
-  '@hapi/topo@5.1.0':
-    dependencies:
-      '@hapi/hoek': 9.3.0
-
   '@iconify-json/fa6-brands@1.2.5':
     dependencies:
       '@iconify/types': 2.0.0
@@ -6765,6 +6740,14 @@ snapshots:
   '@iconify-json/material-symbols@1.2.14':
     dependencies:
       '@iconify/types': 2.0.0
+
+  '@iconify/tailwind4@1.0.3(tailwindcss@4.0.5)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      '@iconify/utils': 2.3.0
+      tailwindcss: 4.0.5
+    transitivePeerDependencies:
+      - supports-color
 
   '@iconify/tailwind@1.2.0':
     dependencies:
@@ -7207,14 +7190,6 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.1': {}
-
-  '@sideway/address@4.1.5':
-    dependencies:
-      '@hapi/hoek': 9.3.0
-
-  '@sideway/formula@3.0.1': {}
-
-  '@sideway/pinpoint@2.0.0': {}
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
@@ -9207,7 +9182,8 @@ snapshots:
     dependencies:
       postcss: 8.5.1
 
-  immutable@5.0.3: {}
+  immutable@5.0.3:
+    optional: true
 
   import-cwd@3.0.0:
     dependencies:
@@ -9425,14 +9401,6 @@ snapshots:
       supports-color: 7.2.0
 
   jiti@2.4.2: {}
-
-  joi@17.13.3:
-    dependencies:
-      '@hapi/hoek': 9.3.0
-      '@hapi/topo': 5.1.0
-      '@sideway/address': 4.1.5
-      '@sideway/formula': 3.0.1
-      '@sideway/pinpoint': 2.0.0
 
   js-tokens@4.0.0: {}
 
@@ -11172,6 +11140,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
+    optional: true
 
   sax@1.3.0:
     optional: true
@@ -11501,12 +11470,6 @@ snapshots:
       delegate-it: 6.2.1
       opencollective-postinstall: 2.0.3
       path-to-regexp: 6.3.0
-
-  tailwind-bootstrap-grid@5.1.0(tailwindcss@4.0.5):
-    dependencies:
-      joi: 17.13.3
-      picocolors: 1.1.1
-      tailwindcss: 4.0.5
 
   tailwindcss@4.0.5: {}
 

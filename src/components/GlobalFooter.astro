@@ -33,15 +33,17 @@ const { isDark } = Astro.props;
     </slot>
   </p>
 </footer>
-<style lang="scss">
-  .footer {
-    @apply m-0 mx-auto my-4 text-center text-sm font-medium;
-    white-space: nowrap;
-
-    .copyright,
-    .message {
-      @apply text-sm leading-5;
-      transition: color 0.25s;
+<style lang="css">
+  @reference "tailwindcss";
+  @layer components {
+    .footer {
+      @apply m-0 mx-auto my-4 text-center text-sm font-medium;
+      white-space: nowrap;
+      .copyright,
+      .message {
+        @apply text-sm leading-5;
+        transition: color 0.25s;
+      }
     }
   }
 </style>
