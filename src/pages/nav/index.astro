@@ -1075,7 +1075,7 @@ function clearTimer() {
       </div>
       <div class="flex md:order-2">
         <div class="relative hidden md:block">
-          <TimeShow client:load />
+          <TimeShow client:only="vue" />
         </div>
       </div>
       <ul class="mt-4 flex flex-col rounded-lg border p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
@@ -1119,7 +1119,7 @@ function clearTimer() {
       <form action="https://www.bing.com/search?q=" method="get" target="_blank" id="super-search-fm">
         <input type="text" id="search-text" placeholder="搜索一下" style="outline:0" autocomplete="off" />
         <button class="submit" type="submit">
-          <span class="icon-[material-symbols--search]" style="width: 24px; height: 24px; margin: 0 20px 0 20px; "></span>
+          <span class="i-material-symbols-search" style="width: 24px; height: 24px; margin: 0 20px 0 20px; "></span>
           <span> </span>
           <ul id="word" style="display: none;"></ul>
         </button>

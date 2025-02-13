@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import UnoCSS from 'unocss/astro';
+import icon from 'astro-icon';
 import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import swup from '@swup/astro';
@@ -16,7 +17,7 @@ import { GithubCardComponent } from './src/plugins/rehype-component-github-card.
 import { parseDirectiveNode } from './src/plugins/remark-directive-rehype.js';
 import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs';
 import { remarkExcerpt } from './src/plugins/remark-excerpt.js';
-import icon from 'astro-icon';
+
 import yaml from '@rollup/plugin-yaml';
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250;
@@ -83,6 +84,9 @@ export default defineConfig({
     }
   },
   integrations: [
+    UnoCSS({
+      injectReset: true // or a path to the reset file
+    }),
     mdx({
       syntaxHighlight: 'shiki',
       shikiConfig: {
@@ -110,6 +114,7 @@ export default defineConfig({
     vue({
       appEntrypoint: './src/_app'
     }),
+    
     icon({
       include: {
         'material-symbols': ['*'],
@@ -121,10 +126,7 @@ export default defineConfig({
     })
   ],
   vite: {
-    plugins: [yaml(), tailwindcss({})],
-    css: {
-      transformer: 'lightningcss'
-    },
+    plugins: [yaml()],
     build: {
       rollupOptions: {
         output: {

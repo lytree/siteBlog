@@ -80,14 +80,13 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
           }
       }
     </script>
-    <script defer src="/scripts/flowbite.min.js"></script>
     <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"></script>
     <link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`} />
 
     <style define:vars={{ configHue }}></style>
     <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
   </head>
-  <body class="min-h-screen bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
+  <body class="min-h-screen m-0 bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
     <slot />
   </body>
 </html>

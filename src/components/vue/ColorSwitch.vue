@@ -2,7 +2,7 @@
     <div class="inline-block">
         <ClientOnly>
             <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button"
-                :class="isDark ? 'icon-[material-symbols--mode-night]' : 'icon-[material-symbols--sunny]'"
+                :class="isDark ? 'i-material-symbols-mode-night' : 'i-material-symbols-sunny'"
                 aria-label="Toggle dark mode" @click="toggleDark()"
                 class="inline-flex items-center justify-center size-6  rounded-lg p-2">
             </button>
