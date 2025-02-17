@@ -12,8 +12,8 @@ import '@/base.scss';
 interface Props {
   title?: string;
   description?: string;
-  bodyClass?: string;
-  htmlClass?: string;
+  bodyClass?: {};
+  htmlClass?: {};
 }
 let { title, description, bodyClass, htmlClass } = Astro.props;
 
@@ -89,6 +89,7 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
   </head>
   <body class="min-h-screen m-0 bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
     <slot />
+    
   </body>
 </html>
 <style is:global>
