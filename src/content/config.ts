@@ -23,8 +23,7 @@ const blog = defineCollection({
 		nextSlug: z.string().default(''),
 	}),
 });
-
-const exam = defineCollection({
+const docs = defineCollection({
 	type: 'content',
 	// Type-check frontmatter using a schema
 	schema: z.object({
@@ -47,4 +46,6 @@ const exam = defineCollection({
 		nextSlug: z.string().default(''),
 	}),
 });
-export const collections = { "blog": blog, "exam": exam };
+
+
+export const collections = { "blog": blog, "docs": docs };

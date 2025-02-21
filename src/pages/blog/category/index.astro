@@ -1,7 +1,7 @@
 ---
-import { getCategoryList } from '@/utils/content-utils'
-import DocLayout from '@/layouts/BlogLayout.astro'
-import ArchivePanel from '@/components/ArchivePanel.astro'
+import { getCategoryList } from '@/theme/blog/utils/content-utils'
+import BlogLayout from '@/theme/blog/BlogLayout.astro';
+import ArchivePanel from'@/theme/blog/components/ArchivePanel.astro';
 
 export async function getStaticPaths() {
   const categories = await getCategoryList()
@@ -16,6 +16,6 @@ export async function getStaticPaths() {
 
 ---
 
-<DocLayout title={"分类"} description={"分类"}>
+<BlogLayout title={"分类"} description={"分类"}>
     <ArchivePanel ></ArchivePanel>
-</DocLayout>
+</BlogLayout>

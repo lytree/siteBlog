@@ -1,10 +1,10 @@
 ---
-import BlogLayout from '@/layouts/BlogLayout.astro';
+import BlogLayout from '@/theme/blog/BlogLayout.astro';
 import { PAGE_SIZE } from '@/constants/consts';
-import Pagination from '@/components/Pagination.astro';
-import { getSortedPosts } from '@/utils/content-utils';
+import Pagination from '@/theme/blog/components/Pagination.astro';
+import { getSortedPosts } from '@/theme/blog/utils/content-utils';
 import type { GetStaticPaths } from 'astro';
-import PostPage from '@/components/PostPage.astro';
+import PostPage from '@/theme/blog/components/PostPage.astro';
 
 const { page } = Astro.props;
 
