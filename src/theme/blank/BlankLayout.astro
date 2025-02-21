@@ -1,10 +1,10 @@
 ---
 import { profileConfig, siteConfig } from '@/blog-config';
-import type { Favicon } from '../types/config';
+import type { Favicon } from '@/types/config';
 
 import { defaultFavicons } from '@/constants/icon';
 import { AUTO_MODE, DARK_MODE, DEFAULT_THEME, LIGHT_MODE } from '@/constants/consts';
-import { url, pathsEqual } from '@/theme/blog/utils/url-utils';
+import { url, pathsEqual } from './utils/url-utils';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
@@ -89,7 +89,6 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
   </head>
   <body class="min-h-screen m-0 bg-white text-gray-700 transition dark:bg-[#1b1b1f] dark:text-gray-200" class:list={[bodyClass]}>
     <slot />
-    
   </body>
 </html>
 <style is:global>

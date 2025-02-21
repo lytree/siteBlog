@@ -1,4 +1,4 @@
-import { defineConfig, presetAttributify, presetUno, presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
+import { defineConfig, presetAttributify, presetWind3,presetTypography , presetIcons, transformerVariantGroup, transformerDirectives } from 'unocss'
 import svgToDataUri from 'mini-svg-data-uri'
 import type { Preset } from 'unocss'
 export default defineConfig({
@@ -8,7 +8,8 @@ export default defineConfig({
   ],
   presets: [
     presetAttributify({ /* preset options */ }),
-    presetUno(),
+    presetWind3(),
+    presetTypography(),
     presetIcons(),
     presetFlowbite()
   ],

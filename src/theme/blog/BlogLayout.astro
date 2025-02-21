@@ -1,28 +1,38 @@
 ---
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import './styles/main.scss';
+
+import {BANNER_HEIGHT, BANNER_HEIGHT_EXTEND,PAGE_WIDTH, BANNER_HEIGHT_HOME, DEFAULT_THEME, MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,AUTO_MODE, DARK_MODE, LIGHT_MODE} from "./constants/constants";
+
+
+import { siteConfig,profileConfig } from '@/blog-config'
+import type { MarkdownHeading } from 'astro'
+import { Icon } from 'astro-icon/components'
+
 import Footer from './components/Footer.astro'
 import Navbar from './components/Navbar.astro'
 import BackToTop from './components/BackToTop.astro'
 import SideBar from './components/SideBar.astro'
-import Layout from '../BaseLayout.astro'
-import { Icon } from 'astro-icon/components'
-import { siteConfig } from '@/blog-config'
-import type { MarkdownHeading } from 'astro'
 import TOC from "./components/TOC.astro";
 import ImageWrapper from "./components/ImageWrapper.astro";
-import {BANNER_HEIGHT, BANNER_HEIGHT_EXTEND, BANNER_HEIGHT_HOME, MAIN_PANEL_OVERLAPS_BANNER_HEIGHT} from "./constants/constants";
 import GlobalStyles from './components/GlobalStyles.astro'
 import ConfigCarrier from './components/ConfigCarrier.astro'
 import { pathsEqual, url } from './utils/url-utils'
+import type { Favicon } from '@/types/config'
 
 interface Props {
   title?: string
   banner?: string
   description?: string
+  bodyClass?: {};
+  htmlClass?: {};
   setOGTypeArticle?: boolean;
   headings? : MarkdownHeading[]
 }
 
-const { title, banner, description, setOGTypeArticle, headings = [] } = Astro.props
+const { title, banner, description,  bodyClass, htmlClass,setOGTypeArticle, headings = [] } = Astro.props
 
 
 const isHomePage = pathsEqual(Astro.url.pathname, url('/blog'));
@@ -31,7 +41,7 @@ const hasBannerCredit =
   siteConfig.banner.enable && siteConfig.banner.credit.enable
 const hasBannerLink = !!siteConfig.banner.credit.url
 
-const mainPanelTop = siteConfig.banner.enable ? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)` : "5.5rem"
+const mainPanelTop =  `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
 
 const bannerOffsetByPosition = {
   top: `${BANNER_HEIGHT_EXTEND}vh`,
@@ -40,13 +50,90 @@ const bannerOffsetByPosition = {
 };
 // @ts-ignore
 const bannerOffset = bannerOffsetByPosition[siteConfig.banner.position || 'center'];
-var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
+
+
+let pageTitle: string;
+if (title) {
+  pageTitle = `${title} - ${siteConfig.title}`;
+} else {
+  pageTitle = `${siteConfig.title} - ${siteConfig.subtitle}`;
+}
+const configHue = siteConfig.themeColor.hue;
+const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon : [];
+
 
 ---
 
-<Layout title={title} description={description} bodyClass={bodyClass}>
+
+<!doctype html>
+<html class:list={[htmlClass, 'h-full w-full bg-[var(--page-bg)] text-[14px] transition md:text-[16px]']}>
+  <head>
+    <title>{pageTitle}</title>
+
+    <meta charset="UTF-8" />
+    <meta name="description" content={description || pageTitle} />
+    <meta name="author" content={profileConfig.name} />
+
+    <meta property="og:site_name" content={siteConfig.title} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description || pageTitle} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description || pageTitle} />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    {
+      favicons.map((favicon) => (
+        <link
+          rel="icon"
+          href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
+          sizes={favicon.sizes}
+          media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
+        />
+      ))
+    }
+    <!-- Set the theme before the page is rendered to avoid a flash -->
+    <script is:inline define:vars={{ DEFAULT_THEME: DEFAULT_THEME, LIGHT_MODE: LIGHT_MODE, DARK_MODE: DARK_MODE, AUTO_MODE: AUTO_MODE, BANNER_HEIGHT_EXTEND, PAGE_WIDTH, configHue }}>
+      const theme = localStorage.getItem('theme') || DEFAULT_THEME;
+      switch (theme) {
+        case LIGHT_MODE:
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-bs-theme', 'light');
+          break;
+        case DARK_MODE:
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-bs-theme', 'dark');
+          break;
+        case AUTO_MODE:
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+          }
+      }
+      			// calculate the --banner-height-extend, which needs to be a multiple of 4 to avoid blurry text
+			let offset = Math.floor(window.innerHeight * (BANNER_HEIGHT_EXTEND / 100));
+			offset = offset - offset % 4;
+			document.documentElement.style.setProperty('--banner-height-extend', `${offset}px`);
+    </script>
+    <script src="https://at.alicdn.com/t/c/font_4425412_z9b4ty5h5aj.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`} />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <style define:vars={{
+			configHue,
+			'page-width': `${PAGE_WIDTH}rem`,
+		}}></style>
+    <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
+  </head>
+  <body class="min-h-screen m-0 text-gray-700 transition dark:text-gray-200 " class:list={[bodyClass,{"is-home":isHomePage}]}>
     <ConfigCarrier />
-    <GlobalStyles>
 <!-- Navbar -->
 <slot slot="head" name="head"></slot>
 <div id="top-row" class="z-50 pointer-events-none relative transition-all duration-700 max-w-[var(--page-width)] px-0 md:px-4 mx-auto" class:list={[""]}>
@@ -110,7 +197,7 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
 <div class="absolute w-full z-0">
     <div class="relative max-w-[var(--page-width)] mx-auto">
         <!-- TOC component -->
-        {siteConfig.toc.enable && <div id="toc-wrapper" class:list={["hidden lg:block transition absolute top-0 -right-[var(--toc-width)] w-[var(--toc-width)] items-center",
+        {siteConfig.toc.enable && <div id="toc-wrapper" class:list={["transition flex items-center absolute -right-[var(--toc-width)] hidden lg:block top-0 w-[var(--toc-width)]",
             {"toc-hide": siteConfig.banner.enable}]}
         >
             <div id="toc-inner-wrapper" class="fixed top-14 w-[var(--toc-width)] h-[calc(100vh_-_20rem)] overflow-y-scroll overflow-x-hidden hide-scrollbar">
@@ -125,10 +212,17 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
         <!-- #toc needs to exist for Swup to work normally -->
         {!siteConfig.toc.enable && <div id="toc"></div>}
     </div>
-</div></GlobalStyles>
+</div>
     <!-- increase the page height during page transition to prevent the scrolling animation from jumping -->
     <div id="page-height-extend" class="hidden h-[300vh]"></div>
-</Layout>
+  </body>
+  </html>
+  <style is:global>
+    :root {
+      --hue: var(--configHue);
+      --page-width: 75rem;
+    }
+  </style>
 <style
   is:global
   define:vars={{
@@ -137,33 +231,33 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
     'banner-height': `${BANNER_HEIGHT}vh`
   }}
 >
-
-    .enable-banner.is-home #banner-wrapper {
+@screen lg {
+    .is-home #banner-wrapper {
       --at-apply: h-[var(--banner-height-home)] translate-y-[var(--banner-height-extend)];
     }
-    .enable-banner #banner-wrapper {
+     #banner-wrapper {
       --at-apply: h-[var(--banner-height-home)];
     }
 
-    .enable-banner.is-home #banner {
+    .is-home #banner {
       --at-apply: h-[var(--banner-height-home)] translate-y-0;
     }
-    .enable-banner #banner {
+     #banner {
       --at-apply: h-[var(--banner-height-home)] translate-y-[var(--bannerOffset)];
     }
-    .enable-banner.is-home #main-grid {
+    .is-home #main-grid {
       --at-apply: translate-y-[var(--banner-height-extend)];
     }
-    .enable-banner #top-row {
+     #top-row {
       --at-apply: h-[calc(var(--banner-height-home)_-_4.5rem)] transition-all duration-300;
     }
-    .enable-banner.is-home #sidebar-sticky {
+    .is-home #sidebar-sticky {
       --at-apply: top-[calc(1rem_-_var(--banner-height-extend))];
     }
     .navbar-hidden {
       --at-apply: -translate-y-16 opacity-0;
     }
-  
+  }
 </style>
 
 <script>
@@ -290,7 +384,7 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
       let threshold = window.innerHeight * (BANNER_HEIGHT / 100) - 72 - 16;
       let navbar = document.getElementById('navbar-wrapper');
       console.log('click', navbar);
-      if (!navbar || !document.body.classList.contains('lg:is-home')) {
+      if (!navbar || !document.body.classList.contains('is-home')) {
         return;
       }
       if (document.body.scrollTop >= threshold || document.documentElement.scrollTop >= threshold) {
@@ -302,9 +396,9 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
       // change banner height immediately when a link is clicked
       const bodyElement = document.querySelector('body');
       if (pathsEqual(visit.to.url, url('/blog'))) {
-        bodyElement!.classList.add('lg:is-home');
+        bodyElement!.classList.add('is-home');
       } else {
-        bodyElement!.classList.remove('lg:is-home');
+        bodyElement!.classList.remove('is-home');
       }
 
       // increase the page height during page transition to prevent the scrolling animation from jumping
@@ -375,7 +469,7 @@ var bodyClass = [{ 'lg:is-home': isHomePage, 'enable-banner':true}]
       const MAIN_PANEL_EXCESS_HEIGHT = MAIN_PANEL_OVERLAPS_BANNER_HEIGHT * 16; // The height the main panel overlaps the banner
 
       let bannerHeight = BANNER_HEIGHT;
-      if (document.body.classList.contains('lg:is-home') && window.innerWidth >= 1024) {
+      if (document.body.classList.contains('is-home') && window.innerWidth >= 1024) {
         bannerHeight = BANNER_HEIGHT_HOME;
       }
       let threshold = window.innerHeight * (bannerHeight / 100) - NAVBAR_HEIGHT - MAIN_PANEL_EXCESS_HEIGHT - 16;

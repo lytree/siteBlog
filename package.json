@@ -27,7 +27,7 @@
     "colorjs.io": "^0.5.2",
     "dayjs": "^1.11.13",
     "flowbite": "^3.1.2",
-    "hastscript": "^9.0.0",
+    "hastscript": "^9.0.1",
     "markdown-it": "^14.1.0",
     "mdast-util-to-string": "^4.0.0",
     "overlayscrollbars": "^2.11.0",
@@ -69,8 +69,8 @@
     "remark-directive-rehype": "^0.4.2",
     "remark-github-admonitions-to-directives": "^1.0.5",
     "remark-math": "^6.0.0",
-    "tsx": "^4.19.2",
-    "unocss": "^65.5.0",
+    "tsx": "^4.19.3",
+    "unocss": "^66.0.0",
     "yargs": "^17.7.2"
   },
   "pnpm": {
