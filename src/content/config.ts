@@ -14,7 +14,7 @@ const blog = defineCollection({
 		description: z.string().optional().default(''),
 		image: z.string().optional().default(''),
 		tags: z.array(z.string()).optional().default([]),
-		category: z.string().optional().default("uncategorized"),
+		category: z.string().optional().default("Uncategorized"),
 
 		/* For internal use */
 		prevTitle: z.string().default(''),
@@ -37,7 +37,7 @@ const docs = defineCollection({
 		description: z.string().optional().default(''),
 		image: z.string().optional().default(''),
 		tags: z.array(z.string()).optional().default([]),
-		category: z.string().optional().default("uncategorized"),
+		category: z.string().optional().default("Uncategorized"),
 
 		/* For internal use */
 		prevTitle: z.string().default(''),

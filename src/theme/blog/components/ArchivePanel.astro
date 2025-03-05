@@ -1,4 +1,5 @@
 ---
+import { undefined } from 'astro:schema'
 import { getSortedPosts } from '../utils/content-utils'
 import { getPostUrlBySlug } from '../utils/url-utils'
 import { UNCATEGORIZED } from '@/constants/consts'
@@ -6,9 +7,9 @@ import { UNCATEGORIZED } from '@/constants/consts'
 interface Props {
   keyword?: string
   tags?: string[]
-  categories?: string[]
+  category?: string
 }
-const { keyword, tags, categories } = Astro.props
+const { keyword, tags, category } = Astro.props
 
 let posts = await getSortedPosts()
 
@@ -20,18 +21,11 @@ if (Array.isArray(tags) && tags.length > 0) {
   )
 }
 
-if (Array.isArray(categories) && categories.length > 0) {
+if (category && category.length > 0) {
   posts = posts.filter(
     post =>{
-      for(var ca of  post.data.category){
-       var flag = (post.data.category && categories.includes(ca)) || (post.data.category.length<=0 && categories.includes(UNCATEGORIZED)) ;
-       if(flag){
-        return true;
-       }
-      }
-      return false;
-    }
-      
+      console.log(post.data.title,post.data.category,category,post.data.category && category == post.data.category,(post.data.category==null||post.data.category=="") && category==UNCATEGORIZED);
+      return (post.data.category && category == post.data.category) || ((post.data.category==null||post.data.category=="") && category==UNCATEGORIZED)}  
   )
 }
 

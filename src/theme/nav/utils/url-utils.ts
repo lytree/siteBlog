@@ -16,7 +16,7 @@ export function getPostUrlBySlug(slug: string): string {
 
 export function getCategoryUrl(category: string): string {
     if (category === "Uncategorized")
-        return url('/blog/category/uncategorized/')
+        return url('/blog/category/Uncategorized/')
     return url(`/blog/category/${category}/`)
 }
 
